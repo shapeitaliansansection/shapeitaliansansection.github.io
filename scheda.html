@@ -464,7 +464,7 @@ legend{margin:0 auto;text-align:center}
     <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
     <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="upd"><a href="./">Torna a SHAPE Healthcare Italian Section</a></span></div>
     <div class="hrow"><img class="logo" src="logo_sezione_sanitaria.jpg" alt="Logo della Sezione Sanitaria Italiana di SHAPE" width="104" height="104"><h1>Scheda contatti militari</h1></div>
-    <p class="lead">Riservata al personale militare italiano a SHAPE.<br>Compilala all'arrivo, e di nuovo se cambia qualcosa: bastano anche solo i dati nuovi.<br>Ci serve per contattarti e per tenere aggiornate le tue pratiche sanitarie.</p>
+    <p class="lead">Riservata al personale militare italiano seguito dalla Sezione: SHAPE, JFC Brunssum, L'Aia e Soesterberg.<br>Compilala all'arrivo, e di nuovo se cambia qualcosa: bastano anche solo i dati nuovi.<br>Ci serve per contattarti e per tenere aggiornate le tue pratiche sanitarie.</p>
   </header>
 
   <main id="contenuto">
@@ -481,18 +481,21 @@ legend{margin:0 auto;text-align:center}
       <label class="fl">Data di nascita *<input type="date" name="nascita" required autocomplete="bday"></label>
       <label class="fl">Forza Armata *
         <select name="fa" required><option value="">Scegli</option><option>Esercito</option><option>Marina</option><option>Aeronautica</option><option>Carabinieri</option></select></label>
+      <label class="fl">Sede di servizio *
+        <select name="sede" required><option value="">Scegli</option><option>SHAPE</option><option>JFC Brunssum</option><option>L'Aia</option><option>Soesterberg</option><option>Altra sede</option></select></label>
+      <label class="fl">Ente o reparto di servizio<input name="ente" placeholder="per esempio ITA NMR, ITA NSE"></label>
       <label class="fl">Telefono d'ufficio o interno<input name="interno" inputmode="tel"></label>
     </fieldset>
 
     <fieldset><legend>Recapiti</legend>
       <label class="fl">Cellulare *<input type="tel" name="cellulare" required autocomplete="tel" placeholder="+32 o +39"></label>
       <label class="fl">Email di contatto *<input type="email" name="email" required autocomplete="email"></label>
-      <label class="fl">Indirizzo in Belgio<input name="indirizzo" autocomplete="street-address"></label>
+      <label class="fl">Indirizzo di residenza attuale<input name="indirizzo" autocomplete="street-address"></label>
     </fieldset>
 
-    <fieldset><legend>A SHAPE</legend>
+    <fieldset><legend>In servizio</legend>
       <div class="g2">
-        <label class="fl">Data di arrivo<input type="date" name="arrivo"></label>
+        <label class="fl">Data di arrivo in sede<input type="date" name="arrivo"></label>
         <label class="fl">Fine mandato prevista<input type="date" name="fine"></label>
       </div>
       <label class="fl">DoD ID (se già assegnato dalla clinica SHF)<input name="dodid" inputmode="numeric"></label>
@@ -527,7 +530,7 @@ legend{margin:0 auto;text-align:center}
     </fieldset>
 
     <div class="privacy">
-      <p><b>Informativa</b><br>I dati sono raccolti dalla Sezione Sanitaria, ITA NMR SHAPE, solo per contattarti e gestire le pratiche sanitarie del personale militare italiano a SHAPE.<br>Sono conservati nell'archivio della Sezione e non sono ceduti a terzi.<br>Puoi chiederne la correzione o la cancellazione scrivendo a <b>infermeria.shape@gmail.com</b>.</p>
+      <p><b>Informativa</b><br>I dati sono raccolti dalla Sezione Sanitaria, ITA NMR SHAPE, solo per contattarti e gestire le pratiche sanitarie del personale militare italiano seguito dalla Sezione.<br>Sono conservati nell'archivio della Sezione e non sono ceduti a terzi.<br>Puoi chiederne la correzione o la cancellazione scrivendo a <b>infermeria.shape@gmail.com</b>.</p>
       <label class="chk"><input type="checkbox" name="privacy" value="si" required> Ho letto l'informativa e acconsento al trattamento dei dati *</label>
     </div>
 
