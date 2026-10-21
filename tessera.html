@@ -483,13 +483,6 @@ main .sheet~.sheet{margin-top:14px}
       <label class="fl">Data di nascita *<input type="date" name="nascita" required></label>
       <label class="fl">DoD ID *<input name="numero" required inputmode="numeric" autocomplete="off" placeholder="10 cifre"></label>
       <p class="hint">Il DoD ID è il numero che la clinica SHF assegna alla registrazione: lo trovi nei documenti ricevuti alla registrazione.</p>
-      <details class="opz"><summary>Formato del codice a barre</summary>
-        <div class="opts" role="radiogroup" aria-label="Formato del codice a barre">
-          <label class="opt"><input type="radio" name="formato" value="CODE128" checked>Code 128 (consigliato)</label>
-          <label class="opt"><input type="radio" name="formato" value="CODE39">Code 39</label>
-        </div>
-        <p class="hint">Se il totem non legge il codice, prova l'altro formato.</p>
-      </details>
     </fieldset>
     <p class="err" id="err" role="alert" hidden></p>
     <button class="btn solid send" id="crea">Crea la tessera</button>
@@ -520,28 +513,34 @@ const it=s=>{const m=String(s||"").match(/^(\d{4})-(\d{2})-(\d{2})$/);return m?`
 const pulisci=s=>String(s||"").replace(/\s+/g," ").trim().toUpperCase();
 
 /* Disegna la tessera: cognome e nome, data di nascita, codice a barre con il numero */
+let LOGO=null;
+function logo(){if(LOGO)return LOGO;LOGO=new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src="logo_sezione_sanitaria.jpg"});return LOGO}
+function rr(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
 async function disegna(t){
   try{await Promise.all([document.fonts.load('800 60px "Archivo"'),document.fonts.load('700 40px "Atkinson Hyperlegible"'),document.fonts.load('400 40px "Atkinson Hyperlegible"')])}catch(e){}
-  const W=1000,H=630,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");
+  const W=1000,H=630,c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");const L=await logo();
   g.fillStyle="#ffffff";g.fillRect(0,0,W,H);
-  // fascia in alto
-  g.fillStyle="#14294d";g.fillRect(0,0,W,78);
-  const tri=["#008c45","#ffffff","#cd212a"];tri.forEach((col,i)=>{g.fillStyle=col;g.fillRect(36,22+i*12,8,12)});
-  g.fillStyle="#ffffff";g.font='800 30px "Archivo", Arial, sans-serif';g.textBaseline="middle";g.fillText("SHAPE HEALTHCARE FACILITY",60,40);
-  g.font='700 24px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#c4d0e3";g.textAlign="right";g.fillText("Tessera digitale",W-36,40);g.textAlign="left";
+  // fascia in alto con il logo a sinistra
+  g.fillStyle="#14294d";g.fillRect(0,0,W,120);
+  const tri=["#008c45","#ffffff","#cd212a"];tri.forEach((col,i)=>{g.fillStyle=col;g.fillRect(i*W/3,120,W/3,6)});
+  if(L){g.save();rr(g,22,14,92,92,16);g.fillStyle="#ffffff";g.fill();g.clip();g.drawImage(L,22,14,92,92);g.restore()}
+  g.textAlign="center";g.textBaseline="alphabetic";
+  g.fillStyle="#ffffff";g.font='800 34px "Archivo", Arial, sans-serif';g.fillText("SHAPE HEALTHCARE FACILITY",W/2+40,58);
+  g.fillStyle="#c4d0e3";g.font='700 24px "Atkinson Hyperlegible", Arial, sans-serif';g.fillText("Sezione Sanitaria Italiana · Tessera digitale",W/2+40,94);
   // cognome e nome
-  const nome=`${t.cognome} ${t.nome}`;let fs=64;g.fillStyle="#13202e";
-  do{g.font=`800 ${fs}px "Archivo", Arial, sans-serif`;fs-=2}while(g.measureText(nome).width>W-72&&fs>26);
-  g.textBaseline="alphabetic";g.fillText(nome,36,160);
-  g.font='400 32px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#4b5869";g.fillText("Data di nascita",36,214);
-  g.font='700 32px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#13202e";g.fillText(it(t.nascita),36+g.measureText("Data di nascita  ").width+30,214);
-  // codice a barre, moduli interi per una lettura netta
-  const bc=$("bc");JsBarcode(bc,t.numero,{format:t.formato||"CODE128",width:1,height:1,margin:0,displayValue:false});
-  const mods=bc.width,k=Math.max(1,Math.floor((W-120)/mods)),bw=mods*k,bx=Math.round((W-bw)/2),by=262,bh=230;
+  const nome=`${t.cognome} ${t.nome}`;let fs=62;g.fillStyle="#13202e";
+  do{g.font=`800 ${fs}px "Archivo", Arial, sans-serif`;fs-=2}while(g.measureText(nome).width>W-80&&fs>26);
+  g.fillText(nome,W/2,200);
+  g.font='400 30px "Atkinson Hyperlegible", Arial, sans-serif';const a="Data di nascita  ",b=it(t.nascita);
+  const wa=g.measureText(a).width;g.font='700 30px "Atkinson Hyperlegible", Arial, sans-serif';const wb=g.measureText(b).width;
+  let x=(W-wa-wb)/2;g.textAlign="left";g.font='400 30px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#4b5869";g.fillText(a,x,250);
+  g.font='700 30px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#13202e";g.fillText(b,x+wa,250);g.textAlign="center";
+  // codice a barre Code 128, moduli interi per una lettura netta
+  const bc=$("bc");JsBarcode(bc,t.numero,{format:"CODE128",width:1,height:1,margin:0,displayValue:false});
+  const mods=bc.width,k=Math.max(1,Math.floor((W-160)/mods)),bw=mods*k,bx=Math.round((W-bw)/2),by=280,bh=210;
   g.imageSmoothingEnabled=false;g.drawImage(bc,0,0,mods,1,bx,by,bw,bh);
-  g.font='700 38px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#13202e";g.textAlign="center";
-  g.fillText(t.numero.split("").join(" "),W/2,546);
-  g.font='400 22px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#4b5869";g.fillText("DoD ID",W/2,590);g.textAlign="left";
+  g.font='700 46px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#13202e";g.fillText(t.numero,W/2,550);
+  g.font='400 22px "Atkinson Hyperlegible", Arial, sans-serif';g.fillStyle="#4b5869";g.fillText("DoD ID",W/2,592);g.textAlign="left";
   return c;
 }
 async function mostra(t){
@@ -559,14 +558,13 @@ function lista(){
 function valida(d){
   const miss=[];if(!d.cognome)miss.push("cognome");if(!d.nome)miss.push("nome");if(!d.nascita)miss.push("data di nascita");if(!d.numero)miss.push("DoD ID");
   if(miss.length)return"Compila: "+miss.join(", ")+".";
-  if(d.formato==="CODE39"&&!/^[0-9A-Z]+$/.test(d.numero))return"Il DoD ID può contenere solo cifre e lettere.";
   if(!/^[0-9A-Z]{4,20}$/.test(d.numero))return"Controlla il DoD ID: solo cifre e lettere, senza spazi.";
   return null;
 }
 $("f").addEventListener("submit",async ev=>{ev.preventDefault();const f=ev.target,er=$("err");er.hidden=true;
-  const d={cognome:pulisci(f.cognome.value),nome:pulisci(f.nome.value),nascita:f.nascita.value,numero:pulisci(f.numero.value).replace(/\s/g,""),formato:f.formato.value};
+  const d={cognome:pulisci(f.cognome.value),nome:pulisci(f.nome.value),nascita:f.nascita.value,numero:pulisci(f.numero.value).replace(/\s/g,""),formato:"CODE128"};
   const e=valida(d);if(e){er.textContent=e;er.hidden=false;return}
-  if(d.formato==="CODE128"&&!/^\d{10}$/.test(d.numero)&&!confirm("Il DoD ID di solito ha 10 cifre. Vuoi creare comunque la tessera?"))return;
+  if(!/^\d{10}$/.test(d.numero)&&!confirm("Il DoD ID di solito ha 10 cifre. Vuoi creare comunque la tessera?"))return;
   if(editing){Object.assign(editing,d);d.id=editing.id}else{d.id=Date.now().toString(36);T.push(d)}
   const ok=store();editing=null;$("flegend").textContent="Crea un'altra tessera";$("crea").textContent="Crea la tessera";f.reset();
   await mostra(T.find(x=>x.id===d.id));
@@ -583,8 +581,7 @@ $("b_full").addEventListener("click",()=>{$("full").hidden=false;try{document.do
   try{screen.orientation&&screen.orientation.lock&&screen.orientation.lock("landscape").catch(()=>{})}catch(e){}});
 function chiudi(){$("full").hidden=true;try{document.fullscreenElement&&document.exitFullscreen()}catch(e){}}
 $("b_close").addEventListener("click",chiudi);$("full").addEventListener("click",e=>{if(e.target.id==="full"||e.target.id==="fullimg")chiudi()});
-$("b_edit").addEventListener("click",()=>{const f=$("f");editing=cur;f.cognome.value=cur.cognome;f.nome.value=cur.nome;f.nascita.value=cur.nascita;f.numero.value=cur.numero;
-  [...f.formato].forEach(r=>r.checked=r.value===(cur.formato||"CODE128"));$("flegend").textContent="Modifica la tessera";$("crea").textContent="Salva le modifiche";f.scrollIntoView({behavior:"smooth"})});
+$("b_edit").addEventListener("click",()=>{const f=$("f");editing=cur;f.cognome.value=cur.cognome;f.nome.value=cur.nome;f.nascita.value=cur.nascita;f.numero.value=cur.numero;$("flegend").textContent="Modifica la tessera";$("crea").textContent="Salva le modifiche";f.scrollIntoView({behavior:"smooth"})});
 $("b_del").addEventListener("click",()=>{if(!confirm(`Eliminare da questo telefono la tessera di ${cur.cognome} ${cur.nome}?`))return;T=T.filter(t=>t.id!==cur.id);store();cur=null;$("vista").hidden=true;lista()});
 
 load();lista();
