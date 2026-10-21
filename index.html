@@ -84,6 +84,7 @@
 .c-belgio{--c:var(--belgio);--cs:var(--belgio-soft)}
 .c-vaccini{--c:var(--vaccini);--cs:var(--vaccini-soft)}
 .c-dentista{--c:var(--dentista);--cs:var(--dentista-soft)}
+nav.idx a.wide{grid-column:1/-1;min-height:64px;flex-direction:row;align-items:center;justify-content:flex-start;gap:12px}
 .c-psico{--c:var(--psico);--cs:var(--psico-soft)}
 .c-fonti{--c:var(--fonti);--cs:var(--fonti-soft)}
 
@@ -634,6 +635,7 @@ a.map,a.tel{max-width:100%}
   <symbol id="i-clip" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 13l2.2 2.2L15.5 11"/></symbol>
   <symbol id="i-fam" viewBox="0 0 24 24"><circle cx="8" cy="6" r="2.6"/><path d="M3.5 21v-5a4.5 4.5 0 0 1 9 0v5"/><circle cx="17" cy="10" r="2"/><path d="M14 21v-3.2a3 3 0 0 1 6 0V21"/></symbol>
   <symbol id="i-exit" viewBox="0 0 24 24"><path d="M10 4H5v16h5M14.5 8l4 4-4 4M8.5 12h10"/></symbol>
+  <symbol id="i-bar" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M6 8.5v7M8.5 8.5v7M11.5 8.5v7M13.5 8.5v7M16.5 8.5v7M18 8.5v7"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
   <symbol id="i-list" viewBox="0 0 24 24"><path d="M3.5 6.5l1.8 1.8L8.5 5M11.5 7h9M3.5 13l1.8 1.8L8.5 11.5M11.5 13.5h9M4 17.5l3.5 3.5M7.5 17.5 4 21M11.5 19.5h9"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.3l3 3 6-6"/></symbol>
@@ -734,7 +736,7 @@ a.map,a.tel{max-width:100%}
 
   <h2 class="idx-t" id="idx-t">Argomenti</h2>
   <nav class="idx" aria-labelledby="idx-t">
-    <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
+    <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-dentista wide" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale: il DoD ID con codice a barre</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
   </nav>
 
   <div class="chs">
@@ -1091,6 +1093,21 @@ a.map,a.tel{max-width:100%}
 <a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a>
 </div>
 </div>
+    </div>
+  </details>
+  <details class="ch c-dentista" id="tessera"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg><span class="k">9</span></span><span class="st"><h2 class="t">Tessera digitale · codice a barre</h2><span class="s">Il tuo DoD ID sul telefono, per i totem della SHF</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+    <div class="body">
+      <ol role="list">
+        <li><b>A cosa serve</b>
+<span class="ln">Ai totem della SHF inquadri il codice a barre e non devi digitare il DoD ID.</span>
+<span class="ln">Vale per militari, familiari (dependents) e civili con SHAPE ID registrati alla SHAPE Healthcare Facility.</span></li>
+        <li><b>Come si crea</b>
+<span class="ln">Inserisci cognome, nome, data di nascita e DoD ID: la tessera si crea subito e resta salvata sul telefono, anche senza rete.</span>
+<span class="ln">Puoi salvarne più di una, per esempio una per ogni familiare, e salvarla come immagine o inviarla per email.</span>
+<span class="ln"><a class="btn-doc" href="tessera.html">Crea la tessera digitale</a></span></li>
+        <li><b>Privacy</b>
+<span class="ln">I dati restano solo sul tuo telefono: la pagina non li invia a nessuno.</span></li>
+      </ol>
     </div>
   </details>
   </div>
