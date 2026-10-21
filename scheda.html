@@ -498,6 +498,7 @@ legend{margin:0 auto;text-align:center}
         <label class="fl">Fine mandato prevista<input type="date" name="fine"></label>
       </div>
       <label class="fl">DoD ID (se già assegnato dalla clinica SHF)<input name="dodid" inputmode="numeric"></label>
+      <p class="hint">Con il DoD ID puoi creare la <a href="tessera.html">tessera digitale con il codice a barre</a> per i totem della SHF.</p>
       <fieldset class="opts-fs"><legend>Iscrizione alla mutua belga</legend>
       <div class="opts">
         <label class="opt"><input type="radio" name="mutua" value="Iscritto"> Iscritto</label>
@@ -541,6 +542,7 @@ legend{margin:0 auto;text-align:center}
   <div class="sheet done" id="done" role="status" tabindex="-1" hidden>
     <h2>Grazie, scheda inviata</h2>
     <p>La Sezione Sanitaria ha ricevuto i tuoi dati.<br>Se qualcosa cambia, compila di nuovo la scheda, anche solo con i dati nuovi: la Sezione aggiornerà il tuo profilo.</p>
+    <p id="tess" hidden><a class="btn solid" href="tessera.html">Crea la tessera digitale con il tuo DoD ID</a></p>
     <a class="btn solid" href="./">Torna a SHAPE Healthcare Italian Section</a>
   </div>
 
@@ -564,7 +566,7 @@ f.addEventListener("submit",async ev=>{
   const body=new URLSearchParams(new FormData(f));
   let ok=false;
   try{await fetch(ENDPOINT,{method:"POST",body,mode:"no-cors"}); ok=true;}catch(y){ok=false;}
-  if(ok){f.hidden=true;const d=document.getElementById("done");d.hidden=false;window.scrollTo(0,0);d.focus();}
+  if(ok){if(f.dodid.value.trim()){try{sessionStorage.setItem("tessera_prefill",JSON.stringify({cognome:f.cognome.value,nome:f.nome.value,nascita:f.nascita.value,numero:f.dodid.value.replace(/\s/g,"")}))}catch(y){}document.getElementById("tess").hidden=false;}f.hidden=true;const d=document.getElementById("done");d.hidden=false;window.scrollTo(0,0);d.focus();}
   else{er.textContent="Invio non riuscito. Controlla la connessione e riprova, oppure scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
 });
 </script>
