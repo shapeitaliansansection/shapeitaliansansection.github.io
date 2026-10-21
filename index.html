@@ -635,6 +635,20 @@ footer .flagbar i:nth-child(2){box-shadow:none!important}
 .sosbar a{border:1.5px solid var(--red-ink)}
 .sosbar a:last-child{border-color:var(--red)}
 .sosbar .sblogo{border:1.5px solid var(--ink-2)}
+/* Indice in alto e sezioni aperte come pagine */
+.idxcard{position:relative;margin-top:-26px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:14px 12px 12px;box-shadow:var(--shadow-card)}
+.idxcard .idx-t{margin:0 0 12px;text-align:center}
+main .sos{margin-top:16px!important}
+body:not(.pg) .chs{display:none}
+body.pg header,body.pg main>*:not(.chs){display:none!important}
+body.pg .chs{margin-top:0}
+body.pg .chs>details:not(.cur){display:none}
+body.pg details.cur>summary{cursor:default}
+body.pg details.cur>summary .chev{display:none}
+.pgbar{display:none}
+body.pg .pgbar{display:flex;position:sticky;top:0;z-index:15;background:var(--bg);padding:12px 0 10px;justify-content:flex-start}
+.pgbar button{font:inherit;font-weight:700;font-size:1rem;min-height:46px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--navy-2);background:var(--paper);color:var(--navy-2);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.pgbar button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 </style>
 </head>
 <body>
@@ -693,6 +707,12 @@ footer .flagbar i:nth-child(2){box-shadow:none!important}
   </header>
 
   <main id="contenuto">
+  <div class="idxcard" id="indice">
+  <h2 class="idx-t" id="idx-t">Argomenti</h2>
+  <nav class="idx" aria-labelledby="idx-t">
+    <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-dentista wide" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale · codice a barre</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
+  </nav>
+  </div>
   <section class="sos" id="emergenza" aria-labelledby="sos-t">
     <div class="sos-h"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-cross"/></svg></span><h2 id="sos-t">Emergenza</h2></div>
 
@@ -753,12 +773,9 @@ footer .flagbar i:nth-child(2){box-shadow:none!important}
     <div class="pair"><a class="btn" href="#orari"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tutti gli orari</a><a class="btn" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Prenota</a></div>
   </section>
 
-  <h2 class="idx-t" id="idx-t">Argomenti</h2>
-  <nav class="idx" aria-labelledby="idx-t">
-    <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-dentista wide" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale · codice a barre</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
-  </nav>
 
   <div class="chs">
+  <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
   <details class="ch c-arrivo" id="arrivo"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-case"/></svg><span class="k">1</span></span><span class="st"><h2 class="t">Sono appena arrivato · <span class="caps" lang="en">Inprocessing</span></h2><span class="s">Registrazione alla clinica SHF, Sezione Sanitaria, vaccini, mutua belga</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
@@ -1203,13 +1220,20 @@ document.addEventListener("click",async e=>{
 const chs=[...document.querySelectorAll("details.ch")];
 chs.forEach(d=>d.addEventListener("toggle",()=>{ if(d.open){ chs.forEach(o=>{ if(o!==d && o.open) o.open=false; }); setTimeout(()=>d.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}),30); } }));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href")); const d=t&&t.closest("details.ch"); if(d) d.open=true;}));
-document.getElementById("sbtop").addEventListener("click",()=>{try{history.replaceState(null,"",location.pathname)}catch(e){}window.scrollTo({top:0,behavior:"smooth"})});
+document.getElementById("sbtop").addEventListener("click",()=>{try{history.replaceState(null,"",location.pathname)}catch(e){}route();window.scrollTo({top:0,behavior:"smooth"})});
 const sb=document.getElementById("sosbar"),big=[...document.querySelectorAll("#emergenza a.big")],vis=new Set();
 if(sb&&big.length&&"IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));sb.hidden=vis.size>0||big[0].getBoundingClientRect().top>0;});big.forEach(x=>io.observe(x));}
 const gg=["","Lun","Mar","Mer","Gio","Ven"][new Date().getDay()]; if(gg) document.querySelectorAll(".wk tbody th").forEach(th=>{if(th.textContent.trim()===gg){th.parentElement.classList.add("oggi");th.insertAdjacentHTML("beforeend",'<span class="sr"> (oggi)</span>');}});
-function openHash(){if(!location.hash)return;let t;try{t=document.querySelector(location.hash)}catch(e){return}
- const d=t&&(t.matches("details.ch")?t:t.closest("details.ch"));if(d&&!d.open){d.open=true;setTimeout(()=>t.scrollIntoView(),60);}}
-openHash();addEventListener("hashchange",openHash);
+/* Le sezioni dell'indice si aprono come pagine; Indietro del telefono torna all'indice */
+function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;try{t=h?document.getElementById(h):null}catch(e){}
+ const ch=t&&(t.matches("details.ch")?t:t.closest("details.ch"));
+ document.querySelectorAll("details.ch.cur").forEach(x=>x.classList.remove("cur"));
+ if(ch){document.body.classList.add("pg");ch.classList.add("cur");ch.open=true;const sbb=document.getElementById("sosbar");if(sbb)sbb.hidden=false;const su=()=>window.scrollTo(0,0);su();requestAnimationFrame(su);setTimeout(su,30);if(t!==ch)setTimeout(()=>t.scrollIntoView(),120);return}
+ const era=document.body.classList.contains("pg");document.body.classList.remove("pg");
+ if(t)setTimeout(()=>t.scrollIntoView(),era?60:0);}
+document.querySelectorAll("details.ch>summary").forEach(sm=>sm.addEventListener("click",e=>{if(document.body.classList.contains("pg"))e.preventDefault()}));
+document.getElementById("pgback").addEventListener("click",()=>{location.hash="indice"});
+route();addEventListener("hashchange",route);
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const fb=document.getElementById("fbf");
 fb.messaggio.addEventListener("input",()=>fb.messaggio.removeAttribute("aria-invalid"));fb.email.addEventListener("input",()=>fb.email.removeAttribute("aria-invalid"));
