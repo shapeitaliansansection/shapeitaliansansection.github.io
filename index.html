@@ -508,11 +508,14 @@ nav.idx a{align-items:center;text-align:center;justify-content:center}
 details.ch>summary:focus-visible{outline:3px solid var(--focus,#1d63c5);outline-offset:-5px}
 .fb input:focus-visible,.fb select:focus-visible,.fb textarea:focus-visible{outline:3px solid var(--focus,#1d63c5);outline-offset:2px}
 .st h2.t{margin:0;font-size:1.22rem;line-height:1.15}
-.sosbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:6px;justify-content:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:2px solid var(--red);box-shadow:0 -6px 18px rgba(19,32,46,.12)}
+.sosbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:6px;justify-content:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:0;box-shadow:0 -6px 18px rgba(19,32,46,.12)}
+.sosbar::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--it-green) 0 33.33%,var(--it-white) 33.33% 66.66%,var(--it-red) 66.66% 100%);box-shadow:inset 0 -1px 0 var(--line)}
+.sosbar .sblogo{flex:none;align-self:center;width:40px;height:40px;border-radius:9px;border:1px solid var(--line);object-fit:cover}
 .sosbar a{flex:1 1 0;min-height:48px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:var(--r-m);font-weight:800;text-decoration:none;text-align:center;background:var(--red);color:var(--on-red);font-size:.95rem}
 .sosbar a:last-child{flex:0 1 auto;padding:0 12px;background:var(--red-tint);color:var(--red-ink)}
 .sosbar .i{width:18px;height:18px}
-.sosbar a{white-space:nowrap}.sosbar a:first-child{flex:1.6 1 0}
+.sosbar a{white-space:nowrap}.sosbar a:first-of-type{flex:1.6 1 0}
+@media (max-width:330px){.sosbar .sblogo{display:none}}
 body{padding-bottom:76px}
 .toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 
@@ -562,6 +565,7 @@ body{padding-bottom:86px}
 .body ol.side .btn.mailbtn,.body>ol>li .btn.mailbtn{width:auto;max-width:100%;padding-inline:20px;margin-left:auto;margin-right:auto}
 .sosbar{padding-left:max(12px,calc((100% - 820px)/2));padding-right:max(12px,calc((100% - 820px)/2))}
 .sosbar a{padding:0 10px;font-family:"MontserratL",var(--body);font-size:1.02rem}
+@media (max-width:440px){.sosbar{gap:5px;padding-left:8px;padding-right:8px}.sosbar a{padding:0 7px;gap:4px;font-size:.9rem}.sosbar .i{width:16px;height:16px}.sosbar .sblogo{width:34px;height:34px;border-radius:8px}}
 html{scroll-padding-bottom:100px}
 .wk .tm{display:block}
 .wk .to{display:block;font-size:.72em;font-weight:400;color:var(--muted);line-height:1.1}
@@ -1164,7 +1168,7 @@ a.map,a.tel{max-width:100%}
     <span>Scrivi alla Sezione per segnalare errori o modifiche: <a href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
   </footer>
 </div>
-<nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza">Emergenza</a></nav>
+<nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><img class="sblogo" src="logo_sezione_sanitaria.jpg" alt="" width="40" height="40"><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza">Emergenza</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
 document.addEventListener("click",async e=>{
