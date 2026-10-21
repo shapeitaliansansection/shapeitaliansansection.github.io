@@ -662,7 +662,7 @@ a.map,a.tel{max-width:100%}
 <div class="wrap">
   <header>
     <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="upd">Aggiornato al 16.10.2026</span></div>
+    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="upd" id="upd">Aggiornato al 21.10.2026</span></div>
     <div class="hrow"><img class="logo" src="logo_sezione_sanitaria.jpg" alt="Logo della Sezione Sanitaria Italiana di SHAPE" width="120" height="120"><h1 lang="en">SHAPE&nbsp;Healthcare <wbr>Italian&nbsp;Section</h1></div>
     <div class="lead">
       <p class="l1">Questa è una guida rapida della <b>Sezione Sanitaria Italiana</b> di SHAPE.</p>
@@ -1179,6 +1179,8 @@ fb.addEventListener("submit",async ev=>{
   catch(x){er.textContent="Invio non riuscito: riprova o scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia il feedback";}
 });
 
+/* "Aggiornato al": data dell'ultima pubblicazione del sito, letta dal server */
+(function(){const d=new Date(document.lastModified);if(isNaN(d)||Date.now()-d<5000)return;const p=n=>String(n).padStart(2,"0");document.getElementById("upd").textContent=`Aggiornato al ${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}`;})();
 if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}
 (function(){const ib=document.getElementById("instbtn"),ios=/iphone|ipad|ipod/i.test(navigator.userAgent),st=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
  const show=id=>{["how-ios","how-and","how-ok"].forEach(x=>document.getElementById(x).hidden=x!==id);};
