@@ -454,6 +454,10 @@ main .sheet~.sheet{margin-top:14px}
 .fl .dt .cal input{position:absolute;inset:0;width:100%;height:100%;min-height:0;opacity:0;padding:0;margin:0;border:0;cursor:pointer}
 .fl .dt .dtxt.bad,.dt:has(input[aria-invalid="true"]) .dtxt{border-color:var(--red);background:var(--red-tint)}
 .dt .cal:focus-within{outline:3px solid var(--focus);outline-offset:1px}
+/* Bordino nero intorno alla bandiera, ovunque */
+.flagbar{border:1px solid #000!important;box-sizing:border-box}
+.flag{border:1px solid #000;box-sizing:content-box}
+footer .flagbar i:nth-child(2){box-shadow:none!important}
 </style>
 <body>
 <div class="wrap">
@@ -554,7 +558,7 @@ async function disegna(t){
   g.fillStyle="#ffffff";g.fillRect(0,0,W,H);
   // fascia in alto con il logo a sinistra
   g.fillStyle="#14294d";g.fillRect(0,0,W,120);
-  const tri=["#008c45","#ffffff","#cd212a"];tri.forEach((col,i)=>{g.fillStyle=col;g.fillRect(i*W/3,120,W/3,6)});
+  const tri=["#008c45","#ffffff","#cd212a"];tri.forEach((col,i)=>{g.fillStyle=col;g.fillRect(i*W/3,120,W/3,6)});g.strokeStyle="#000";g.lineWidth=1.5;g.strokeRect(0.75,120.75,W-1.5,5.5);
   if(L){g.save();rr(g,22,14,92,92,16);g.fillStyle="#ffffff";g.fill();g.clip();g.drawImage(L,22,14,92,92);g.restore()}
   g.textAlign="center";g.textBaseline="alphabetic";
   g.fillStyle="#ffffff";g.font='800 34px "Archivo", Arial, sans-serif';g.fillText("SHAPE HEALTHCARE FACILITY",W/2+40,58);

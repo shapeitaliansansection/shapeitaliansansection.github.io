@@ -443,6 +443,10 @@ legend{margin:0 auto;text-align:center}
 .fl .dt .cal input{position:absolute;inset:0;width:100%;height:100%;min-height:0;opacity:0;padding:0;margin:0;border:0;cursor:pointer}
 .fl .dt .dtxt.bad,.dt:has(input[aria-invalid="true"]) .dtxt{border-color:var(--red);background:var(--red-tint)}
 .dt .cal:focus-within{outline:3px solid var(--focus);outline-offset:1px}
+/* Bordino nero intorno alla bandiera, ovunque */
+.flagbar{border:1px solid #000!important;box-sizing:border-box}
+.flag{border:1px solid #000;box-sizing:content-box}
+footer .flagbar i:nth-child(2){box-shadow:none!important}
 </style>
 </head>
 <body>

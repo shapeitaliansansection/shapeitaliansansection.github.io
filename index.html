@@ -626,6 +626,15 @@ a.map,a.tel{max-width:100%}
 [hidden]{display:none!important}
 
 .noshf strong .shfn{display:block;white-space:nowrap;font-size:min(1.22rem,calc(5.6vw - 5.5px));letter-spacing:-.005em}
+/* Bordino nero intorno alla bandiera, ovunque */
+.flagbar{border:1px solid #000!important;box-sizing:border-box}
+.flag{border:1px solid #000;box-sizing:content-box}
+footer .flagbar i:nth-child(2){box-shadow:none!important}
+.sosbar::before{box-shadow:none;border:1px solid #000;box-sizing:border-box;height:6px}
+/* Bordi sui pulsanti della barra fissa delle emergenze */
+.sosbar a{border:1.5px solid var(--red-ink)}
+.sosbar a:last-child{border-color:var(--red)}
+.sosbar .sblogo{border:1.5px solid var(--ink-2)}
 </style>
 </head>
 <body>
