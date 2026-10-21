@@ -658,6 +658,9 @@ body.pg main>section.cur{margin-top:0}
 .loc figure.mappa{margin:12px auto 4px;max-width:420px;text-align:center}
 .loc figure.mappa img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
 .loc figure.mappa figcaption{font-size:.88rem;color:var(--muted);margin-top:6px}
+/* Spaziature decise nella revisione dei testi */
+.ln.gap,.gap{margin-top:.9em!important}
+.sp{display:block;height:.6em}
 </style>
 </head>
 <body>
@@ -726,9 +729,9 @@ body.pg main>section.cur{margin-top:0}
   <section class="sos" id="emergenza" aria-labelledby="sos-t">
     <div class="sos-h"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-cross"/></svg></span><h2 id="sos-t">Emergenza</h2></div>
 
-    <div class="noshf" role="note"><svg class="i" aria-hidden="true"><use href="#i-noentry"/></svg><span><strong><span class="shfn">La SHAPE HEALTHCARE FACILITY</span><span class="non">NON</span>tratta le emergenze sanitarie</strong>Non ha pronto soccorso: per un'urgenza non andare in clinica, chiama i numeri qui sotto.</span></div>
+    <div class="noshf" role="note"><svg class="i" aria-hidden="true"><use href="#i-noentry"/></svg><span><strong><span class="shfn">La SHAPE HEALTHCARE FACILITY</span><span class="non">NON</span>tratta le emergenze sanitarie</strong>Non è dotata di pronto soccorso: per le urgenze non andare presso la SHF, chiama i numeri qui sotto.</span></div>
 
-    <div class="where">Emergenze all'interno di SHAPE</div>
+    <div class="where">Emergenze interne a SHAPE</div>
     <a class="big" href="tel:+3265443333">
       <span class="why"><span class="ring" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span><span>Joint Police Desk, 24 ore su 24, emergenze sanitarie e non</span></span>
       <span class="num">065 44 33 33</span>
@@ -736,7 +739,7 @@ body.pg main>section.cur{margin-top:0}
       <span class="int">Da un telefono fisso della base: 3333</span>
     </a>
     <a class="big b2" href="tel:+3265443334">
-      <span class="why"><span class="ring" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span><span>Stesso servizio, per parlare in francese</span></span>
+      <span class="why"><span class="ring" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span><span>Stesso servizio, in lingua francese</span></span>
       <span class="num">065 44 33 34</span>
       <span class="num2">Servizio in francese</span>
     </a>
@@ -746,9 +749,9 @@ body.pg main>section.cur{margin-top:0}
     <a class="big short" href="tel:112"><span class="why"><span class="ring" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span><span><b class="nu caps">Numero unico</b><br>Ambulanza, vigili del fuoco, polizia</span></span><span class="num">112</span></a>
 
     <div class="er">
-      <div class="erh"><span class="hsym" aria-hidden="true">H</span><span><span class="lbl">Pronto soccorso più vicino, 24 ore su 24</span><span class="name">CHU HELORA, Ospedale di Mons, sito Kennedy</span></span></div>
-      <span class="addr">Boulevard Kennedy 2, 7000 Mons.<br>Urgenze: ala H, livello meno 1.<br>Parcheggio urgenze al centro del piazzale, ingresso da rue Valenciennoise.</span>
-      <span class="addr kids"><svg class="i" aria-hidden="true"><use href="#s-child"/></svg> <b>Qui c'è anche il pronto soccorso pediatrico</b></span>
+      <div class="erh"><span class="hsym" aria-hidden="true">H</span><span><span class="lbl">Pronto soccorso più vicino<br>24 ore su 24</span><span class="name">CHU HELORA, Ospedale di Mons, sito Kennedy</span></span></div>
+      <span class="addr">Boulevard Kennedy 2, 7000 Mons.<br>Urgenze: ala H, livello meno 1.<br><span class="sp"></span>Parcheggio urgenze al centro del piazzale, ingresso da rue Valenciennoise.</span>
+      <span class="addr kids gap"><svg class="i" aria-hidden="true"><use href="#s-child"/></svg> <b>Presente il pronto soccorso pediatrico</b></span>
       <div class="pair">
         <a class="btn" href="tel:+3265414000" aria-label="Centralino CHU HELORA Kennedy"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Centralino</a>
         <a class="btn solid" href="https://www.google.com/maps/dir/?api=1&amp;destination=CHU+HELORA+Kennedy+Boulevard+Kennedy+2+7000+Mons" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Portami qui</a>
@@ -756,7 +759,7 @@ body.pg main>section.cur{margin-top:0}
     </div>
 
     <div class="alts">
-      <div class="alt"><b><span class="caps">Interprete sanitario</span><br>Patient Liaison SHAPE<br>24&nbsp;ore su&nbsp;24</b><span>È l'interprete della clinica SHF negli ospedali belgi.<br>Ti assiste al pronto soccorso e durante il ricovero.</span>
+      <div class="alt"><b><span class="caps">Interprete sanitario</span><br>Patient Liaison SHAPE<br>24&nbsp;ore su&nbsp;24</b><span>È l'interprete della clinica SHF negli ospedali del Belgio.<br>Ti assiste al pronto soccorso e durante il ricovero, in caso di necessità.</span>
         <div class="pair"><a class="btn" href="tel:+3265414009" aria-label="Mons, chiama il Patient Liaison"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Mons</a><a class="btn" href="tel:+3267348990" aria-label="Soignies, chiama il Patient Liaison"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Soignies</a></div></div>
       <div class="alt"><b>Altri pronto soccorso vicini</b>
         <span class="row"><span>Soignies, CHR Haute Senne Le Tilleriau, Chaussée de Braine 49</span><span class="acts"><a class="map" href="https://www.google.com/maps/dir/?api=1&amp;destination=CHR+Haute+Senne+Le+Tilleriau+Chaussee+de+Braine+49+7060+Soignies" target="_blank" rel="noopener" aria-label="Portami qui: CHR Haute Senne, Soignies"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Portami qui</a></span></span>
@@ -765,20 +768,20 @@ body.pg main>section.cur{margin-top:0}
     </div>
 
     <div class="mini">
-      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>1733</span><span><b>Guardia Medica Belga</b><br>Notti, weekend e festivi, per casi non urgenti, come in Italia.<br>Scegli la lingua del menu (2 francese, 4 inglese), poi digita il codice postale e #.<span class="gm">Da una SIM italiana chiama il +32&nbsp;2&nbsp;524&nbsp;98&nbsp;89.<br>Il posto di guardia di Mons, rue Valenciennoise&nbsp;2, è aperto weekend e festivi dalle 8:00 AM alle 10:00 PM.</span></span><span class="acts grid2"><a class="tel" href="tel:1733"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama 1733</a><a class="tel" href="tel:+3225249889" aria-label="Chiama la guardia medica da SIM italiana, +32 2 524 98 89"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Da SIM italiana</a><a class="map" href="https://www.health.belgium.be/fr/themes/sante/aide-medicale-urgente/acteurs-laide-medicale-urgente/besoin-dun-medecin-garde-composez-1733" target="_blank" rel="noopener">Come funziona</a><a class="map" href="https://www.google.com/maps?ll=50.457976,3.964112&amp;z=15&amp;t=m&amp;hl=it-IT&amp;q=Rue+Valenciennoise+2+7000+Mons" target="_blank" rel="noopener" aria-label="Dove si trova la guardia medica: Rue Valenciennoise 2, Mons"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Dove si trova</a></span></div>
-      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-pill"/></svg>Farmacie di turno</span><span>Le trovi su pharmacie.be, di giorno e di notte.</span><span class="acts"><a class="map" href="https://www.pharmacie.be" target="_blank" rel="noopener">pharmacie.be</a></span><span>Farmacie più vicine a SHAPE:</span><span class="acts ph3"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pierrot+Place+de+Maisieres+4+Mons&amp;query_place_id=ChIJmT0MrixOwkcRsBYxX0QqK3I" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pierrot, Maisières"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pierrot, Maisières</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pools+Chaussee+de+Bruxelles+60+Soignies&amp;query_place_id=ChIJsaB52WBOwkcRN85mnbqcUKE" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pools, Casteau"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pools, Casteau</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=La+Grande+Pharmacie+de+Nimy+Route+d+Ath+64+Mons&amp;query_place_id=ChIJlxO1iC5QwkcRpzPB2ZV2yCo" target="_blank" rel="noopener" aria-label="Portami qui: La Grande Pharmacie de Nimy"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Grande Pharmacie, Nimy</a></span></div>
+      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>1733</span><span><b>Guardia Medica Belga</b><br>Notti, weekend e festivi, per casi non urgenti, come in Italia.<br>Scegli la lingua del menu (2 francese, 4 inglese), poi digita il codice postale e #.<span class="gm"><span class="sp"></span>La guardia medica di Mons è in rue Valenciennoise&nbsp;2 ed è aperta weekend e festivi dalle 8:00 AM alle 10:00 PM.</span></span><span class="acts grid2"><a class="tel" href="tel:1733"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama 1733</a><a class="tel" href="tel:+3225249889" aria-label="Chiama la guardia medica da SIM italiana, +32 2 524 98 89"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Da SIM italiana</a><a class="map" href="https://www.health.belgium.be/fr/themes/sante/aide-medicale-urgente/acteurs-laide-medicale-urgente/besoin-dun-medecin-garde-composez-1733" target="_blank" rel="noopener">Come funziona</a><a class="map" href="https://www.google.com/maps?ll=50.457976,3.964112&amp;z=15&amp;t=m&amp;hl=it-IT&amp;q=Rue+Valenciennoise+2+7000+Mons" target="_blank" rel="noopener" aria-label="Dove si trova la guardia medica: Rue Valenciennoise 2, Mons"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Dove si trova</a></span></div>
+      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-pill"/></svg>Farmacie di turno</span><span>Le trovi su pharmacie.be</span><span class="acts"><a class="map" href="https://www.pharmacie.be" target="_blank" rel="noopener">pharmacie.be</a></span><span>Farmacie più vicine a SHAPE:</span><span class="acts ph3"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pierrot+Place+de+Maisieres+4+Mons&amp;query_place_id=ChIJmT0MrixOwkcRsBYxX0QqK3I" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pierrot, Maisières"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pierrot, Maisières</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pools+Chaussee+de+Bruxelles+60+Soignies&amp;query_place_id=ChIJsaB52WBOwkcRN85mnbqcUKE" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pools, Casteau"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pools, Casteau</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=La+Grande+Pharmacie+de+Nimy+Route+d+Ath+64+Mons&amp;query_place_id=ChIJlxO1iC5QwkcRpzPB2ZV2yCo" target="_blank" rel="noopener" aria-label="Portami qui: La Grande Pharmacie de Nimy"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Grande Pharmacie, Nimy</a></span></div>
     </div>
 
     <div class="saves">
-      <div class="qr"><img alt="QR per salvare il contatto Emergenza SHAPE" src="data:image/png;base64,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"><span><b>Salva Contatti di Emergenza</b><br>Da questo telefono tocca il pulsante; da un altro telefono inquadra il QR<br><a class="btn-vcf" href="emergenza.vcf">Salva in Rubrica</a></span></div>
-      <div class="qr"><img alt="QR per salvare il contatto del Patient Liaison SHAPE" src="data:image/png;base64,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"><span><b>Interprete sanitario<br>Patient Liaison SHAPE</b><br>Contiene il numero del Patient Liaison, 24 ore su 24<br><a class="btn-vcf" href="kennedy.vcf">Salva in Rubrica</a></span></div>
+      <div class="qr"><img alt="QR per salvare il contatto Emergenza SHAPE" src="data:image/png;base64,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"><span><b>Salva Contatti di Emergenza</b><br>Da questo telefono tocca il pulsante;<br>da un altro telefono inquadra il QR<br><a class="btn-vcf" href="emergenza.vcf">Salva in Rubrica</a></span></div>
+      <div class="qr"><img alt="QR per salvare il contatto del Patient Liaison SHAPE" src="data:image/png;base64,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"><span><b>Salva i contatti dell'interprete sanitario<br>Patient Liaison SHAPE</b><br>Il numero del Patient Liaison<br>attivo 24 ore su 24<br><a class="btn-vcf" href="kennedy.vcf">Salva in Rubrica</a></span></div>
     </div>
   </section>
 
   <section class="loc" id="clinica" aria-labelledby="loc-t">
     <h2 id="loc-t">Dove si trova la clinica SHF</h2>
     <figure><img src="edificio_401_SHF.jpg" alt="Ingresso della SHAPE Healthcare Facility, edificio 401" width="1000" height="563" loading="lazy"></figure>
-    <p><b>Clinica SHF: edificio 401, Avenue d'Oslo</b><br>All'interno della base SHAPE.</p>
+    <p><b>Clinica SHF · edificio 401 · Avenue d'Oslo</b><br>All'interno della base di SHAPE</p>
     <figure class="mappa"><a href="mappa_shape_SHF.jpg" target="_blank" rel="noopener" aria-label="Apri la mappa della base SHAPE a tutto schermo"><img src="mappa_shape_SHF_small.jpg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401, nell'area 400" width="900" height="1311" loading="lazy"></a><figcaption>Il puntino rosso indica la clinica SHF. Tocca la mappa per ingrandirla.</figcaption></figure>
     <p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 AM a 12:00 PM<br>1:00 PM a 5:00 PM<br>(il giovedì dalle 9:00 AM)</p>
     <div class="pair"><a class="btn" href="#orari"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tutti gli orari</a><a class="btn" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Prenota</a></div>
@@ -786,18 +789,19 @@ body.pg main>section.cur{margin-top:0}
 
 
   <div class="chs">
-  <details class="ch c-arrivo" id="arrivo"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-case"/></svg><span class="k">1</span></span><span class="st"><h2 class="t">Sono appena arrivato · <span class="caps" lang="en">Inprocessing</span></h2><span class="s">Registrazione alla clinica SHF, Sezione Sanitaria, vaccini, mutua belga</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-arrivo" id="arrivo"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-case"/></svg><span class="k">1</span></span><span class="st"><h2 class="t"><span class="caps" lang="en">Newcomers</span> · Appena arrivato · <span class="caps" lang="en">Inprocessing</span></h2><span class="s">Registrazione alla clinica SHF, Sezione Sanitaria, vaccini, mutua belga</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
         <li><b>Registrati alla clinica SHF</b>
-<span class="ln">Medical Records, livello 1 (piano terra), corridoio Brussels: entrando dall'ingresso principale, sul lato sinistro.</span>
-<span class="ln">Porta il modulo di registrazione compilato, la SHAPE ID, l'ordine d'impiego e la carta d'identità o il passaporto.</span>
-<div class="formbox">
-<span><b>Modulo di registrazione della clinica</b> (SHF Patient Registration Form): compilalo prima di andare allo sportello, uno per nucleo familiare, con titolare e familiari.</span>
+<span class="ln">Per usufruire dei servizi sanitari della clinica bisogna registrarsi, una volta ottenuta la SHAPE ID.</span>
+<span class="ln">Registrati allo sportello interno Medical Records, livello 1 (piano terra): entrando dall'ingresso principale, sul lato sinistro.</span>
+<span class="ln gap">Porta il modulo di registrazione compilato, la SHAPE ID, l'ordine d'impiego e la carta d'identità o il passaporto per i minori che non hanno la SHAPE ID.</span>
+<div class="formbox gap">
+<span><b>Consegna il modulo di registrazione della clinica</b> (SHF Patient Registration Form):<br>compilalo prima di andare allo sportello, uno per nucleo familiare, con titolare e familiari.</span>
 <span class="dl"><a class="btn-doc" href="Modulo_registrazione_SHF.pdf" target="_blank" rel="noopener">Apri il modulo di registrazione (PDF, da stampare)</a></span>
 <details class="guide"><summary>Come si compila</summary><ul>
-<li><b>Sponsor Information</b>: i dati del titolare (militare o civile assegnato a SHAPE). Middle Name si lascia vuoto.</li>
+<li><b>Sponsor Information</b>: i dati del titolare (militare o civile assegnato a SHAPE).<br>Middle Name si lascia vuoto.</li>
 <li><b>Nationality</b>: Italian. <b>Date of Birth</b> nel formato 01/Jan/2001, con il mese in inglese.</li>
 <li><b>DoD ID</b>: alla prima registrazione si lascia vuoto, lo assegna la clinica.</li>
 <li><b>Branch of Service</b>: Army, Navy, Air Force o Carabinieri. <b>Rank</b>: il grado.</li>
@@ -809,68 +813,71 @@ body.pg main>section.cur{margin-top:0}
 </ul></details>
 </div>
 <span class="ln">Il titolare registra tutta la famiglia; i familiari maggiorenni devono comunque presentarsi allo sportello.</span>
-<span class="ln">La clinica ti assegna il DoD ID, il tuo numero identificativo: da quel momento puoi prenotare visite, esami e vaccini e usare la farmacia.</span>
-<span class="ln">Con il DoD ID puoi creare la tessera digitale con il codice a barre per i totem della SHF: <a class="btn-doc" href="tessera.html">Crea la tessera digitale</a></span></li>
+<span class="ln">La clinica ti assegna il DoD ID, il tuo numero identificativo: da quel momento puoi prenotare visite, esami e vaccini e usare la farmacia interna.</span>
+<span class="ln gap">Con il DoD ID puoi creare la tessera digitale con il codice a barre, da usare per identificarti velocemente ai totem della SHF: <a class="btn-doc" href="tessera.html">Crea la tessera digitale</a></span></li>
         <li><b>Passa dalla Sezione Sanitaria Italiana</b>
-<span class="ln">Uffici al livello 1 (piano terra), lato destro, stanze <span class="room">1B104</span> e <span class="room">1B113</span>.</span>
-<span class="ln">I militari portano l'ultimo certificato di idoneità SMI e compilano la scheda contatti online.</span>
+<span class="ln">I militari <span lang="en">newcomers</span> devono recarsi agli uffici della Sezione Sanitaria,<br>al livello 1 (piano terra), lato destro, stanze <span class="room">1B104</span> e <span class="room">1B113</span>.</span>
+<span class="ln">Devono consegnare l'ultimo certificato di idoneità SMI e compilare la scheda contatti online.</span>
+<span class="ln">Se gli uffici sono chiusi o impegnati in attività sanitarie, puoi consegnare la documentazione al Front Desk, all'attenzione del Dott. M. Tribuzio.</span>
 <span class="ln"><a class="btn-doc" href="scheda.html">Apri la scheda contatti</a></span></li>
         <li><b>Vaccini</b>
 <span class="ln">Ognuno cura il proprio libretto vaccinale e le scadenze dei vaccini.</span>
-<span class="ln">Per rinnovarli contatta o presentati presso l'Immunization Clinic, livello 2, corridoio Amsterdam, stanza <span class="room">2D124</span>.</span>
+<span class="ln">Per rinnovarli puoi presentarti all'Immunization Clinic, livello 2, corridoio Amsterdam, stanza <span class="room">2D124</span>, e gestire insieme a loro la tua immunizzazione.</span>
 <span class="ln"><a class="tel" href="tel:+3265325329"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 29</a></span></li>
-        <li><b>Iscriviti alla mutua belga con l'S1</b>
-<span class="ln">È fortemente consigliata: senza mutua paghi per intero, senza rimborsi, tutto quello che la SHF non può darti, come visite specialistiche, farmaci e ricoveri.</span>
-<span class="ln">La tessera sanitaria europea copre gratuitamente solo alcune emergenze e urgenze: <a href="https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_it.htm" target="_blank" rel="noopener">approfondisci su Your Europe</a>.</span>
-<span class="ln">Se un tuo familiare non è residente o non ha il modello S1, puoi sottoscrivere per lui una polizza integrativa con la mutua, che lo copre durante la permanenza in Belgio, anche per brevi periodi.</span>
-<span class="ln">Per iscriverti chiedi prima la declaration of residence alla Sezione Affari Generali SHAPE, poi prendi appuntamento presso una mutua.</span>
-<span class="ln">La più vicina è Partenamut Mons, Boulevard Sainctelette 73/75, ma puoi scegliere liberamente la mutua.</span>
+        <li><b>Iscriversi alla mutua belga con l'S1</b>
+<span class="ln">L'iscrizione è fortemente consigliata a tutti.</span>
+<span class="ln">Senza l'iscrizione alla mutua pagheresti per intero tutto quello che la SHF (o altre forme di assistenza) non può garantirti, come visite specialistiche, farmaci e ricoveri ospedalieri.</span>
+<span class="ln gap">La tessera sanitaria europea, ad esempio, ti copre gratuitamente solo per alcune emergenze e urgenze: <a href="https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_it.htm" target="_blank" rel="noopener">approfondisci su Your Europe</a>.</span>
+<span class="ln gap">Se un tuo familiare non è residente o non ha il modello S1, puoi sottoscrivere per lui una polizza integrativa con la mutua belga, che lo coprirà durante la permanenza in Belgio, anche per brevi periodi.</span>
+<span class="ln gap">Per iscriverti chiedi prima la <span lang="en">Declaration of Residence</span> alla Sezione Affari Generali SHAPE, poi prendi appuntamento presso una mutua.</span>
+<span class="ln gap">La più vicina è la Partenamut Mons, Boulevard Sainctelette 73/75, ma puoi scegliere liberamente la mutua (assicurazione sanitaria) che preferisci.</span>
 <span class="ln"><a class="map" href="https://www.google.com/maps/dir/?api=1&amp;destination=Partenamut+Boulevard+Sainctelette+73+7000+Mons" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Portami a Partenamut</a></span>
-<span class="ln">La copertura parte dalla data del modello S1 e vale 12 mesi. Il modello S1 va rinnovato ogni anno presso la tua ASL.</span>
-<span class="ln">Approfondisci: <a href="https://www.patronatoacli.be/it/sanita--" target="_blank" rel="noopener">la guida del Patronato ACLI Belgio sulla sanità</a></span>
-<span class="ln">Prima di partire dall'Italia: <a href="https://www.esteri.it/wp-content/uploads/2026/03/Informazioni-e-brevi-indicazioni-operative%E2%80%A6prima-di-partire.pdf" target="_blank" rel="noopener">scheda della Farnesina su S1, A1 e tessera europea (PDF, pensata per il personale scolastico all'estero)</a></span></li>
+<span class="ln gap">La copertura parte dalla data del modello S1 e vale 12 mesi.<br>Il modello S1 va rinnovato ogni anno presso la tua ASL.</span>
+<span class="ln gap">Approfondisci: <a href="https://www.patronatoacli.be/it/sanita--" target="_blank" rel="noopener">la guida del Patronato ACLI Belgio sulla sanità</a></span>
+<span class="ln">Prima di partire dall'Italia:<br><a href="https://www.esteri.it/wp-content/uploads/2026/03/Informazioni-e-brevi-indicazioni-operative%E2%80%A6prima-di-partire.pdf" target="_blank" rel="noopener">scheda della Farnesina su S1, A1 e tessera europea<br>(PDF, pensata per il personale scolastico all'estero)</a></span></li>
       </ol>
     </div>
   </details>
 
   <details class="ch c-male" id="male"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-therm"/></svg><span class="k">2</span></span><span class="st"><h2 class="t">Sto male, cosa faccio</h2><span class="s">Prenotare il medico, check in, supporto psicologico, malattie</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
-      <div class="key"><b>Le visite della SHF sono solo su appuntamento</b>
-<span class="ln">Per il medico italiano prenota al desk della SHF (Appointment Line), solo per telefono o di persona: dal lunedì al venerdì dalle 7:30 AM alle 4:30 PM, il giovedì dalle 9:00 AM.</span>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
+      <div class="key"><b>Le visite mediche della SHF sono solo su appuntamento</b>
+<span class="ln">Per il medico italiano prenota al desk della SHF (Appointment Line), solo telefonicamente o di persona: dal lunedì al venerdì dalle 7:30 AM alle 4:30 PM, il giovedì dalle 9:00 AM.</span>
 <a class="btn call" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama il desk: 065 44 58 86</a></div>
       <ol role="list">
         <li><b>Il giorno dell'appuntamento</b>
-<span class="ln">Fai il check in allo sportello o al totem, dove puoi usare la <a href="tessera.html">tessera digitale</a>, poi vai all'ambulatorio.</span></li>
+<span class="ln">Fai il check in allo sportello o al totem, dove puoi usare la <a href="tessera.html">tessera digitale</a>, poi vai all'ambulatorio di riferimento.</span></li>
         <li><b>Disturbo acuto non grave</b>
 <span class="ln">Prenota sempre al desk della clinica.</span>
 <span class="ln">Se l'agenda del medico italiano è piena, puoi usufruire degli altri medici di medicina generale della clinica.</span></li>
         <li><b>Medico di famiglia belga, fuori dalla SHF</b>
 <span class="ln">Se ritieni di aver bisogno di maggiore assistenza o di un'assistenza dedicata, puoi scegliere anche un medico di famiglia belga: sarà il tuo riferimento quando la SHF è chiusa, la sera, nel weekend e nei festivi (come il medico di famiglia in Italia).</span>
 <span class="ln">Puoi cercarne uno che parli italiano o la lingua che preferisci su <a href="https://www.doctoranytime.be/en" target="_blank" rel="noopener">doctoranytime.be</a>, filtrando per lingua.</span>
-<span class="ln">La tariffa la decide il medico; la mutua rimborsa in base alla tariffa ufficiale.</span>
-<span class="ln">Per esempio parla italiano la <a href="https://rosa.be/en/hp/antonella-abbonizio/" target="_blank" rel="noopener">dott.ssa Antonella Abbonizio</a>, medico di medicina generale alla Clinique de la Brisée, Maisières.</span>
-<span class="ln">Altri medici nella stessa clinica: <a href="https://cliniquedelabrisee.com/our-doctors" target="_blank" rel="noopener">elenco dei medici della Clinique de la Brisée</a></span>
-<span class="ln">Prima della visita chiedi se la prestazione è rimborsata dalla tua mutua.</span></li>
+<span class="ln">La tariffa la decide il medico e la mutua rimborserà in base alla tariffa ufficiale.</span>
+<span class="ln gap">Per esempio parla italiano la <a href="https://rosa.be/en/hp/antonella-abbonizio/" target="_blank" rel="noopener">dott.ssa Antonella Abbonizio</a>, medico di medicina generale alla Clinique de la Brisée, Maisières.</span>
+<span class="ln gap">Altri medici nella stessa clinica: <a href="https://cliniquedelabrisee.com/our-doctors" target="_blank" rel="noopener">elenco dei medici della Clinique de la Brisée</a></span>
+<span class="ln gap">Prima della visita è meglio chiedere se la prestazione è rimborsata dalla tua mutua.</span></li>
         <li><b>Supporto psicologico</b>
-<span class="ln">La Behavioral Health della SHF è accessibile agli italiani, su prescrizione del medico: livello 2, corridoio Washington.</span>
+<span class="ln">La Behavioral Health della SHF è accessibile agli italiani, su prescrizione del medico:<br>la trovi al livello 2, corridoio Washington.</span>
 <span class="ln"><a class="tel" href="tel:+3265325320"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 20</a></span>
-<span class="ln">La Sezione Sanitaria Italiana è sempre disponibile per un colloquio e per darti supporto: passa nelle stanze <span class="room">1B104</span> e <span class="room">1B113</span> o scrivi a <a class="mail" href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
-<span class="ln">Per chi vive all'estero: <a href="https://www.italian-psychologist.com/" target="_blank" rel="noopener">Psicologi italiani online</a></span>
+<span class="ln gap">La Sezione Sanitaria Italiana è sempre disponibile per un colloquio e per darti supporto:<br>raggiungici nelle stanze <span class="room">1B104</span> e <span class="room">1B113</span> o scrivi a <a class="mail" href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
+<span class="ln gap">Inoltre: <a href="https://www.italian-psychologist.com/" target="_blank" rel="noopener">Psicologi italiani online</a></span>
 <span class="ln">Psicologi in Belgio, con filtro per lingua italiana e per città: <a href="https://www.myconsultation.be/it/s/psicologo/" target="_blank" rel="noopener">myconsultation.be</a></span>
 </li>
       </ol>
-      <div class="note"><b>Militari in malattia</b>: avvisa subito il superiore diretto, poi consegna entro 5 giorni <b>due certificati cartacei distinti</b>.
-<span class="ln"><b>Solo prognosi</b>: al tuo Comando o Ufficio, senza ritardo.</span>
-<span class="ln"><b>Diagnosi e prognosi</b>: alla Sezione Sanitaria. Se usi la PEC, fai due invii separati.</span>
-<span class="ln">Sezione Sanitaria: <b class="mail">infermeria.shape@gmail.com</b><button type="button" class="copy" data-c="infermeria.shape@gmail.com" aria-label="Copia l'indirizzo infermeria.shape@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>copia</button></span>
+      <div class="note"><b>Militari in malattia</b>: avvisa subito il superiore diretto,<br>poi consegna entro 5 giorni <b>due certificati cartacei distinti</b>.
+<span class="ln gap"><b>Solo prognosi</b>: al tuo Comando o Ufficio, senza ritardo.</span>
+<span class="ln gap"><b>Diagnosi e prognosi</b>: alla Sezione Sanitaria.</span>
+<span class="ln gap">Se usi la PEC, fai due invii separati.</span>
+<span class="ln gap">Sezione Sanitaria: <b class="mail">infermeria.shape@gmail.com</b><button type="button" class="copy" data-c="infermeria.shape@gmail.com" aria-label="Copia l'indirizzo infermeria.shape@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>copia</button></span>
 <a class="btn-doc" href="Certificazione_malattia_militari.pdf" target="_blank" rel="noopener">Apri il foglio informativo completo (PDF)</a></div>
     </div>
   </details>
 
   <details class="ch c-esami" id="shf"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span class="k">3</span></span><span class="st"><h2 class="t">Cosa mi offre la SHF?</h2><span class="s">Servizi della clinica accessibili agli italiani</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <p>Servizi accessibili a chi è registrato alla clinica, tutti su appuntamento salvo dove indicato.</p>
       <div class="svcs">
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-doc"/></svg></span><b>Medicina di base</b><span>Visita con il medico italiano o con un altro medico della clinica, su prenotazione al desk.</span><a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a></div>
@@ -891,7 +898,7 @@ body.pg main>section.cur{margin-top:0}
 
   <details class="ch c-farmaci" id="farmaci"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-pill"/></svg><span class="k">4</span></span><span class="st"><h2 class="t">Farmaci, mutua e rimborsi</h2><span class="s">Farmacia SHF, farmacie vicine, rimborsi, assicurazione ospedaliera</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
         <li><b>Farmacia SHF</b>
 <span class="ln">Livello 1, corridoio London, stanza <span class="room">1D137</span>.</span>
@@ -938,7 +945,7 @@ body.pg main>section.cur{margin-top:0}
 
   <details class="ch c-idoneita" id="militari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clip"/></svg><span class="k">5</span></span><span class="st"><h2 class="t">Per i militari</h2><span class="s">Visita di idoneità (SMI), rinnovo patente militare e idoneità speciali</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
         <li><b>Visita di idoneità (SMI)</b>
 <span class="ln">Periodicità del protocollo 5 3 2: <b>ogni 5 anni</b> sotto i 40 anni, <b>ogni 3 anni</b> da 40 a 49, <b>ogni 2 anni</b> dai 50 in su.</span>
@@ -957,7 +964,7 @@ body.pg main>section.cur{margin-top:0}
 
   <details class="ch c-famiglia" id="pediatrica"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-fam"/></svg><span class="k">6</span></span><span class="st"><h2 class="t">Area pediatrica · famiglia e bambini</h2><span class="s">School physical, vaccini per la scuola, ONE</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
         <li><b>Visita scolastica e sportiva (<span class="caps" lang="en">School physical</span>)</b>
 <span class="ln">Una volta l'anno, su prenotazione al desk.</span>
@@ -983,7 +990,7 @@ body.pg main>section.cur{margin-top:0}
 
   <details class="ch c-partenza" id="partenza"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-exit"/></svg><span class="k">7</span></span><span class="st"><h2 class="t">Parto da SHAPE · <span class="caps" lang="en">Outprocessing</span></h2><span class="s">Quattro passi, dalla partenza al rientro in Italia</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol class="side" role="list">
         <li><b>Scrivi alla Sezione Sanitaria almeno 7 giorni prima della partenza</b>
 <span class="ln">Così prepareremo la cartellina sanitaria da ritirare e portare con te in Italia.</span>
@@ -997,7 +1004,7 @@ body.pg main>section.cur{margin-top:0}
 
   <details class="ch c-orari" id="orari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span class="k">8</span></span><span class="st"><h2 class="t">Orari della clinica SHF</h2><span class="s">Dove si trovano i servizi, orari e telefoni</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
-      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF: <b>edificio 401</b>, Avenue d'Oslo</span></p>
+      <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <div class="note">Il giovedì la clinica apre alle 9:00 AM.<br>Ogni terzo giovedì del mese apre solo il pomeriggio.<br>Festivi SHAPE: solo mattina. Festivi USA: chiusa.</div>
       <nav class="hjump" aria-label="Vai al servizio"><a href="#h-1">Clinica</a><a href="#h-2">Prenotazioni</a><a href="#h-3">Medico italiano</a><a href="#h-4">Registrazione</a><a href="#h-5">Visite specialistiche</a><a href="#h-6">Laboratorio</a><a href="#h-7">Radiologia</a><a href="#h-8">Farmacia</a><a href="#h-9">Vaccini</a><a href="#h-10">Fisioterapia</a><a href="#h-11">Patient Advocate</a><a href="#h-12">Supporto psicologico</a><a href="#h-13">Dentista</a><a href="#h-14">Optometria</a></nav>
       <div class="hgrid">
