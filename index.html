@@ -627,14 +627,16 @@ a.map,a.tel{max-width:100%}
 
 .noshf strong .shfn{display:block;white-space:nowrap;font-size:min(1.22rem,calc(5.6vw - 5.5px));letter-spacing:-.005em}
 /* Bordino nero intorno alla bandiera, ovunque */
-.flagbar{border:1px solid #000!important;box-sizing:border-box}
-.flag{border:1px solid #000;box-sizing:content-box}
+.flagbar{border:0.5px solid #000!important;box-sizing:border-box}
+.flag{border:0.5px solid #000;box-sizing:content-box}
 footer .flagbar i:nth-child(2){box-shadow:none!important}
-.sosbar::before{box-shadow:none;border:1px solid #000;box-sizing:border-box;height:6px}
+.sosbar::before{box-shadow:none;border:0.5px solid #000;box-sizing:border-box;height:6px}
 /* Bordi sui pulsanti della barra fissa delle emergenze */
 .sosbar a{border:1.5px solid var(--red-ink)}
 .sosbar a:last-child{border-color:var(--red)}
-.sosbar .sblogo{border:1.5px solid var(--ink-2)}
+.sosbar .sblogo{border:1.5px solid var(--ink-2);align-self:center!important;height:56px!important;width:56px!important;border-radius:var(--r-m)!important}
+@media (max-width:440px){.sosbar .sblogo{height:56px!important;width:44px!important}.sosbar a{padding:0 6px!important}}
+@media (max-width:370px){.sosbar{gap:4px!important}.sosbar a{font-size:.85rem!important}.sosbar .sblogo{width:40px!important}}
 /* Indice in alto e sezioni aperte come pagine */
 .idxcard{position:relative;margin-top:-26px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:14px 12px 12px;box-shadow:var(--shadow-card)}
 .idxcard .idx-t{margin:0 0 12px;text-align:center}
