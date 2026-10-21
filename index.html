@@ -661,6 +661,16 @@ body.pg main>section.cur{margin-top:0}
 /* Spaziature decise nella revisione dei testi */
 .ln.gap,.gap{margin-top:.9em!important}
 .sp{display:block;height:.6em}
+/* Mappa a tutto schermo dentro la pagina: Indietro la chiude senza uscire dall'app */
+.mapv{position:fixed;inset:0;z-index:60;background:#fff;display:flex;flex-direction:column}
+.mapv[hidden]{display:none}
+.mapv-bar{display:flex;gap:8px;justify-content:space-between;align-items:center;padding:10px 12px calc(10px);background:var(--navy);flex:none}
+.mapv-bar button{font:inherit;font-weight:700;font-size:1rem;min-height:46px;padding:6px 16px;border-radius:999px;border:1.5px solid #fff;background:transparent;color:#fff;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.mapv-bar .mapc{background:#fff;color:var(--navy)}
+.mapv-bar svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.mapv-sc{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;background:#fff}
+.mapv-sc img{display:block;width:100%;height:auto;max-width:none}
+.mapv-sc.z img{width:250%}
 </style>
 </head>
 <body>
@@ -782,7 +792,7 @@ body.pg main>section.cur{margin-top:0}
     <h2 id="loc-t">Dove si trova la clinica SHF</h2>
     <figure><img src="edificio_401_SHF.jpg" alt="Ingresso della SHAPE Healthcare Facility, edificio 401" width="1000" height="563" loading="lazy"></figure>
     <p><b>Clinica SHF · edificio 401 · Avenue d'Oslo</b><br>All'interno della base di SHAPE</p>
-    <figure class="mappa"><a href="mappa_shape_SHF.jpg" target="_blank" rel="noopener" aria-label="Apri la mappa della base SHAPE a tutto schermo"><img src="mappa_shape_SHF_small.jpg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401, nell'area 400" width="900" height="1311" loading="lazy"></a><figcaption>Il puntino rosso indica la clinica SHF. Tocca la mappa per ingrandirla.</figcaption></figure>
+    <figure class="mappa"><a href="mappa_shape_SHF.jpg" id="mapopen" aria-label="Apri la mappa della base SHAPE a tutto schermo"><img src="mappa_shape_SHF_small.jpg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401, nell'area 400" width="900" height="1311" loading="lazy"></a><figcaption>Il puntino rosso indica la clinica SHF. Tocca la mappa per ingrandirla.</figcaption></figure>
     <p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 AM a 12:00 PM<br>1:00 PM a 5:00 PM<br>(il giovedì dalle 9:00 AM)</p>
     <div class="pair"><a class="btn" href="#orari"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tutti gli orari</a><a class="btn" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Prenota</a></div>
   </section>
@@ -1231,6 +1241,10 @@ body.pg main>section.cur{margin-top:0}
     <span>Scrivi alla Sezione per segnalare errori o modifiche: <a href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
   </footer>
 </div>
+<div class="mapv" id="mapv" hidden role="dialog" aria-modal="true" aria-label="Mappa della base SHAPE">
+  <div class="mapv-bar"><button type="button" id="mapz" aria-label="Ingrandisci la mappa"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21M11 8v6M8 11h6"/></svg><span id="mapzt">Ingrandisci</span></button><button type="button" id="mapc" class="mapc">Chiudi</button></div>
+  <div class="mapv-sc" id="mapsc"><img id="mapimg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401" decoding="async"></div>
+</div>
 <nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><button type="button" class="sblogo" id="sbtop" aria-label="Torna all'inizio della pagina" title="Torna all'inizio"><img src="logo_sezione_sanitaria.jpg" alt="" width="40" height="40"></button><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza" class="sbE" aria-label="Emergenza: vai ai numeri e alle istruzioni" title="Emergenza">E</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
@@ -1259,6 +1273,18 @@ function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;t
 document.querySelectorAll("details.ch>summary").forEach(sm=>sm.addEventListener("click",e=>{if(document.body.classList.contains("pg"))e.preventDefault()}));
 document.getElementById("pgback").addEventListener("click",()=>{location.hash="indice"});
 route();addEventListener("hashchange",route);
+/* Mappa: si apre a tutto schermo nella pagina; Chiudi o Indietro tornano alla guida */
+(function(){const a=document.getElementById("mapopen"),v=document.getElementById("mapv"),sc=document.getElementById("mapsc"),im=document.getElementById("mapimg");if(!a||!v)return;
+ let aperta=false;
+ function apri(){if(!im.src)im.src=a.getAttribute("href");v.hidden=false;aperta=true;sc.classList.remove("z");document.getElementById("mapzt").textContent="Ingrandisci";document.body.style.overflow="hidden";try{history.pushState({mappa:1},"",location.href)}catch(e){}document.getElementById("mapc").focus()}
+ function chiudi(){v.hidden=true;aperta=false;document.body.style.overflow="";a.focus()}
+ a.addEventListener("click",e=>{e.preventDefault();apri()});
+ document.getElementById("mapc").addEventListener("click",()=>{if(history.state&&history.state.mappa)history.back();else chiudi()});
+ addEventListener("popstate",()=>{if(aperta)chiudi()});
+ document.getElementById("mapz").addEventListener("click",()=>{const z=sc.classList.toggle("z");document.getElementById("mapzt").textContent=z?"Riduci":"Ingrandisci";if(z){const r=sc.scrollWidth;sc.scrollLeft=(r-sc.clientWidth)*0.3;sc.scrollTop=(sc.scrollHeight-sc.clientHeight)*0.35}});
+ addEventListener("keydown",e=>{if(aperta&&e.key==="Escape")document.getElementById("mapc").click()});
+})();
+
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const fb=document.getElementById("fbf");
 fb.messaggio.addEventListener("input",()=>fb.messaggio.removeAttribute("aria-invalid"));fb.email.addEventListener("input",()=>fb.email.removeAttribute("aria-invalid"));
