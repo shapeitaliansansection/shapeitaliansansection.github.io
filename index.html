@@ -510,7 +510,9 @@ details.ch>summary:focus-visible{outline:3px solid var(--focus,#1d63c5);outline-
 .st h2.t{margin:0;font-size:1.22rem;line-height:1.15}
 .sosbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:6px;justify-content:center;padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:0;box-shadow:0 -6px 18px rgba(19,32,46,.12)}
 .sosbar::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--it-green) 0 33.33%,var(--it-white) 33.33% 66.66%,var(--it-red) 66.66% 100%);box-shadow:inset 0 -1px 0 var(--line)}
-.sosbar .sblogo{flex:none;align-self:center;width:40px;height:40px;border-radius:9px;border:1px solid var(--line);object-fit:cover}
+.sosbar .sblogo{flex:none;align-self:center;width:40px;height:40px;padding:0;border-radius:9px;border:1px solid var(--line);background:#fff;overflow:hidden;cursor:pointer}
+.sosbar .sblogo img{width:100%;height:100%;object-fit:cover;display:block}
+.sosbar .sblogo:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .sosbar a{flex:1 1 0;min-height:48px;display:flex;align-items:center;justify-content:center;gap:6px;border-radius:var(--r-m);font-weight:800;text-decoration:none;text-align:center;background:var(--red);color:var(--on-red);font-size:.95rem}
 .sosbar a:last-child{flex:0 1 auto;padding:0 12px;background:var(--red-tint);color:var(--red-ink)}
 .sosbar .i{width:18px;height:18px}
@@ -1168,7 +1170,7 @@ a.map,a.tel{max-width:100%}
     <span>Scrivi alla Sezione per segnalare errori o modifiche: <a href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
   </footer>
 </div>
-<nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><img class="sblogo" src="logo_sezione_sanitaria.jpg" alt="" width="40" height="40"><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza">Emergenza</a></nav>
+<nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><button type="button" class="sblogo" id="sbtop" aria-label="Torna all'inizio della pagina" title="Torna all'inizio"><img src="logo_sezione_sanitaria.jpg" alt="" width="40" height="40"></button><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza">Emergenza</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
 document.addEventListener("click",async e=>{
@@ -1181,6 +1183,7 @@ document.addEventListener("click",async e=>{
 const chs=[...document.querySelectorAll("details.ch")];
 chs.forEach(d=>d.addEventListener("toggle",()=>{ if(d.open){ chs.forEach(o=>{ if(o!==d && o.open) o.open=false; }); setTimeout(()=>d.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}),30); } }));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href")); const d=t&&t.closest("details.ch"); if(d) d.open=true;}));
+document.getElementById("sbtop").addEventListener("click",()=>{try{history.replaceState(null,"",location.pathname)}catch(e){}window.scrollTo({top:0,behavior:"smooth"})});
 const sb=document.getElementById("sosbar"),big=[...document.querySelectorAll("#emergenza a.big")],vis=new Set();
 if(sb&&big.length&&"IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));sb.hidden=vis.size>0||big[0].getBoundingClientRect().top>0;});big.forEach(x=>io.observe(x));}
 const gg=["","Lun","Mar","Mer","Gio","Ven"][new Date().getDay()]; if(gg) document.querySelectorAll(".wk tbody th").forEach(th=>{if(th.textContent.trim()===gg){th.parentElement.classList.add("oggi");th.insertAdjacentHTML("beforeend",'<span class="sr"> (oggi)</span>');}});
