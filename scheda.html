@@ -435,6 +435,14 @@ legend{margin:0 auto;text-align:center}
 .privacy,.hint,.err,.done{text-align:center}
 .chk{justify-content:center;text-align:left}
 .done{align-items:center}
+/* Date gg/mm/aaaa: campo di testo piu' pulsante calendario */
+.dt{display:flex;gap:8px;align-items:stretch;width:100%}
+.dt .dtxt{flex:1;min-width:0}
+.dt .cal{position:relative;flex:none;width:54px;min-height:46px;border:1.5px solid var(--line-strong);border-radius:var(--r-m);background:#fff;display:grid;place-items:center;color:var(--navy);cursor:pointer}
+.dt .cal svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.fl .dt .cal input{position:absolute;inset:0;width:100%;height:100%;min-height:0;opacity:0;padding:0;margin:0;border:0;cursor:pointer}
+.fl .dt .dtxt.bad,.dt:has(input[aria-invalid="true"]) .dtxt{border-color:var(--red);background:var(--red-tint)}
+.dt .cal:focus-within{outline:3px solid var(--focus);outline-offset:1px}
 </style>
 </head>
 <body>
@@ -553,6 +561,30 @@ legend{margin:0 auto;text-align:center}
     <span><b>Sezione Sanitaria Italiana · SHAPE</b> · SHAPE Healthcare Facility, edificio 401, stanze <span class="room">1B104</span> e <span class="room">1B113</span> · <a href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>
   </footer>
 </div>
+<script>
+/* Date in formato gg/mm/aaaa: si scrivono a mano oppure si scelgono dal calendario */
+(function(){
+const iso2it=v=>{const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(v||"");return m?m[3]+"/"+m[2]+"/"+m[1]:""};
+function it2iso(t){const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(t);if(!m)return"";const d=+m[1],mo=+m[2],y=+m[3],x=new Date(y,mo-1,d);
+  if(y<1900||y>2100||x.getFullYear()!==y||x.getMonth()!==mo-1||x.getDate()!==d)return"";return m[3]+"-"+m[2]+"-"+m[1]}
+function mask(v){const s=v.replace(/\D/g,"").slice(0,8);return s.length>4?s.slice(0,2)+"/"+s.slice(2,4)+"/"+s.slice(4):s.length>2?s.slice(0,2)+"/"+s.slice(2):s}
+document.querySelectorAll('input[type="date"]').forEach(d=>{
+  const w=document.createElement("span");w.className="dt";
+  const t=document.createElement("input");t.type="text";t.className="dtxt";t.inputMode="numeric";t.placeholder="gg/mm/aaaa";t.maxLength=10;t.autocomplete="off";
+  const lab=d.closest("label");if(lab&&lab.firstChild)t.setAttribute("aria-label",lab.firstChild.textContent.replace("*","").trim()+", formato gg/mm/aaaa");
+  const c=document.createElement("span");c.className="cal";c.title="Scegli dal calendario";
+  c.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>';
+  d.parentNode.insertBefore(w,d);w.append(t,c);c.appendChild(d);d.setAttribute("aria-label","Apri il calendario");
+  t.addEventListener("input",()=>{const prima=t.value;t.value=mask(prima);d.value=it2iso(t.value);t.classList.toggle("bad",t.value.length===10&&!d.value);d.removeAttribute("aria-invalid")});
+  t.addEventListener("blur",()=>t.classList.toggle("bad",!!t.value&&!d.value));
+  const sync=()=>{t.value=iso2it(d.value);t.classList.remove("bad");d.removeAttribute("aria-invalid")};
+  d.addEventListener("change",sync);d.addEventListener("input",sync);
+  d.addEventListener("click",()=>{try{d.showPicker()}catch(e){}});
+  d.focus=()=>t.focus();d.ggSync=sync;
+  if(d.value)sync();
+});
+})();
+</script>
 <script>
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const f=document.getElementById("f");
