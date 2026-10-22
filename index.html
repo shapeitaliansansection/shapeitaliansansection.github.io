@@ -1377,11 +1377,11 @@ function disegna(){const S=stato();
 <p class="shfleg"><span class="st-ok">Orario normale</span><span class="st-warn">Orario ridotto</span><span class="st-no">Chiusa</span></p>
 ${S.N.d>FY1?'<p class="shfleg">Calendario festività del nuovo anno non ancora disponibile: verifica al desk.</p>':""}`}
   const c=document.getElementById("shfcal");
-  if(c&&!c.dataset.ok){const oggi=S.N.d;const giorni=Object.keys(CAL.g).concat(Object.keys(CAL.n)).filter(d=>d>=oggi).sort();let html="",mese="";
+  if(c&&!c.dataset.ok){const oggi=S.N.d;const y=+oggi.slice(0,4),mo=+oggi.slice(5,7),lim=(mo>=11?y+1:y)+"-"+String((mo+1)%12+1).padStart(2,"0")+"-01";const giorni=Object.keys(CAL.g).concat(Object.keys(CAL.n)).filter(d=>d>=oggi&&d<lim).sort();let html="",mese="";
     for(const d of giorni){const g=giorno(d);const m=MM[+d.slice(5,7)-1]+" "+d.slice(0,4);if(m!==mese){if(mese)html+="</ul>";html+=`<p class="mese">${m}</p><ul class="shfdays">`;mese=m}
       html+=`<li class="${cls(g)}"><span class="gd">${dataBreve(d)}</span><span class="gh">${seg2txt(g.seg)}</span><span class="gl">${[g.lab,g.nota].filter(Boolean).join(" · ")}</span></li>`}
     if(mese)html+="</ul>";
-    c.innerHTML=`<h3>Giorni con orario diverso</h3><p class="shfleg"><span class="st-warn">Solo 8:00 AM a 12:00 PM</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno speciale in calendario.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
+    c.innerHTML=`<h3>Giorni con orario diverso, questo mese e il prossimo</h3><p class="shfleg"><span class="st-warn">Solo 8:00 AM a 12:00 PM</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno con orario diverso in questo mese e nel prossimo.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
 }
 disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)disegna()});
 })();
