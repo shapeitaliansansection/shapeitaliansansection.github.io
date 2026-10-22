@@ -257,6 +257,38 @@ footer::before{content:"";position:absolute;left:16px;top:-1px;width:54px;height
 footer b{color:var(--ink)}
 .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--toast-bg);color:var(--toast-ink);padding:10px 18px;border-radius:999px;font-size:.95rem;font-weight:700;opacity:0;transition:opacity .2s;pointer-events:none;max-width:calc(100% - 32px);overflow-wrap:anywhere}
 .toast.on{opacity:1}
+/* Stato della clinica in tempo reale */
+.shfnow{display:flex;align-items:center;gap:12px;margin:0 0 12px;padding:10px 14px;border-radius:var(--r-l);border:2px solid var(--sc);background:var(--ss);color:var(--ink);text-decoration:none}
+.shfnow .dot,.shfbig .dot{flex:0 0 auto;width:14px;height:14px;border-radius:50%;background:var(--sc);box-shadow:0 0 0 4px color-mix(in srgb,var(--sc) 22%,transparent)}
+.shfnow .tx{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+.shfnow b{font-family:var(--display);font-weight:800;font-stretch:90%;font-size:1.08rem;color:var(--sc)}
+.shfnow small{font-size:.86rem;color:var(--ink-2)}
+.shfnow .go{margin-left:auto;font-size:.82rem;font-weight:700;color:var(--link);white-space:nowrap}
+.st-ok{--sc:#1a7342;--ss:#e5f3ea}
+.st-warn{--sc:#8a5300;--ss:#fdf1dc}
+.st-pause{--sc:#3d48b0;--ss:#e6e8f8}
+.st-no{--sc:#b3121b;--ss:#fbf1f1}
+.shfstato{width:100%;max-width:520px;display:flex;flex-direction:column;gap:10px;text-align:left}
+.shfbig{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:var(--r-l);border:2px solid var(--sc);background:var(--ss)}
+.shfbig .tx{display:flex;flex-direction:column;line-height:1.3}
+.shfbig b{font-family:var(--display);font-weight:800;font-stretch:90%;font-size:1.25rem;color:var(--sc)}
+.shfbig span{font-size:.92rem;color:var(--ink-2)}
+.shfdays{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--r-m);overflow:hidden;font-family:"MontserratL",var(--body),sans-serif;font-variant-numeric:tabular-nums lining-nums}
+.shfdays li{text-align:left;display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);font-size:.92rem}
+.shfdays li:first-child{border-top:0}
+.shfdays li.oggi{background:var(--chip)}
+.shfdays .gd{font-weight:700;min-width:7.2em;display:flex;align-items:center;gap:8px}
+.shfdays .gd::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--sc);flex:0 0 auto}
+.shfdays .gh{font-weight:600}
+.shfdays .gl{grid-column:2;font-size:.82rem;color:var(--muted);font-family:var(--body)}
+.shfdays li.st-we{--sc:var(--line-strong);color:var(--muted)}
+.shfleg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.82rem;color:var(--muted);margin:0}
+.shfleg span{display:inline-flex;align-items:center;gap:6px}
+.shfleg span::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--sc)}
+.shfcal{max-width:62ch;margin:14px auto 0;display:flex;flex-direction:column;gap:10px}
+.shfcal h3{margin:0;font-family:var(--display);font-weight:800;font-stretch:90%;font-size:1.15rem;color:var(--c)}
+.shfcal .mese{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink);margin:6px 0 0;text-transform:capitalize}
+.shfcal small{color:var(--muted);font-size:.82rem}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 header a:focus-visible{outline-color:var(--focus-navy)}
 
@@ -732,6 +764,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
   <main id="contenuto">
   <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
   <div class="idxcard" id="indice">
+  <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
   <h2 class="idx-t" id="idx-t">Argomenti</h2>
   <nav class="idx" aria-labelledby="idx-t">
     <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-dentista wide" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale · codice a barre</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
@@ -794,7 +827,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     <figure><img src="edificio_401_SHF.jpg" alt="Ingresso della SHAPE Healthcare Facility, edificio 401" width="1000" height="563" loading="lazy"></figure>
     <p><b>Clinica SHF · edificio 401 · Avenue d'Oslo</b><br>All'interno della base di SHAPE</p>
     <figure class="mappa"><a href="mappa_shape_SHF.jpg" id="mapopen" aria-label="Apri la mappa della base SHAPE a tutto schermo"><img src="mappa_shape_SHF_small.jpg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401, nell'area 400" width="900" height="1311" loading="lazy"></a><figcaption>Il puntino rosso indica la clinica SHF. Tocca la mappa per ingrandirla.<br><small>Mappa: SHAPE Morale and Welfare Branch (MWB), elaborata dalla Sezione Sanitaria Italiana.</small></figcaption></figure>
-    <p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 AM a 12:00 PM<br>1:00 PM a 5:00 PM<br>(il giovedì dalle 9:00 AM)</p>
+    <div class="shfstato" id="shfstato"><p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 AM a 12:00 PM<br>1:00 PM a 5:00 PM<br>(il giovedì dalle 9:00 AM)</p></div>
     <div class="pair"><a class="btn" href="#orari"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tutti gli orari</a><a class="btn" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Prenota</a></div>
   </section>
 
@@ -1022,7 +1055,8 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
   <details class="ch c-orari" id="orari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span class="k">8</span></span><span class="st"><h2 class="t">Orari della clinica SHF</h2><span class="s">Dove si trovano i servizi, orari e telefoni</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
-      <div class="note">Il giovedì la clinica apre alle 9:00 AM.<br>Ogni terzo giovedì del mese apre solo il pomeriggio.<br>Festivi SHAPE: solo mattina. Festivi USA: chiusa.</div>
+      <div class="note">Il giovedì la clinica apre alle 9:00 AM.<br>Ogni terzo giovedì del mese apre solo il pomeriggio, dalle 1:00 PM alle 5:00 PM.<br>Festivi SHAPE e giornate a servizio ridotto: solo dalle 8:00 AM alle 12:00 PM. Festivi USA: chiusa.</div>
+      <div class="shfcal" id="shfcal"></div>
       <nav class="hjump" aria-label="Vai al servizio"><a href="#h-1">Clinica</a><a href="#h-2">Prenotazioni</a><a href="#h-3">Medico italiano</a><a href="#h-4">Registrazione</a><a href="#h-5">Visite specialistiche</a><a href="#h-6">Laboratorio</a><a href="#h-7">Radiologia</a><a href="#h-8">Farmacia</a><a href="#h-9">Vaccini</a><a href="#h-10">Fisioterapia</a><a href="#h-11">Patient Advocate</a><a href="#h-12">Supporto psicologico</a><a href="#h-13">Dentista</a><a href="#h-14">Optometria</a></nav>
       <div class="hgrid">
 <div class="hcard" id="h-1"><div class="hh"><span class="hn">1</span><b id="hl-1">Clinica SHF (apertura generale)</b></div>
@@ -1307,6 +1341,56 @@ if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWo
  let ev=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();ev=e;ib.hidden=false;});
  ib.addEventListener("click",async()=>{if(!ev)return;ev.prompt();await ev.userChoice;ev=null;ib.hidden=true;});
  addEventListener("appinstalled",()=>{ib.hidden=true;show("how-ok");});})();
+/* Stato della clinica SHF in tempo reale, dal calendario FY 2027 SHAPE/Brussels (v4) */
+(function(){
+const CAL={"g":{"2026-10-09":["r","cc","Commander's Introduction"],"2026-10-12":["c","us","Columbus Day (festivo USA)"],"2026-10-23":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2026-11-02":["r","sh","Ognissanti (festivo SHAPE)"],"2026-11-10":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2026-11-11":["c","be","Armistizio e Veterans Day (festivo belga e USA)"],"2026-11-20":["r","cc","Thanksgiving Potluck (evento del personale)"],"2026-11-26":["c","us","Thanksgiving Day (festivo USA)"],"2026-11-27":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2026-12-11":["r","cc","Christmas Potluck (evento del personale)"],"2026-12-21":["r","hs","Orario festivo natalizio"],"2026-12-22":["r","hs","Orario festivo natalizio"],"2026-12-23":["r","hs","Orario festivo natalizio"],"2026-12-24":["r","hs","Orario festivo natalizio"],"2026-12-25":["c","us","Natale (festivo USA)"],"2026-12-28":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2026-12-29":["r","hs","Orario festivo natalizio"],"2026-12-30":["r","hs","Orario festivo natalizio"],"2026-12-31":["r","hs","Orario festivo natalizio"],"2027-01-01":["c","us","Capodanno (festivo USA)"],"2027-01-04":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-01-15":["r","fr","Commander's Call e Focused Readiness / Resiliency Day"],"2027-01-18":["c","us","Martin Luther King Jr. Day (festivo USA)"],"2027-02-15":["c","us","Presidents' Day (festivo USA)"],"2027-02-26":["r","fr","Focused Readiness / Resiliency Day"],"2027-03-19":["r","fr","Focused Readiness / Spring Ball"],"2027-03-26":["r","sm","Venerdì Santo (festivo SHAPE, servizio ridotto)"],"2027-03-29":["r","sm","Lunedì dell'Angelo (festivo SHAPE, servizio ridotto)"],"2027-04-16":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-04-30":["r","sh","Festa del lavoro (festivo SHAPE)"],"2027-05-06":["r","sh","Ascensione (festivo SHAPE)"],"2027-05-17":["r","sh","Lunedì di Pentecoste (festivo SHAPE)"],"2027-05-21":["r","cc","Commander's Call"],"2027-05-28":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-05-31":["c","us","Memorial Day (festivo USA)"],"2027-06-18":["c","us","Juneteenth (festivo USA)"],"2027-06-21":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-07-02":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-07-05":["c","us","Independence Day (festivo USA)"],"2027-07-21":["r","sh","Festa nazionale belga (festivo SHAPE)"],"2027-08-06":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-08-16":["r","sh","Assunzione (festivo SHAPE); late call alle 8:59, primo giorno di scuola USA"],"2027-08-20":["r","cc","ORG Day e Commander's Call"],"2027-09-03":["r","mm","Giornata a servizio ridotto (minimum manning)"],"2027-09-06":["c","us","Labor Day (festivo USA)"]},"n":{"2027-04-15":"Clinica belga chiusa (Festa del Re); la SHF segue l'orario normale","2027-08-17":"Late call alle 8:59, primo giorno di scuola USA"}};
+const FY0="2026-10-01",FY1="2027-09-30",TZ="Europe/Brussels";
+const GG=["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"],GB=["dom","lun","mar","mer","gio","ven","sab"];
+const MM=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+function adesso(){const p=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const g=t=>(p.find(x=>x.type===t)||{}).value;return{d:`${g("year")}-${g("month")}-${g("day")}`,m:(+g("hour")%24)*60+(+g("minute"))}}
+const piu=(d,n)=>{const x=new Date(d+"T12:00:00Z");x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+const gs=d=>new Date(d+"T12:00:00Z").getUTCDay();
+const ora=m=>{const h=Math.floor(m/60),mi=m%60,h12=h%12||12;return `${h12}:${String(mi).padStart(2,"0")} ${h<12?"AM":"PM"}`};
+const seg2txt=s=>s.length?s.map(([a,b])=>`${ora(a)} a ${ora(b)}`).join(", "):"Chiusa";
+const dataLunga=d=>`${GG[gs(d)]} ${+d.slice(8,10)} ${MM[+d.slice(5,7)-1]}`;
+const dataBreve=d=>`${GB[gs(d)]} ${+d.slice(8,10)} ${MM[+d.slice(5,7)-1].slice(0,3)}`;
+function giorno(d){const w=gs(d),g=CAL.g[d],nota=CAL.n[d]||"";
+  if(w===0||w===6)return{seg:[],t:"we",lab:"Fine settimana",nota};
+  if(g&&g[0]==="c")return{seg:[],t:"c",lab:g[2],nota};
+  if(g)return{seg:[[480,720]],t:"r",lab:g[2],nota};
+  const n=+d.slice(8,10);
+  if(w===4&&n>=15&&n<=21)return{seg:[[780,1020]],t:"g3",lab:"Terzo giovedì del mese: solo pomeriggio",nota};
+  if(w===4)return{seg:[[540,720],[780,1020]],t:"n",lab:"",nota};
+  return{seg:[[480,720],[780,1020]],t:"n",lab:"",nota}}
+const cls=g=>g.t==="we"?"st-we":g.t==="c"?"st-no":g.t==="r"||g.t==="g3"?"st-warn":"st-ok";
+function stato(){const N=adesso(),G=giorno(N.d);
+  const att=G.seg.find(([a,b])=>N.m>=a&&N.m<b);
+  if(att){const r=att[1]-N.m;return{c:r<=30?"st-warn":"st-ok",t:r<=30?`Aperta, chiude alle ${ora(att[1])}`:"Aperta ora",s:`Fino alle ${ora(att[1])}${G.t==="r"?" · orario ridotto: "+G.lab:""}`,G,N}}
+  const dopo=G.seg.find(([a])=>a>N.m);
+  if(dopo){const prima=G.seg.some(([,b])=>b<=N.m);return{c:"st-pause",t:prima?`Pausa, riapre alle ${ora(dopo[0])}`:`Chiusa, apre alle ${ora(dopo[0])}`,s:`Oggi: ${seg2txt(G.seg)}${G.lab?" · "+G.lab:""}`,G,N}}
+  let d=N.d;for(let i=1;i<15;i++){d=piu(N.d,i);const g=giorno(d);if(g.seg.length){const q=i===1?"domani":GG[gs(d)]+(i>6?" "+(+d.slice(8,10))+" "+MM[+d.slice(5,7)-1]:"");
+    return{c:"st-no",t:"Chiusa ora",s:`${G.t==="c"?G.lab+" · ":""}Riapre ${q} alle ${ora(g.seg[0][0])}`,G,N}}}
+  return{c:"st-no",t:"Chiusa ora",s:"",G,N}}
+function disegna(){const S=stato();
+  const a=document.getElementById("shfnow");
+  if(a){a.className="shfnow "+S.c;a.innerHTML=`<span class="dot" aria-hidden="true"></span><span class="tx"><b>Clinica SHF: ${S.t}</b><small>${S.s}</small></span><span class="go">Orari ›</span>`;a.hidden=false;a.setAttribute("aria-label",`Clinica SHF: ${S.t}. ${S.s}. Apri gli orari`)}
+  const b=document.getElementById("shfstato");
+  if(b){let li="";for(let i=0;i<7;i++){const d=piu(S.N.d,i),g=giorno(d);
+      li+=`<li class="${cls(g)}${i===0?" oggi":""}"><span class="gd">${i===0?"Oggi":i===1?"Domani":dataBreve(d)}</span><span class="gh">${g.t==="we"?"Chiusa":seg2txt(g.seg)}</span>${g.lab&&g.t!=="we"||g.nota?`<span class="gl">${[g.t!=="we"?g.lab:"",g.nota].filter(Boolean).join(" · ")}</span>`:""}</li>`}
+    b.innerHTML=`<div class="shfbig ${S.c}" role="status"><span class="dot" aria-hidden="true"></span><span class="tx"><b>${S.t}</b><span>${S.s}</span></span></div>
+<ul class="shfdays" aria-label="Orari dei prossimi 7 giorni">${li}</ul>
+<p class="shfleg"><span class="st-ok">Orario normale</span><span class="st-warn">Orario ridotto</span><span class="st-no">Chiusa</span></p>
+${S.N.d>FY1?'<p class="shfleg">Calendario festività del nuovo anno non ancora disponibile: verifica al desk.</p>':""}`}
+  const c=document.getElementById("shfcal");
+  if(c&&!c.dataset.ok){const oggi=S.N.d;const giorni=Object.keys(CAL.g).concat(Object.keys(CAL.n)).filter(d=>d>=oggi).sort();let html="",mese="";
+    for(const d of giorni){const g=giorno(d);const m=MM[+d.slice(5,7)-1]+" "+d.slice(0,4);if(m!==mese){if(mese)html+="</ul>";html+=`<p class="mese">${m}</p><ul class="shfdays">`;mese=m}
+      html+=`<li class="${cls(g)}"><span class="gd">${dataBreve(d)}</span><span class="gh">${seg2txt(g.seg)}</span><span class="gl">${[g.lab,g.nota].filter(Boolean).join(" · ")}</span></li>`}
+    if(mese)html+="</ul>";
+    c.innerHTML=`<h3>Giorni con orario diverso</h3><p class="shfleg"><span class="st-warn">Solo 8:00 AM a 12:00 PM</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno speciale in calendario.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
+}
+disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)disegna()});
+})();
+
 </script>
 
 </body>
