@@ -1044,6 +1044,15 @@ body.va .body .key,body.va .body .key .ln,body.va .body .formbox,body.va .body .
 body.va h2[tabindex="-1"]:focus{outline:none}
 /* Nome della Sezione e data centrati tra logo e meteo */
 body.va .hname{text-align:center;align-items:center}
+body.va .hname b.hss{font-size:.9rem;white-space:nowrap}
+body.va .ita{font-weight:800;letter-spacing:.02em}
+body.va .ita i{font-style:normal}
+body.va .hname .upd{font-size:.7rem!important}
+body.va .htes{margin-top:10px}
+body.va .htes a{min-height:40px;padding:0 16px;gap:8px;font-size:.9rem;font-weight:700;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+body.va .htes a .i{width:18px;height:18px}
+body.va .hsub .hshf{color:var(--on-navy);font-weight:800;letter-spacing:.02em}
+body.va .hsub .hcome{color:var(--on-navy);font-weight:700;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
 body.va .hname .hsh{font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.08em;color:var(--on-navy)}
 </style>
 </head>
@@ -1092,9 +1101,9 @@ body.va .hname .hsh{font-family:var(--display);font-weight:700;font-size:.9rem;l
 
 <div class="wrap">
   <header class="hd2">
-    <div class="hbar"><a class="hlogo" href="./" aria-label="Torna alla pagina iniziale"><img src="logo_sezione_sanitaria.jpg" alt="" width="44" height="44"></a><span class="hname"><b>Sezione Sanitaria Italiana</b><span class="hsh">SHAPE</span><span class="upd" id="upd">Aggiornato il 21 ottobre 2026</span></span><span class="meteo" id="meteo" role="img" hidden></span><span class="tv" aria-hidden="true"><i></i><i></i><i></i></span></div>
+    <div class="hbar"><a class="hlogo" href="./" aria-label="Torna alla pagina iniziale"><img src="logo_sezione_sanitaria.jpg" alt="" width="44" height="44"></a><span class="hname"><b class="hss">Sezione Sanitaria <span class="ita" aria-label="ITA"><i>I</i><i>T</i><i>A</i></span></b><span class="hsh">SHAPE</span><span class="upd" id="upd">aggiornata il 21 ottobre 2026</span></span><span class="meteo" id="meteo" role="img" hidden></span><span class="tv" aria-hidden="true"><i></i><i></i><i></i></span></div>
     <h1>Guida sanitaria SHAPE</h1>
-    <p class="hsub">Per militari italiani e famiglie. La clinica della base è la SHAPE Healthcare Facility (SHF): la usi con la SHAPE ID, dopo esserti registrato.</p>
+    <p class="hsub">Registrandoti alla<br><b class="hshf">SHAPE HEALTHCARE FACILITY (SHF)</b><br>potrai usufruire dei suoi servizi, <a class="hcome" href="#arrivo">scopri come</a></p>
     <div class="htes"><a href="tessera.html"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg>La mia tessera digitale</a></div>
   </header>
 
@@ -1705,7 +1714,7 @@ fb.addEventListener("submit",async ev=>{
 });
 
 /* "Aggiornato al": data dell'ultima pubblicazione del sito, letta dal server */
-(function(){const d=new Date(document.lastModified);if(isNaN(d)||Date.now()-d<5000)return;const p=n=>String(n).padStart(2,"0");document.getElementById("upd").textContent=`Aggiornato il ${d.getDate()} ${["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"][d.getMonth()]} ${d.getFullYear()}`;})();
+(function(){const d=new Date(document.lastModified);if(isNaN(d)||Date.now()-d<5000)return;const p=n=>String(n).padStart(2,"0");document.getElementById("upd").textContent=`aggiornata il ${d.getDate()} ${["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"][d.getMonth()]} ${d.getFullYear()}`;})();
 if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}
 (function(){const ib=document.getElementById("instbtn"),ios=/iphone|ipad|ipod/i.test(navigator.userAgent),st=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
  const show=id=>{["how-ios","how-and","how-ok"].forEach(x=>document.getElementById(x).hidden=x!==id);};
