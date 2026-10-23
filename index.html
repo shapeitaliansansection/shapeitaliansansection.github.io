@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SHAPE Healthcare Italian Section</title>
+<title>Guida sanitaria SHAPE · Sezione Sanitaria Italiana</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SHAPE Healthcare Italian Section">
@@ -708,13 +708,92 @@ body.pg main>section.cur{margin-top:0}
 .mapv-sc img{display:block;width:100%;height:auto;max-width:none}
 .mapv-sc.z img{width:250%}
 footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:4px;align-self:stretch;text-align:center}
+
+/* ===== Proposta A: guida ordinata, emergenza in prima schermata ===== */
+body.va{--f-sal:#0b6f73;--s-sal:#dff2f2;--f-inf:#1d3a68;--s-inf:#e8edf5;--f-per:#0b62a0;--s-per:#e3f0fa;--f-mil:#5a6512;--s-mil:#eef0d8;--ctl:#6b7686}
+body.va .wrap{padding-bottom:96px}
+body.va header.hd2{padding:12px 0 44px!important}
+body.va .hbar{display:flex;align-items:center;gap:10px}
+body.va .hlogo{flex:0 0 44px;width:44px;height:44px;border-radius:11px;overflow:hidden;border:2px solid #fff;background:#fff}
+body.va .hlogo img{width:100%;height:100%;display:block;object-fit:cover}
+body.va .hname{display:flex;flex-direction:column;min-width:0;line-height:1.25}
+body.va .hname b{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--on-navy)}
+body.va .hname .upd{font-size:.8rem;color:var(--on-navy-muted);opacity:1}
+body.va .hbar .meteo{margin-left:auto}
+body.va .tv{display:flex;flex-direction:column;gap:0;flex:0 0 5px;border:.5px solid #000}
+body.va .tv i{display:block;width:5px;height:7px}.va .tv i:nth-child(1){background:var(--it-green)}.va .tv i:nth-child(2){background:#fff}.va .tv i:nth-child(3){background:var(--it-red)}
+body.va header.hd2 h1{font-family:var(--display)!important;font-weight:800;font-stretch:normal;text-transform:none!important;letter-spacing:0!important;text-align:left!important;font-size:1.75rem!important;line-height:1.15!important;margin:16px 0 6px!important;color:var(--on-navy)}
+body.va .hsub{margin:0;font-size:.95rem;color:var(--on-navy-muted);line-height:1.45;max-width:60ch}
+body.va .home2{position:relative;margin-top:-28px;display:flex;flex-direction:column;gap:12px}
+body.va .emc{background:var(--paper);border:2px solid var(--red);border-radius:var(--r-xl);padding:14px;box-shadow:var(--shadow-card);display:flex;flex-direction:column;gap:8px}
+body.va .emc h2{margin:0;display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--red-ink);text-align:left}
+body.va .emc .mk{width:30px;height:30px;border-radius:9px;background:var(--red);color:#fff;display:grid;place-items:center}
+body.va .emc .mk .i{width:18px;height:18px}
+body.va .emb{display:flex;align-items:center;gap:12px;background:var(--red);color:var(--on-red);border-radius:var(--r-l);padding:10px 14px;min-height:68px;text-decoration:none}
+body.va .emb>.i{width:26px;height:26px;flex:0 0 auto}
+body.va .emb .n{display:block;font-family:var(--display);font-weight:800;font-stretch:90%;font-size:2rem;line-height:1.05;letter-spacing:.01em;font-variant-numeric:tabular-nums}
+body.va .emb .d{display:block;font-size:.84rem;line-height:1.35;opacity:.95;margin-top:3px}
+body.va .em2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+body.va .em2 a{border:1.5px solid var(--ctl);border-radius:var(--r-m);padding:8px 10px;min-height:52px;font-size:.84rem;color:var(--muted);text-decoration:none;line-height:1.3;text-align:left}
+body.va .em2 a b{display:block;font-family:var(--display);font-weight:800;font-size:1.2rem;color:var(--red-ink);font-variant-numeric:tabular-nums}
+body.va .emm{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 4px;font-weight:700;color:var(--link);text-decoration:none}
+body.va .emm .i{width:18px;height:18px}
+body.va .shfnow{margin:0}
+body.va .shfnow.st-no{--sc:#4b5869;--ss:#e9ecf0}
+body.va .srch{position:relative;display:flex;align-items:center;gap:8px;background:var(--paper);border:1.5px solid var(--ctl);border-radius:var(--r-m);padding:0 12px;min-height:52px}
+body.va .srch>.i{width:20px;height:20px;color:var(--muted);flex:0 0 auto}
+body.va .srch input{flex:1;min-width:0;border:0;background:transparent;font:inherit;font-size:1rem;color:var(--ink);min-height:48px;outline:none}
+body.va .srch:focus-within{outline:3px solid var(--focus);outline-offset:2px}
+body.va .qres{position:absolute;left:-1.5px;right:-1.5px;top:calc(100% + 6px);z-index:25;background:var(--paper);border:1.5px solid var(--ctl);border-radius:var(--r-m);box-shadow:var(--shadow-card);max-height:60vh;overflow:auto;text-align:left}
+body.va .qres button{display:flex;flex-direction:column;gap:2px;width:100%;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:10px 12px;font:inherit;color:var(--ink);cursor:pointer;min-height:48px}
+body.va .qres button:first-child{border-top:0}
+body.va .qres button b{color:var(--link);font-size:.95rem}
+body.va .qres button span{font-size:.85rem;color:var(--muted);line-height:1.35}
+body.va .qres p{margin:0;padding:12px;font-size:.9rem;color:var(--muted)}
+body.va .trovato{background:var(--hl)!important;box-shadow:0 0 0 6px var(--hl);border-radius:6px;transition:background .6s}
+body.va .idx2-t{margin:10px 2px 0;font-family:var(--display);font-weight:800;font-size:1.25rem;color:var(--ink);text-align:left}
+body.va .idx2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+body.va .idx2 a{display:flex;align-items:center;gap:10px;min-height:66px;padding:10px 12px;border-radius:var(--r-l);background:var(--s);border:1.5px solid var(--f);color:var(--ink);font-weight:700;font-size:.95rem;line-height:1.2;text-decoration:none;text-align:left}
+body.va .idx2 a .ic{flex:0 0 38px;width:38px;height:38px;border-radius:10px;background:var(--f);color:#fff;display:grid;place-items:center}
+body.va .idx2 a .ic .i{width:20px;height:20px}
+body.va .t-sal{--f:var(--f-sal);--s:var(--s-sal)}.va .t-inf{--f:var(--f-inf);--s:var(--s-inf)}.va .t-per{--f:var(--f-per);--s:var(--s-per)}.va .t-mil{--f:var(--f-mil);--s:var(--s-mil)}
+body.va .hlinks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin:4px 0 0}
+body.va .hlinks a{color:var(--link);font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+/* pagina iniziale: solo testata, scheda emergenza, stato, ricerca e argomenti */
+body.va:not(.pg) main>*:not(.home2):not(.pgbar){display:none!important}
+body.va.pg .home2{display:none!important}
+/* barra fissa sempre visibile */
+body.va .sosbar2{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:8px max(12px,calc((100% - 820px)/2)) calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:3px solid var(--red);box-shadow:0 -6px 18px rgba(19,32,46,.12)}
+body.va .sosbar2 a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;border-radius:var(--r-m);font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none;font-variant-numeric:tabular-nums}
+body.va .sosbar2 .s1{flex:7;background:var(--red);color:var(--on-red)}
+body.va .sosbar2 .s2{flex:3;border:2px solid var(--red);color:var(--red-ink);background:var(--paper)}
+body.va .sosbar2 .i{width:20px;height:20px}
+/* testi a sinistra nei capitoli */
+body.va .body p,body.va .body li,body.va .body .ln,body.va .body .note,body.va .notte,body.va .contacts .ln,body.va .fb>p,body.va footer{text-align:left!important}
+body.va .notte{display:flex;flex-direction:column;gap:12px}
+body.va .notte h2{font-family:var(--display);font-weight:800;font-size:1.4rem;margin:0}
+body.va .notte .ln a{font-weight:700}
+body.va .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body.va [id]{scroll-margin-top:84px}
+body.va .hbar .meteo .ml{display:none}
+body.va .hbar .meteo{padding:1px 9px 1px 6px}
+body.va .hname b{font-size:.98rem;white-space:nowrap}
+body.va .hname .upd{font-size:.76rem}
+body.va .emm .i{transform:rotate(-90deg)}
+body.va .emm{font-size:.98rem}
+body.va .c-male,body.va .c-esami,body.va .c-farmaci,body.va .c-famiglia{--c:var(--f-sal);--cs:var(--s-sal)}
+body.va .c-arrivo,body.va .c-partenza{--c:var(--f-per);--cs:var(--s-per)}
+body.va .c-idoneita{--c:var(--f-mil);--cs:var(--s-mil)}
+body.va .c-orari,body.va .c-dentista{--c:var(--f-inf);--cs:var(--s-inf)}
+body.va details.ch .tile .k{display:none}
+body.va .notte{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:18px 16px}
 </style>
 </head>
-<body>
+<body class="va">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.8 4.6-2.3 1.5a11.5 11.5 0 0 0 6.7 6.7l1.5-2.3 4.6 1.8v3.2a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
   <symbol id="i-cross" viewBox="0 0 24 24"><path d="M9 2.5h6v6.5h6.5v6H15v6.5H9V15H2.5V9H9z"/></symbol>
   <symbol id="i-hosp" viewBox="0 0 24 24"><rect x="3.5" y="3" width="17" height="18" rx="2"/><path d="M9 8v8M15 8v8M9 12h6"/></symbol>
@@ -754,25 +833,26 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 </svg>
 
 <div class="wrap">
-  <header>
-    <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="meteo" id="meteo" role="img" hidden></span><span class="upd" id="upd">Aggiornato al 21.10.2026</span></div>
-    <div class="hrow"><img class="logo" src="logo_sezione_sanitaria.jpg" alt="Logo della Sezione Sanitaria Italiana di SHAPE" width="120" height="120"><h1 lang="en">SHAPE&nbsp;Healthcare <wbr>Italian&nbsp;Section</h1></div>
-    <div class="lead">
-      <p class="l1">Guida rapida della <b>Sezione Sanitaria Italiana</b> di SHAPE.</p>
-      <p class="l2">Qui trovi i numeri di emergenza, i servizi della clinica, le informazioni sanitarie utili per la permanenza in Belgio e i nostri contatti.</p>
-      <p class="l3">I servizi della clinica sono a disposizione di tutto il personale munito di <b>SHAPE ID</b> e registrato presso la SHAPE Healthcare Facility (SHF).</p>
-    </div>
+  <header class="hd2">
+    <div class="hbar"><a class="hlogo" href="./" aria-label="Torna alla pagina iniziale"><img src="logo_sezione_sanitaria.jpg" alt="" width="44" height="44"></a><span class="hname"><b>Sezione Sanitaria Italiana</b><span class="upd" id="upd">SHAPE · aggiornata il 21 ottobre 2026</span></span><span class="meteo" id="meteo" role="img" hidden></span><span class="tv" aria-hidden="true"><i></i><i></i><i></i></span></div>
+    <h1>Guida sanitaria SHAPE</h1>
+    <p class="hsub">Per militari italiani e famiglie. La clinica della base è la SHAPE Healthcare Facility (SHF): la usi con la SHAPE ID, dopo esserti registrato.</p>
   </header>
 
   <main id="contenuto">
   <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
-  <div class="idxcard" id="indice">
+  <div class="home2" id="indice">
+  <section class="emc" aria-labelledby="emc-t">
+    <h2 id="emc-t"><span class="mk" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza, 24 ore su 24</h2>
+    <a class="emb" href="tel:+3265443333"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span><span class="n">065 44 33 33</span><span class="d">Dentro SHAPE: Joint Police Desk, in inglese. Dal fisso della base: 3333</span></span></a>
+    <div class="em2"><a href="tel:+3265443334"><b>065 44 33 34</b>Stesso servizio, in francese</a><a href="tel:112"><b>112</b>Solo fuori da SHAPE</a></div>
+    <a class="emm" href="#emergenza">Ospedali, interprete e cosa fare<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a>
+  </section>
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
-  <h2 class="idx-t" id="idx-t">Argomenti</h2>
-  <nav class="idx" aria-labelledby="idx-t">
-    <a class="c-sos" href="#emergenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza</a><a class="c-orari" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="c-arrivo" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="c-dentista wide" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale · codice a barre</a><a class="c-male" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="c-esami" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi SHF</a><a class="c-farmaci" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="c-idoneita" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="c-famiglia" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Area pediatrica</a><a class="c-partenza" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Partenza</a><a class="c-orari" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari SHF</a><a class="c-cosa" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a><a class="c-belgio" href="#feedback"><span class="ic" aria-hidden="true"><svg class="i"><use href="#s-chat"/></svg></span>Feedback</a>
-  </nav>
+  <div class="srch" role="search"><label class="sr" for="q">Cerca nella guida</label><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Cerca: dentista, vaccini, mutua" autocomplete="off" enterkeyhint="search"><div class="qres" id="qres" hidden></div></div>
+  <h2 class="idx2-t" id="idx-t">Argomenti</h2>
+  <nav class="idx2" aria-labelledby="idx-t"><a class="t-sal" href="#male"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-therm"/></svg></span>Sto male</a><a class="t-inf" href="#orari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>Orari e prenotazioni</a><a class="t-sal" href="#notte"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-moon"/></svg></span>Di notte e nel weekend</a><a class="t-inf" href="#clinica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pin"/></svg></span>Dove si trova</a><a class="t-per" href="#arrivo"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-case"/></svg></span>Appena arrivato</a><a class="t-sal" href="#shf"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-hosp"/></svg></span>Servizi della clinica</a><a class="t-sal" href="#farmaci"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span>Farmaci e mutua</a><a class="t-sal" href="#pediatrica"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-fam"/></svg></span>Bambini e famiglia</a><a class="t-mil" href="#militari"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-clip"/></svg></span>Per i militari</a><a class="t-inf" href="#tessera"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-bar"/></svg></span>Tessera digitale</a><a class="t-per" href="#partenza"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-exit"/></svg></span>Prima di partire</a><a class="t-inf" href="#contatti"><span class="ic" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span>Contatti</a></nav>
+  <p class="hlinks"><a href="#app">Installa la guida sul telefono</a><a href="#feedback">Segnala un errore</a></p>
   </div>
   <section class="sos" id="emergenza" aria-labelledby="sos-t">
     <div class="sos-h"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-cross"/></svg></span><h2 id="sos-t">Emergenza</h2></div>
@@ -807,7 +887,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
 
     <div class="alts">
-      <div class="alt"><b><span class="caps">Interprete sanitario</span><br>Patient Liaison SHAPE<br>24&nbsp;ore su&nbsp;24</b><span>È l'interprete della clinica SHF negli ospedali del Belgio.<br>Ti assiste al pronto soccorso e durante il ricovero, in caso di necessità.</span>
+      <div class="alt"><b><span class="caps">Interprete sanitario</span><br>Patient Liaison SHAPE<br>24&nbsp;ore su&nbsp;24</b><span>Negli ospedali belgi il personale parla soprattutto francese. L'interprete della clinica SHF ti aiuta a parlare con medici e infermieri e fa da mediatore linguistico, al pronto soccorso e durante il ricovero.</span>
         <div class="pair"><a class="btn" href="tel:+3265414009" aria-label="Mons, chiama il Patient Liaison"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Mons</a><a class="btn" href="tel:+3267348990" aria-label="Soignies, chiama il Patient Liaison"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Soignies</a></div></div>
       <div class="alt"><b>Altri pronto soccorso vicini</b>
         <span class="row"><span>Soignies, CHR Haute Senne Le Tilleriau, Chaussée de Braine 49</span><span class="acts"><a class="map" href="https://www.google.com/maps/dir/?api=1&amp;destination=CHR+Haute+Senne+Le+Tilleriau+Chaussee+de+Braine+49+7060+Soignies" target="_blank" rel="noopener" aria-label="Portami qui: CHR Haute Senne, Soignies"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Portami qui</a></span></span>
@@ -816,8 +896,8 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
 
     <div class="mini">
-      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>1733</span><span><b>Guardia Medica Belga</b><br>Notti, weekend e festivi, per casi non urgenti, come in Italia.<br>Scegli la lingua del menu (2 francese, 4 inglese), poi digita il codice postale e #.<span class="gm"><span class="sp"></span>La guardia medica di Mons è in rue Valenciennoise&nbsp;2 ed è aperta weekend e festivi dalle 8:00 AM alle 10:00 PM.</span></span><span class="acts grid2"><a class="tel" href="tel:1733"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama 1733</a><a class="tel" href="tel:+3225249889" aria-label="Chiama la guardia medica da SIM italiana, +32 2 524 98 89"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Da SIM italiana</a><a class="map" href="https://www.health.belgium.be/fr/themes/sante/aide-medicale-urgente/acteurs-laide-medicale-urgente/besoin-dun-medecin-garde-composez-1733" target="_blank" rel="noopener">Come funziona</a><a class="map" href="https://www.google.com/maps?ll=50.457976,3.964112&amp;z=15&amp;t=m&amp;hl=it-IT&amp;q=Rue+Valenciennoise+2+7000+Mons" target="_blank" rel="noopener" aria-label="Dove si trova la guardia medica: Rue Valenciennoise 2, Mons"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Dove si trova</a></span></div>
-      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-pill"/></svg>Farmacie di turno</span><span>Le trovi su pharmacie.be</span><span class="acts"><a class="map" href="https://www.pharmacie.be" target="_blank" rel="noopener">pharmacie.be</a></span><span>Farmacie più vicine a SHAPE:</span><span class="acts ph3"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pierrot+Place+de+Maisieres+4+Mons&amp;query_place_id=ChIJmT0MrixOwkcRsBYxX0QqK3I" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pierrot, Maisières"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pierrot, Maisières</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pools+Chaussee+de+Bruxelles+60+Soignies&amp;query_place_id=ChIJsaB52WBOwkcRN85mnbqcUKE" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pools, Casteau"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pools, Casteau</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=La+Grande+Pharmacie+de+Nimy+Route+d+Ath+64+Mons&amp;query_place_id=ChIJlxO1iC5QwkcRpzPB2ZV2yCo" target="_blank" rel="noopener" aria-label="Portami qui: La Grande Pharmacie de Nimy"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Grande Pharmacie, Nimy</a></span></div>
+      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>1733</span><span><b>Guardia Medica Belga</b><br>Notti, weekend e festivi, per casi non urgenti, come in Italia.<br>Scegli la lingua del menu (2 francese, 4 inglese), poi digita il codice postale e #.<span class="gm"><span class="sp"></span>La guardia medica di Mons è in rue Valenciennoise&nbsp;2 ed è aperta weekend e festivi dalle 8:00 alle 22:00.</span></span><span class="acts grid2"><a class="tel" href="tel:1733"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama 1733</a><a class="tel" href="tel:+3225249889" aria-label="Chiama la guardia medica da SIM italiana, +32 2 524 98 89"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Da SIM italiana</a><a class="map" href="https://www.health.belgium.be/fr/themes/sante/aide-medicale-urgente/acteurs-laide-medicale-urgente/besoin-dun-medecin-garde-composez-1733" target="_blank" rel="noopener">Come funziona</a><a class="map" href="https://www.google.com/maps?ll=50.457976,3.964112&amp;z=15&amp;t=m&amp;hl=it-IT&amp;q=Rue+Valenciennoise+2+7000+Mons" target="_blank" rel="noopener" aria-label="Dove si trova la guardia medica: Rue Valenciennoise 2, Mons"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Dove si trova</a></span></div>
+      <div><span class="n"><svg class="i" aria-hidden="true"><use href="#i-pill"/></svg>Farmacie di turno</span><span>Le trovi su pharmacie.be</span><span class="acts"><a class="map" href="https://www.pharmacie.be" target="_blank" rel="noopener">pharmacie.be</a></span><span>Farmacie vicine a SHAPE:</span><span class="acts ph3"><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pierrot+Place+de+Maisieres+4+Mons&amp;query_place_id=ChIJmT0MrixOwkcRsBYxX0QqK3I" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pierrot, Maisières"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pharmacie Pierrot, Maisières</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Pools+Chaussee+de+Bruxelles+60+Soignies&amp;query_place_id=ChIJsaB52WBOwkcRN85mnbqcUKE" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Pools, Casteau"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pharmacie Pools, Casteau</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pharmacie+Fileccia+Chaussee+de+Bruxelles+133+Soignies&amp;query_place_id=ChIJz-NzK4hOwkcRZ2qXCpTUL2E" target="_blank" rel="noopener" aria-label="Portami qui: Pharmacie Fileccia, Casteau"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Pharmacie Fileccia, Casteau</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=La+Grande+Pharmacie+de+Nimy+Route+d+Ath+64+Mons&amp;query_place_id=ChIJlxO1iC5QwkcRpzPB2ZV2yCo" target="_blank" rel="noopener" aria-label="Portami qui: La Grande Pharmacie de Nimy"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>La Grande Pharmacie de Nimy</a></span></div>
     </div>
 
     <div class="saves">
@@ -831,13 +911,13 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     <figure><img src="edificio_401_SHF.jpg" alt="Ingresso della SHAPE Healthcare Facility, edificio 401" width="1000" height="563" loading="lazy"></figure>
     <p><b>Clinica SHF · edificio 401 · Avenue d'Oslo</b><br>All'interno della base di SHAPE</p>
     <figure class="mappa"><a href="mappa_shape_SHF.jpg" id="mapopen" aria-label="Apri la mappa della base SHAPE a tutto schermo"><img src="mappa_shape_SHF_small.jpg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401, nell'area 400" width="900" height="1311" loading="lazy"></a><figcaption>Il puntino rosso indica la clinica SHF. Tocca la mappa per ingrandirla.<br><small>Mappa: SHAPE Morale and Welfare Branch (MWB), elaborata dalla Sezione Sanitaria Italiana.</small></figcaption></figure>
-    <div class="shfstato" id="shfstato"><p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 AM a 5:00 PM<br>(il terzo giovedì del mese dalle 1:00 PM)</p></div>
+    <div class="shfstato" id="shfstato"><p class="loc-h"><b>Aperta dal lunedì al venerdì</b><br>8:00 a 17:00<br>(il terzo giovedì del mese dalle 13:00)</p></div>
     <div class="pair"><a class="btn" href="#orari"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg>Tutti gli orari</a><a class="btn" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Prenota</a></div>
   </section>
 
 
   <div class="chs">
-  <details class="ch c-arrivo" id="arrivo"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-case"/></svg><span class="k">1</span></span><span class="st"><h2 class="t"><span class="caps" lang="en">Newcomers</span> · Appena arrivato · <span class="caps" lang="en">Inprocessing</span></h2><span class="s">Registrazione alla clinica SHF, Sezione Sanitaria, vaccini, mutua belga</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-arrivo" id="arrivo"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-case"/></svg><span class="k">1</span></span><span class="st"><h2 class="t">Appena arrivato: registrati</h2><span class="s">Registrazione alla clinica SHF, Sezione Sanitaria, vaccini, mutua belga</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
@@ -866,7 +946,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
         <li><b>Passa dalla Sezione Sanitaria Italiana</b>
 <span class="ln">I militari <span lang="en">newcomers</span> devono recarsi agli uffici della Sezione Sanitaria,<br>al livello 1 (piano terra), lato destro, stanze <span class="room">1B104</span> e <span class="room">1B113</span>.</span>
 <span class="ln">Devono consegnare l'ultimo certificato di idoneità SMI e compilare la scheda contatti online.</span>
-<span class="ln">Se gli uffici sono chiusi o impegnati in attività sanitarie, puoi consegnare la documentazione al Front Desk, all'attenzione del Dott. M. Tribuzio.</span>
+<span class="ln">Se gli uffici sono chiusi o impegnati in attività sanitarie, puoi consegnare la documentazione al Front Desk, all'attenzione del medico della Sezione Sanitaria Italiana.</span>
 <span class="ln"><a class="btn-doc" href="scheda.html">Apri la scheda contatti</a></span></li>
         <li><b>Vaccini</b>
 <span class="ln">Ognuno cura il proprio libretto vaccinale e le scadenze dei vaccini.</span>
@@ -886,11 +966,11 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
 
-  <details class="ch c-male" id="male"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-therm"/></svg><span class="k">2</span></span><span class="st"><h2 class="t">Sto male, cosa faccio</h2><span class="s">Prenotare il medico, check in, supporto psicologico, malattie</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-male" id="male"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-therm"/></svg><span class="k">2</span></span><span class="st"><h2 class="t">Sto male: prenota il medico</h2><span class="s">Prenotare il medico, check in, supporto psicologico, malattie</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <div class="key"><b>Le visite mediche della SHF sono solo su appuntamento</b>
-<span class="ln">Per il medico italiano prenota al desk della SHF (Appointment Line), solo telefonicamente o di persona: dal lunedì al venerdì dalle 8:00 AM alle 4:30 PM.</span>
+<span class="ln">Per il medico italiano prenota al desk della SHF (Appointment Line), solo telefonicamente o di persona: dal lunedì al venerdì dalle 8:00 alle 16:30.</span>
 <a class="btn call" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Chiama il desk: 065 44 58 86</a></div>
       <ol role="list">
         <li><b>Il giorno dell'appuntamento</b>
@@ -913,32 +993,29 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <span class="ln">Psicologi in Belgio, con filtro per lingua italiana e per città: <a href="https://www.myconsultation.be/it/s/psicologo/" target="_blank" rel="noopener">myconsultation.be</a></span>
 </li>
       </ol>
-      <div class="note"><b>Militari in malattia</b>: avvisa subito il superiore diretto,<br>poi consegna entro 5 giorni <b>due certificati cartacei distinti</b>.
-<span class="ln gap"><b>Solo prognosi</b>: al tuo Comando o Ufficio, senza ritardo.</span>
-<span class="ln gap"><b>Diagnosi e prognosi</b>: alla Sezione Sanitaria.</span>
-<span class="ln gap">Se usi la PEC, fai due invii separati.</span>
+      <div class="note"><b>Militari in malattia</b>: avvisa subito il superiore diretto. Come e a chi consegnare i certificati lo trovi nel foglio informativo.
 <span class="ln gap">Sezione Sanitaria: <b class="mail">infermeria.shape@gmail.com</b><button type="button" class="copy" data-c="infermeria.shape@gmail.com" aria-label="Copia l'indirizzo infermeria.shape@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>copia</button></span>
-<a class="btn-doc" href="Certificazione_malattia_militari.pdf" target="_blank" rel="noopener">Apri il foglio informativo completo (PDF)</a></div>
+<a class="btn-doc" href="Certificazione_malattia_militari.pdf" target="_blank" rel="noopener">Apri il foglio informativo (PDF)</a></div>
     </div>
   </details>
 
-  <details class="ch c-esami" id="shf"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span class="k">3</span></span><span class="st"><h2 class="t">Cosa mi offre la SHF?</h2><span class="s">Servizi della clinica accessibili agli italiani</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-esami" id="shf"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span class="k">3</span></span><span class="st"><h2 class="t">Servizi della clinica</h2><span class="s">Servizi della clinica accessibili agli italiani</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <p>Servizi accessibili a chi è registrato alla clinica, tutti su appuntamento salvo dove indicato.</p>
       <div class="svcs">
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-doc"/></svg></span><b>Medicina di base</b><span>Visita con il medico italiano o con un altro medico della clinica, su prenotazione al desk.</span><a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-ref"/></svg></span><b>Visita specialistica</b><span>Come in Italia, si passa dal medico:</span><ol class="mini-steps" role="list"><li>il medico della SHF ti visita e inserisce la richiesta;</li><li>il Referral Management (livello 1, corridoio Paris) prenota la visita in un ospedale belga, anche per chi ha S1 e mutua.</li></ol><a class="tel" href="tel:+3265325324"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 24</a><span>In alternativa puoi andare direttamente da uno specialista, pagando la prestazione.</span></div>
-        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-drop"/></svg></span><b>Esami del sangue</b><span>Serve la prescrizione del medico nel sistema della SHF. Senza appuntamento: livello 1, corridoio Paris, prendi il biglietto dal totem e aspetta la chiamata.</span></div>
+        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-drop"/></svg></span><b>Esami del sangue</b><span>Serve la prescrizione del medico nel sistema della SHF. Senza appuntamento: livello 1, corridoio Paris. Prendi il biglietto dal totem nell'area d'attesa del laboratorio e aspetta la chiamata.</span></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-xray"/></svg></span><b>Radiologia</b><span>Su prescrizione medica, in ordine di arrivo. Livello 1, corridoio SHAPE Community.</span><a class="tel" href="tel:+3265325330"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 30</a></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-physio"/></svg></span><b>Fisioterapia</b><span>Clinica US e internazionale, livello 3, corridoio Rome, su prescrizione del medico.</span></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-child"/></svg></span><b>Pediatra</b><span>Visite pediatriche su prenotazione al desk. Livello 1, corridoio SHAPE Community (Primary Care).</span><a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a></div>
-        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-syringe"/></svg></span><b>Vaccini</b><span>Immunization Clinic, livello 2, corridoio Amsterdam, stanza <span class="room">2D124</span>.</span><a class="tel" href="tel:+3265325329"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 29</a></div>
-        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-eye"/></svg></span><b>Optometria (controllo della vista)</b><span>US Optometry Clinic, livello 1, corridoio London, stanza <span class="room">1A118</span>. Su prenotazione al desk; check in allo sportello Medical Records, all'ingresso.</span><a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a></div>
-        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-mind"/></svg></span><b>Supporto psicologico</b><span>Behavioral Health, livello 2, corridoio Washington, su prescrizione del medico.</span><a class="tel" href="tel:+3265325320"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 20</a></div>
+        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-syringe"/></svg></span><b>Vaccini</b><span>Immunization Clinic, livello 2, corridoio Amsterdam, stanza <span class="room">2D124</span>. Senza appuntamento (walk in): prendi il biglietto dal totem e aspetta la chiamata. Ultimo biglietto alle 12:00 e alle 15:30.</span><a class="tel" href="tel:+3265325329"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 29</a></div>
+        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-eye"/></svg></span><b>Optometria (controllo della vista)</b><span>US Optometry Clinic, livello 1, corridoio London, stanza <span class="room">1A118</span>. Prenota al desk. Il giorno della visita fai il check in al totem dell'atrio, all'ingresso, poi vai alla reception per l'appuntamento.</span><a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a></div>
+        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-mind"/></svg></span><b>Supporto psicologico</b><span>Behavioral Health, livello 2, corridoio Washington. Serve la prescrizione del medico SHF, poi prendi appuntamento per telefono.</span><a class="tel" href="tel:+3265325320"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 20</a></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#i-pill"/></svg></span><b>Farmacia SHF</b><span>Livello 1, corridoio London, stanza <span class="room">1D137</span>. Farmaci americani prescritti gratuiti con la SHAPE ID e farmaci da banco: vedi Farmaci e mutua.</span></div>
         <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-tooth"/></svg></span><b>Dentista: clinica dentale belga</b><span>Per chi è registrato alla SHF, livello 2, corridoio NATO (blu). Solo su appuntamento per telefono.</span><a class="tel" href="tel:+3265325230"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 52 30</a><span>Nel weekend e nei festivi: <a href="https://www.dentistedegarde.be/" target="_blank" rel="noopener">dentista di guardia in Vallonia</a></span></div>
-        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-help"/></svg></span><b>Problemi con la clinica o in ospedale</b><span>Patient Advocate, Sandrine Vernaeckt, ufficio vicino allo sportello di check in.</span><span class="acts"><a class="tel" href="tel:+3265325074"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 50 74</a><a class="tel" href="tel:+32492190845"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>0492 19 08 45</a></span></div>
+        <div class="svc"><span class="si" aria-hidden="true"><svg class="i"><use href="#s-help"/></svg></span><b>Problemi con la clinica o in ospedale</b><span>Patient Advocate (referente per i problemi con la clinica), ufficio vicino allo sportello di check in.</span><span class="acts"><a class="tel" href="tel:+3265325074"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 50 74</a><a class="tel" href="tel:+32492190845"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>0492 19 08 45</a></span></div>
       </div>
     </div>
   </details>
@@ -997,7 +1074,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
 
-  <details class="ch c-idoneita" id="militari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clip"/></svg><span class="k">5</span></span><span class="st"><h2 class="t">Per i militari</h2><span class="s">Visita di idoneità (SMI), rinnovo patente militare e idoneità speciali</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-idoneita" id="militari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clip"/></svg><span class="k">5</span></span><span class="st"><h2 class="t">Per i militari</h2><span class="s">Visita di idoneità (SMI, servizio militare incondizionato), rinnovo patente militare e idoneità speciali</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
@@ -1016,7 +1093,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
 
-  <details class="ch c-famiglia" id="pediatrica"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-fam"/></svg><span class="k">6</span></span><span class="st"><h2 class="t">Area pediatrica · famiglia e bambini</h2><span class="s">School physical, vaccini per la scuola, ONE</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-famiglia" id="pediatrica"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-fam"/></svg><span class="k">6</span></span><span class="st"><h2 class="t">Bambini e famiglia</h2><span class="s">School physical, vaccini per la scuola, ONE (servizio belga per la salute dei bambini)</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol role="list">
@@ -1042,7 +1119,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
 
-  <details class="ch c-partenza" id="partenza"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-exit"/></svg><span class="k">7</span></span><span class="st"><h2 class="t">Parto da SHAPE · <span class="caps" lang="en">Outprocessing</span></h2><span class="s">Quattro passi, dalla partenza al rientro in Italia</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-partenza" id="partenza"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-exit"/></svg><span class="k">7</span></span><span class="st"><h2 class="t">Prima di partire</h2><span class="s">Quattro passi, dalla partenza al rientro in Italia</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
       <ol class="side" role="list">
@@ -1056,25 +1133,25 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
 
-  <details class="ch c-orari" id="orari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span class="k">8</span></span><span class="st"><h2 class="t">Orari della clinica SHF</h2><span class="s">Dove si trovano i servizi, orari e telefoni</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-orari" id="orari"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span class="k">8</span></span><span class="st"><h2 class="t">Orari e prenotazioni</h2><span class="s">Dove si trovano i servizi, orari e telefoni</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <p class="locpill"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg><span>Clinica SHF · <b>edificio 401</b> · Avenue d'Oslo</span></p>
-      <div class="note">La clinica è aperta dal lunedì al venerdì dalle 8:00 AM alle 5:00 PM.<br>Ogni terzo giovedì del mese apre solo il pomeriggio, dalle 1:00 PM alle 5:00 PM.<br>I singoli servizi seguono l'orario della clinica: il terzo giovedì del mese aprono dalle 1:00 PM, nei festivi SHAPE e nelle giornate a servizio ridotto chiudono alle 12:00 PM, nei festivi USA sono chiusi.<br>Festivi SHAPE e giornate a servizio ridotto: solo dalle 8:00 AM alle 12:00 PM. Festivi USA: chiusa.</div>
+      <div class="note">La clinica è aperta dal lunedì al venerdì dalle 8:00 alle 17:00.<br>Ogni terzo giovedì del mese apre solo il pomeriggio, dalle 13:00 alle 17:00.<br>I singoli servizi seguono l'orario della clinica: il terzo giovedì del mese aprono dalle 13:00, nei festivi SHAPE e nelle giornate a servizio ridotto chiudono alle 12:00, nei festivi USA sono chiusi.<br>Festivi SHAPE e giornate a servizio ridotto: solo dalle 8:00 alle 12:00. Festivi USA: chiusa.</div>
       <div class="shfcal" id="shfcal"></div>
       <nav class="hjump" aria-label="Vai al servizio"><a href="#h-1">Clinica</a><a href="#h-2">Prenotazioni</a><a href="#h-3">Medico italiano</a><a href="#h-4">Registrazione</a><a href="#h-5">Visite specialistiche</a><a href="#h-6">Laboratorio</a><a href="#h-7">Radiologia</a><a href="#h-8">Farmacia</a><a href="#h-9">Vaccini</a><a href="#h-10">Fisioterapia</a><a href="#h-11">Patient Advocate</a><a href="#h-12">Supporto psicologico</a><a href="#h-13">Dentista</a><a href="#h-14">Optometria</a></nav>
       <div class="hgrid">
 <div class="hcard" id="h-1"><div class="hh"><span class="hn">1</span><b id="hl-1">Clinica SHF (apertura generale)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Edificio 401, Avenue d'Oslo</span>
 <table class="wk wk1" aria-labelledby="hl-1"><thead><tr><th scope="col">Giorno</th><th scope="col">Orario</th></tr></thead><tbody>
-<tr><th scope="row">Lun&nbsp;a&nbsp;Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Terzo giovedì</th><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
+<tr><th scope="row">Lun&nbsp;a&nbsp;Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
+<tr class="gio"><th scope="row">Terzo giovedì</th><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
 </tbody></table>
-<span class="hnote">Festivi SHAPE e giornate a servizio ridotto: 8:00 AM a 12:00 PM. Festivi USA: chiusa. Fonte: calendario FY 2027 della SHF.</span>
+<span class="hnote">Festivi SHAPE e giornate a servizio ridotto: 8:00 a 12:00. Festivi USA: chiusa. Fonte: calendario FY 2027 della SHF.</span>
 </div>
 <div class="hcard" id="h-2"><div class="hh"><span class="hn">2</span><b id="hl-2">Desk prenotazioni (Appointment Line)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Per telefono o di persona al desk, livello 1, corridoio Brussels</span>
 <table class="wk wk1" aria-labelledby="hl-2"><thead><tr><th scope="col">Giorno</th><th scope="col">Orario</th></tr></thead><tbody>
-<tr><th scope="row">Lun&nbsp;a&nbsp;Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
+<tr><th scope="row">Lun&nbsp;a&nbsp;Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
 </tbody></table>
 <span class="hnote">Prenota qui le visite con il medico italiano e con gli altri medici.</span>
 <a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a>
@@ -1082,55 +1159,55 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <div class="hcard" id="h-3"><div class="hh"><span class="hn">3</span><b id="hl-3">Medico italiano</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio Paris, ambulatori 1B103 e 1B105</span>
 <table class="wk wk1" aria-labelledby="hl-3"><thead><tr><th scope="col">Giorno</th><th scope="col">Orario</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">9:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">9:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
 </tbody></table>
 <span class="hnote">Solo su prenotazione al desk.</span>
 </div>
 <div class="hcard" id="h-4"><div class="hh"><span class="hn">4</span><b id="hl-4">Medical Records (registrazione)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio Brussels, a sinistra dell'ingresso</span>
 <table class="wk" aria-labelledby="hl-4"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">3:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td class="off">chiuso</td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">15:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td class="off">chiuso</td></tr>
 </tbody></table>
 <a class="tel" href="tel:+3265325348"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 48</a>
 </div>
 <div class="hcard" id="h-5"><div class="hh"><span class="hn">5</span><b id="hl-5">Referral Management (visite specialistiche)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio Paris</span>
 <table class="wk" aria-labelledby="hl-5"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td class="off">chiuso</td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">11:30 AM</span></td><td class="off">chiuso</td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td class="off">chiuso</td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">11:30</span></td><td class="off">chiuso</td></tr>
 </tbody></table>
 <a class="tel" href="tel:+3265325324"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 24</a>
 </div>
 <div class="hcard" id="h-6"><div class="hh"><span class="hn">6</span><b id="hl-6">Laboratorio (esami del sangue)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio Paris</span>
 <table class="wk" aria-labelledby="hl-6"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">2:45 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">14:45</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
 </tbody></table>
-<span class="hnote">Senza appuntamento: prendi il biglietto dal totem nell'atrio.</span>
+<span class="hnote">Senza appuntamento: prendi il biglietto dal totem nell'area d'attesa del laboratorio.</span>
 </div>
 <div class="hcard" id="h-7"><div class="hh"><span class="hn">7</span><b id="hl-7">Radiologia</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio SHAPE Community</span>
 <table class="wk" aria-labelledby="hl-7"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
 </tbody></table>
 <span class="hnote">Senza appuntamento, in ordine di arrivo.</span>
 <a class="tel" href="tel:+3265325330"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 30</a>
@@ -1138,51 +1215,51 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <div class="hcard" id="h-8"><div class="hh"><span class="hn">8</span><b id="hl-8">Farmacia</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio London, stanza 1D137</span>
 <table class="wk" aria-labelledby="hl-8"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:30 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:30 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:30 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:30 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:30 AM</span><span class="to">a</span><span class="tm">12:30 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">4:30 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:30</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:30</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:30</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:30</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:30</span><span class="to">a</span><span class="tm">12:30</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">16:30</span></td></tr>
 </tbody></table>
 <a class="tel" href="tel:+3265325240"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 52 40</a>
 </div>
 <div class="hcard" id="h-9"><div class="hh"><span class="hn">9</span><b id="hl-9">Vaccini (Immunization Clinic)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 2, corridoio Amsterdam, stanza 2D124</span>
 <table class="wk" aria-labelledby="hl-9"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:30 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:30 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:30 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:30 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:30 PM</span><span class="to">a</span><span class="tm">3:30 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:30</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:30</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:30</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:30</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:30</span><span class="to">a</span><span class="tm">15:30</span></td></tr>
 </tbody></table>
-<span class="hnote">Senza appuntamento, con il biglietto: ultimo biglietto alle 12:00 PM e alle 3:30 PM.</span>
+<span class="hnote">Senza appuntamento, con il biglietto: ultimo biglietto alle 12:00 e alle 15:30.</span>
 <a class="tel" href="tel:+3265325329"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 29</a>
 </div>
 <div class="hcard" id="h-10"><div class="hh"><span class="hn">10</span><b id="hl-10">Fisioterapia</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 3, corridoio Rome</span>
 <table class="wk" aria-labelledby="hl-10"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">5:00 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">17:00</span></td></tr>
 </tbody></table>
 <span class="hnote">Su prescrizione del medico.</span>
 </div>
 <div class="hcard" id="h-11"><div class="hh"><span class="hn">11</span><b id="hl-11">Patient Advocate</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, vicino allo sportello di check in</span>
 <table class="wk wk1" aria-labelledby="hl-11"><thead><tr><th scope="col">Giorno</th><th scope="col">Orario</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
 </tbody></table>
 <a class="tel" href="tel:+3265325074"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 50 74</a>
 </div>
 <div class="hcard" id="h-12"><div class="hh"><span class="hn">12</span><b id="hl-12">Behavioral Health (supporto psicologico)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 2, corridoio Washington</span>
-<span class="hnote">Su prescrizione del medico, poi su appuntamento per telefono.</span>
+<span class="hnote">Serve la prescrizione del medico SHF, poi prendi appuntamento per telefono.</span>
 <a class="tel" href="tel:+3265325320"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 32 53 20</a>
 </div>
 <div class="hcard" id="h-13"><div class="hh"><span class="hn">13</span><b id="hl-13">Clinica dentale belga</b></div>
@@ -1193,19 +1270,19 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <div class="hcard" id="h-14"><div class="hh"><span class="hn">14</span><b id="hl-14">Optometria (US Optometry Clinic)</b></div>
 <span class="hw"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg>Livello 1, corridoio London, stanza 1A118</span>
 <table class="wk" aria-labelledby="hl-14"><thead><tr><th scope="col">Giorno</th><th scope="col">Mattina</th><th scope="col">Pomeriggio</th></tr></thead><tbody>
-<tr><th scope="row">Lun</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mar</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Mer</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
-<tr><th scope="row">Ven</th><td><span class="tm">8:00 AM</span><span class="to">a</span><span class="tm">12:00 PM</span></td><td><span class="tm">1:00 PM</span><span class="to">a</span><span class="tm">4:00 PM</span></td></tr>
+<tr><th scope="row">Lun</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mar</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Mer</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr class="gio"><th scope="row">Gio</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
+<tr><th scope="row">Ven</th><td><span class="tm">8:00</span><span class="to">a</span><span class="tm">12:00</span></td><td><span class="tm">13:00</span><span class="to">a</span><span class="tm">16:00</span></td></tr>
 </tbody></table>
-<span class="hnote">Su prenotazione al desk; check in allo sportello Medical Records. Nelle festività USA l'orario può cambiare.</span>
+<span class="hnote">Prenota al desk. Il giorno della visita fai il check in al totem dell'atrio, poi vai alla reception. Nelle festività USA l'orario può cambiare.</span>
 <a class="tel" href="tel:+3265445886"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 58 86</a>
 </div>
 </div>
     </div>
   </details>
-  <details class="ch c-dentista" id="tessera"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg><span class="k">9</span></span><span class="st"><h2 class="t">Tessera digitale · codice a barre</h2><span class="s">Il tuo DoD ID sul telefono, per i totem della SHF</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
+  <details class="ch c-dentista" id="tessera"><summary><span class="tile"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg><span class="k">9</span></span><span class="st"><h2 class="t">Tessera digitale</h2><span class="s">Il tuo DoD ID sul telefono, per i totem della SHF</span></span><span class="chev" aria-hidden="true"><svg class="i"><use href="#i-chev"/></svg></span></summary>
     <div class="body">
       <ol role="list">
         <li><b>A cosa serve</b>
@@ -1221,6 +1298,15 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
   </details>
   </div>
+
+  <section class="notte" id="notte" aria-labelledby="nt-t">
+    <h2 id="nt-t">Di notte, nel weekend e nei festivi</h2>
+    <p class="ln">Quando la clinica SHF è chiusa e non è un'emergenza.</p>
+    <div class="mini" id="notte-mini"></div>
+    <p class="ln"><b>Dentista</b>: nel weekend e nei festivi c'è il <a href="https://www.dentistedegarde.be/" target="_blank" rel="noopener">dentista di guardia in Vallonia</a>.</p>
+    <p class="ln"><b>Medico di famiglia belga</b>: puoi sceglierne uno anche tu, come in Italia. Ti segue quando la clinica SHF è chiusa: la sera, nel weekend e nei festivi. Ne trovi uno che parla italiano su <a href="https://www.doctoranytime.be/en" target="_blank" rel="noopener">doctoranytime.be</a>, con il filtro per lingua.</p>
+    <p class="ln"><b>Se è un'emergenza</b>: dentro SHAPE chiama il <a href="tel:+3265443333">065 44 33 33</a>, fuori da SHAPE il <a href="tel:112">112</a>.</p>
+  </section>
 
   <section class="contacts" id="contatti" aria-labelledby="ct-t">
     <h2 id="ct-t">Contatti della Sezione Sanitaria Italiana</h2>
@@ -1238,7 +1324,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
   </section>
 
   <section class="fb" id="feedback" aria-labelledby="fb-t">
-    <h2 id="fb-t">Feedback e suggerimenti</h2>
+    <h2 id="fb-t">Segnala un errore o un suggerimento</h2>
     <p>Segnalaci un errore, chiedi di aggiornare un dato o proponi un argomento utile da aggiungere.</p>
     <form id="fbf" novalidate>
       <div class="hp" aria-hidden="true"><input type="text" name="sito" tabindex="-1" autocomplete="off"></div>
@@ -1280,7 +1366,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
   <div class="mapv-bar"><button type="button" id="mapz" aria-label="Ingrandisci la mappa"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21M11 8v6M8 11h6"/></svg><span id="mapzt">Ingrandisci</span></button><button type="button" id="mapc" class="mapc">Chiudi</button></div>
   <div class="mapv-sc" id="mapsc"><img id="mapimg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401" decoding="async"></div>
 </div>
-<nav class="sosbar" id="sosbar" aria-label="Chiamate di emergenza" hidden><button type="button" class="sblogo" id="sbtop" aria-label="Torna all'inizio della pagina" title="Torna all'inizio"><img src="logo_sezione_sanitaria.jpg" alt="" width="40" height="40"></button><a href="tel:+3265443333" aria-label="Emergenze SHAPE, 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a href="tel:112"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>112</a><a href="#emergenza" class="sbE" aria-label="Emergenza: vai ai numeri e alle istruzioni" title="Emergenza">E</a></nav>
+<nav class="sosbar2" id="sosbar" aria-label="Chiamate di emergenza"><a class="s1" href="tel:+3265443333" aria-label="Emergenza dentro SHAPE, chiama 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a class="s2" href="tel:112" aria-label="Emergenza fuori da SHAPE, chiama 112">112</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
 document.addEventListener("click",async e=>{
@@ -1293,21 +1379,40 @@ document.addEventListener("click",async e=>{
 const chs=[...document.querySelectorAll("details.ch")];
 chs.forEach(d=>d.addEventListener("toggle",()=>{ if(d.open){ chs.forEach(o=>{ if(o!==d && o.open) o.open=false; }); setTimeout(()=>d.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"}),30); } }));
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href")); const d=t&&t.closest("details.ch"); if(d) d.open=true;}));
-document.getElementById("sbtop").addEventListener("click",()=>{try{history.replaceState(null,"",location.pathname)}catch(e){}route();window.scrollTo({top:0,behavior:"smooth"})});
-const sb=document.getElementById("sosbar"),big=[...document.querySelectorAll("#emergenza a.big")],vis=new Set();
-if(sb&&big.length&&"IntersectionObserver" in window){const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?vis.add(e.target):vis.delete(e.target));sb.hidden=vis.size>0||big[0].getBoundingClientRect().top>0;});big.forEach(x=>io.observe(x));}
 const gg=["","Lun","Mar","Mer","Gio","Ven"][new Date().getDay()]; if(gg) document.querySelectorAll(".wk tbody th").forEach(th=>{if(th.textContent.trim()===gg){th.parentElement.classList.add("oggi");th.insertAdjacentHTML("beforeend",'<span class="sr"> (oggi)</span>');}});
 /* Le sezioni dell'indice si aprono come pagine; Indietro del telefono torna all'indice */
-function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;try{t=h?document.getElementById(h):null}catch(e){}
- const ch=t&&(t.closest("details.ch")||t.closest("#contatti,#feedback"));
+const PAGINE="details.ch,#emergenza,#clinica,#contatti,#feedback,#app,#notte",TIT0=document.title;let dentro=false;
+function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;try{t=h&&h!=="indice"?document.getElementById(h):null}catch(e){}
+ const ch=t&&t.closest(PAGINE);
  document.querySelectorAll(".cur").forEach(x=>x.classList.remove("cur"));
  document.body.classList.toggle("pgsec",!!(ch&&ch.matches("section")));
- if(ch){document.body.classList.add("pg");ch.classList.add("cur");if(ch.matches("details"))ch.open=true;const sbb=document.getElementById("sosbar");if(sbb)sbb.hidden=false;const su=()=>window.scrollTo(0,0);su();requestAnimationFrame(su);setTimeout(su,30);if(t!==ch)setTimeout(()=>t.scrollIntoView(),120);return}
- const era=document.body.classList.contains("pg");document.body.classList.remove("pg","pgsec");
- if(t)setTimeout(()=>t.scrollIntoView(),era?60:0);}
+ if(ch){document.body.classList.add("pg");ch.classList.add("cur");if(ch.matches("details"))ch.open=true;
+  const h2=ch.querySelector("h2");if(h2){document.title=h2.textContent.replace(/\s+/g," ").trim()+" · Guida sanitaria SHAPE";h2.setAttribute("tabindex","-1")}
+  const su=()=>window.scrollTo(0,0);su();requestAnimationFrame(su);setTimeout(su,30);
+  if(t!==ch)setTimeout(()=>t.scrollIntoView(),120);else if(h2)setTimeout(()=>h2.focus({preventScroll:true}),60);return}
+ document.title=TIT0;const era=document.body.classList.contains("pg");document.body.classList.remove("pg","pgsec");
+ if(t&&t.id!=="indice")setTimeout(()=>t.scrollIntoView(),era?60:0);else if(era)window.scrollTo(0,0);}
 document.querySelectorAll("details.ch>summary").forEach(sm=>sm.addEventListener("click",e=>{if(document.body.classList.contains("pg"))e.preventDefault()}));
-document.getElementById("pgback").addEventListener("click",()=>{location.hash="indice"});
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(a)dentro=true});
+document.getElementById("pgback").addEventListener("click",()=>{if(dentro&&history.length>1)history.back();else{try{history.replaceState(null,"",location.pathname)}catch(e){}route()}});
 route();addEventListener("hashchange",route);
+/* Capitolo notte: riusa i blocchi 1733 e farmacie di turno della sezione Emergenza */
+(function(){const m=document.querySelector("#emergenza .mini"),d=document.getElementById("notte-mini");if(m&&d)d.innerHTML=m.innerHTML})();
+/* Ricerca nella guida */
+(function(){const q=document.getElementById("q"),r=document.getElementById("qres");if(!q||!r)return;
+ const norm=x=>x.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+ const SIN={dentista:"dentist",denti:"dentist",dentisti:"dentist",occhi:"optom",vista:"optom",psicologo:"psicolog",sangue:"sangue",analisi:"sangue",certificato:"certific",malattia:"malatt",ricetta:"ricett",notte:"1733",guardia:"guardia"};
+ let idx=null;function build(){idx=[];document.querySelectorAll("details.ch,#emergenza,#clinica,#notte,#contatti").forEach(p=>{const tit=(p.querySelector("h2")||{}).textContent||"";
+  p.querySelectorAll(".body li,.body p,.body .ln,.svc,.hcard,.note,.alt,.mini>div,.er,.big,section>p,.ln").forEach(el=>{if(el.closest(".qres"))return;const tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),pz=[];while(tw.nextNode())pz.push(tw.currentNode.nodeValue);const tx=pz.join(" ").replace(/\s+/g," ").trim();if(tx.length>12)idx.push({p,el,tit:tit.replace(/\s+/g," ").trim(),tx,n:norm(tx)})})})}
+ function cerca(){const v=norm(q.value.trim());if(v.length<3){r.hidden=true;return}if(!idx)build();
+  const ws=v.split(/\s+/).map(w=>SIN[w]||w);const seen=new Set(),out=[];
+  for(const it of idx){if(ws.every(w=>it.n.includes(w))&&!seen.has(it.el)){let par=it.el.parentElement,dup=false;while(par){if(seen.has(par)){dup=true;break}par=par.parentElement}if(dup)continue;seen.add(it.el);out.push(it);if(out.length>=8)break}}
+  r.innerHTML=out.length?out.map((it,i)=>{const k=it.n.indexOf(ws[0]),a=Math.max(0,k-40);return `<button type="button" data-i="${i}"><b>${it.tit}</b><span>${(a?"…":"")+it.tx.slice(a,a+120).replace(/[<&]/g,c=>c=="<"?"&lt;":"&amp;")}…</span></button>`}).join(""):`<p>Nessun risultato. Prova con un'altra parola, oppure scrivi alla Sezione.</p>`;
+  r._out=out;r.hidden=false}
+ q.addEventListener("input",cerca);q.addEventListener("focus",()=>setTimeout(()=>{const t=q.closest(".srch").getBoundingClientRect().top+scrollY-12;window.scrollTo({top:t,behavior:"smooth"})},250));
+ r.addEventListener("click",e=>{const b=e.target.closest("button[data-i]");if(!b)return;const it=r._out[+b.dataset.i];dentro=true;location.hash=it.p.id;
+  setTimeout(()=>{it.el.scrollIntoView({block:"center"});it.el.classList.add("trovato");setTimeout(()=>it.el.classList.remove("trovato"),2600)},200)});
+})();
 /* Mappa: si apre a tutto schermo nella pagina; Chiudi o Indietro tornano alla guida */
 (function(){const a=document.getElementById("mapopen"),v=document.getElementById("mapv"),sc=document.getElementById("mapsc"),im=document.getElementById("mapimg");if(!a||!v)return;
  let aperta=false;
@@ -1333,7 +1438,7 @@ fb.addEventListener("submit",async ev=>{
 });
 
 /* "Aggiornato al": data dell'ultima pubblicazione del sito, letta dal server */
-(function(){const d=new Date(document.lastModified);if(isNaN(d)||Date.now()-d<5000)return;const p=n=>String(n).padStart(2,"0");document.getElementById("upd").textContent=`Aggiornato al ${p(d.getDate())}.${p(d.getMonth()+1)}.${d.getFullYear()}`;})();
+(function(){const d=new Date(document.lastModified);if(isNaN(d)||Date.now()-d<5000)return;const p=n=>String(n).padStart(2,"0");document.getElementById("upd").textContent=`SHAPE · aggiornata il ${d.getDate()} ${["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"][d.getMonth()]} ${d.getFullYear()}`;})();
 if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));}
 (function(){const ib=document.getElementById("instbtn"),ios=/iphone|ipad|ipod/i.test(navigator.userAgent),st=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
  const show=id=>{["how-ios","how-and","how-ok"].forEach(x=>document.getElementById(x).hidden=x!==id);};
@@ -1350,7 +1455,7 @@ const MM=["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agos
 function adesso(){const p=new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const g=t=>(p.find(x=>x.type===t)||{}).value;return{d:`${g("year")}-${g("month")}-${g("day")}`,m:(+g("hour")%24)*60+(+g("minute"))}}
 const piu=(d,n)=>{const x=new Date(d+"T12:00:00Z");x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
 const gs=d=>new Date(d+"T12:00:00Z").getUTCDay();
-const ora=m=>{const h=Math.floor(m/60),mi=m%60,h12=h%12||12;return `${h12}:${String(mi).padStart(2,"0")} ${h<12?"AM":"PM"}`};
+const ora=m=>`${Math.floor(m/60)}:${String(m%60).padStart(2,"0")}`;
 const seg2txt=s=>s.length?s.map(([a,b])=>`${ora(a)} a ${ora(b)}`).join(", "):"Chiusa";
 const dataLunga=d=>`${GG[gs(d)]} ${+d.slice(8,10)} ${MM[+d.slice(5,7)-1]}`;
 const dataBreve=d=>`${GB[gs(d)]} ${+d.slice(8,10)} ${MM[+d.slice(5,7)-1].slice(0,3)}`;
@@ -1385,7 +1490,7 @@ ${S.N.d>FY1?'<p class="shfleg">Calendario festività del nuovo anno non ancora d
     for(const d of giorni){const g=giorno(d);const m=MM[+d.slice(5,7)-1]+" "+d.slice(0,4);if(m!==mese){if(mese)html+="</ul>";html+=`<p class="mese">${m}</p><ul class="shfdays">`;mese=m}
       html+=`<li class="${cls(g)}"><span class="gd">${dataBreve(d)}</span><span class="gh">${seg2txt(g.seg)}</span><span class="gl">${[g.lab,g.nota].filter(Boolean).join(" · ")}</span></li>`}
     if(mese)html+="</ul>";
-    c.innerHTML=`<h3>Giorni con orario diverso, questo mese e il prossimo</h3><p class="shfleg"><span class="st-warn">Solo 8:00 AM a 12:00 PM</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno con orario diverso in questo mese e nel prossimo.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
+    c.innerHTML=`<h3>Giorni con orario diverso, questo mese e il prossimo</h3><p class="shfleg"><span class="st-warn">Solo 8:00 a 12:00</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno con orario diverso in questo mese e nel prossimo.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
 }
 disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)disegna()});
 })();
