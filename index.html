@@ -289,6 +289,10 @@ footer b{color:var(--ink)}
 .shfcal h3{margin:0;font-family:var(--display);font-weight:800;font-stretch:90%;font-size:1.15rem;color:var(--c)}
 .shfcal .mese{font-family:var(--display);font-weight:700;font-size:.95rem;color:var(--ink);margin:6px 0 0;text-transform:capitalize}
 .shfcal small{color:var(--muted);font-size:.82rem}
+/* Meteo in tempo reale a SHAPE */
+.meteo{display:inline-flex;align-items:center;gap:5px;font-size:.84rem;font-weight:700;color:var(--on-navy);background:rgba(255,255,255,.12);border:1px solid var(--navy-rule);border-radius:999px;padding:1px 10px 1px 7px;line-height:1.5;font-variant-numeric:tabular-nums}
+.meteo .mi{font-size:1.05rem;line-height:1}
+.meteo .ml{font-weight:400;color:var(--on-navy-muted)}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 header a:focus-visible{outline-color:var(--focus-navy)}
 
@@ -752,7 +756,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <div class="wrap">
   <header>
     <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="upd" id="upd">Aggiornato al 21.10.2026</span></div>
+    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="meteo" id="meteo" role="img" hidden></span><span class="upd" id="upd">Aggiornato al 21.10.2026</span></div>
     <div class="hrow"><img class="logo" src="logo_sezione_sanitaria.jpg" alt="Logo della Sezione Sanitaria Italiana di SHAPE" width="120" height="120"><h1 lang="en">SHAPE&nbsp;Healthcare <wbr>Italian&nbsp;Section</h1></div>
     <div class="lead">
       <p class="l1">Guida rapida della <b>Sezione Sanitaria Italiana</b> di SHAPE.</p>
@@ -1386,6 +1390,18 @@ ${S.N.d>FY1?'<p class="shfleg">Calendario festività del nuovo anno non ancora d
 disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)disegna()});
 })();
 
+
+/* Meteo in tempo reale a SHAPE (Casteau), dati Open-Meteo */
+(function(){const el=document.getElementById("meteo");if(!el)return;
+const W=[[[0],"☀️","🌙","sereno"],[[1],"🌤️","🌙","poco nuvoloso"],[[2],"⛅","☁️","parzialmente nuvoloso"],[[3],"☁️","☁️","coperto"],[[45,48],"🌫️","🌫️","nebbia"],[[51,53,55,56,57],"🌦️","🌧️","pioviggine"],[[61,63,65,66,67],"🌧️","🌧️","pioggia"],[[71,73,75,77,85,86],"🌨️","🌨️","neve"],[[80,81,82],"🌦️","🌧️","rovesci"],[[95,96,99],"⛈️","⛈️","temporale"]];
+function mostra(d){if(!d||d.t==null)return;const w=W.find(x=>x[0].includes(d.c))||[0,"🌡️","🌡️","meteo"];const t=Math.round(d.t);
+  el.innerHTML=`<span class="mi" aria-hidden="true">${d.g?w[1]:w[2]}</span>${t}°C<span class="ml">SHAPE</span>`;
+  el.setAttribute("aria-label",`Meteo a SHAPE: ${t} gradi, ${w[3]}`);el.title=`Meteo a SHAPE adesso: ${t}°C, ${w[3]}${d.mx!=null?`. Oggi minima ${Math.round(d.mn)}°C, massima ${Math.round(d.mx)}°C`:""}`;el.hidden=false}
+try{const c=JSON.parse(localStorage.getItem("meteo_shape")||"null");if(c&&Date.now()-c.at<3*3600e3)mostra(c)}catch(e){}
+function carica(){fetch("https://api.open-meteo.com/v1/forecast?latitude=50.502&longitude=3.983&current=temperature_2m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=Europe%2FBrussels").then(r=>r.ok?r.json():null).then(j=>{if(!j||!j.current)return;
+  const d={t:j.current.temperature_2m,c:j.current.weather_code,g:j.current.is_day===1,mx:j.daily&&j.daily.temperature_2m_max[0],mn:j.daily&&j.daily.temperature_2m_min[0],at:Date.now()};mostra(d);try{localStorage.setItem("meteo_shape",JSON.stringify(d))}catch(e){}}).catch(()=>{})}
+carica();setInterval(carica,15*60e3);document.addEventListener("visibilitychange",()=>{if(!document.hidden)carica()});
+})();
 </script>
 
 </body>
