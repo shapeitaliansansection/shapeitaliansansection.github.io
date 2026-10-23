@@ -796,8 +796,8 @@ body.va .emr .c .i{width:26px;height:26px}
 body.va .ems{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 body.va .ems a{background:#fdeeee;color:#9e0f18;border:1.5px solid #e2a9ad;border-radius:14px;padding:8px 12px;min-height:58px;font-size:.84rem;line-height:1.3;text-decoration:none;text-align:left}
 body.va .ems a b{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums}
-body.va .emx{display:flex;justify-content:space-between;align-items:center;gap:0 10px;flex-wrap:wrap;margin:-4px 2px -6px}
-body.va .emx a{display:inline-flex;align-items:center;gap:4px;min-height:44px;color:var(--link);font-weight:700;font-size:.86rem;text-decoration:none;white-space:nowrap}
+body.va .emx{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin:-4px 2px -6px}
+body.va .emx a{display:inline-flex;align-items:center;gap:4px;min-height:40px;color:var(--link);font-weight:700;font-size:.92rem;text-decoration:none;white-space:nowrap}
 body.va .emx a b{color:var(--red-ink);font-variant-numeric:tabular-nums}
 body.va .emx .i{width:16px;height:16px;transform:rotate(-90deg)}
 body.va .bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(19,32,46,.10);padding:6px max(6px,calc((100% - 820px)/2)) calc(8px + env(safe-area-inset-bottom,0px))}
@@ -812,6 +812,12 @@ body.va header.hd2{padding-top:20px!important}
 body.va header.hd2::before{content:"";position:absolute;top:0;left:50%;width:100vw;transform:translateX(-50%);height:6px;background:linear-gradient(90deg,#008c45 0 33.33%,#ffffff 33.33% 66.66%,#cd212a 66.66%);border-bottom:.5px solid #000}
 body.va .hbar .meteo{font-size:1.12rem;gap:7px;padding:5px 14px 5px 10px;min-height:44px;border-width:1.5px}
 body.va .hbar .meteo .mi{font-size:1.6rem}
+body.va .hname{flex:1 1 auto;min-width:0}
+body.va .hname b{white-space:normal}
+body.va .hbar .meteo{flex:0 0 66px;width:66px;height:66px;min-height:0;flex-direction:column;justify-content:center;align-items:center;gap:2px;padding:4px;border-radius:14px;font-size:1rem;line-height:1.1;margin-left:auto}
+body.va .hbar .meteo .mi{font-size:1.7rem;line-height:1}
+body.va .emr .t{font-size:.84rem;white-space:nowrap}
+body.va .emr .tx{flex:1 1 auto}
 body.va .guide2 h2{font-family:var(--display);font-weight:800;font-size:1.4rem;margin:0;text-align:left}
 </style>
 </head>
