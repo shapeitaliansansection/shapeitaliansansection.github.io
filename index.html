@@ -787,13 +787,43 @@ body.va .c-idoneita{--c:var(--f-mil);--cs:var(--s-mil)}
 body.va .c-orari,body.va .c-dentista{--c:var(--f-inf);--cs:var(--s-inf)}
 body.va details.ch .tile .k{display:none}
 body.va .notte{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-xl);padding:18px 16px}
+
+/* Versione mista: emergenza e barra in basso dalla proposta B */
+body.va .emc2{display:flex;flex-direction:column;gap:8px}
+body.va .emr{display:flex;align-items:center;gap:12px;background:#c0141c;color:#fff;border-radius:20px;padding:14px 16px;min-height:96px;text-decoration:none;box-shadow:0 10px 24px -12px rgba(192,20,28,.65)}
+body.va .emr .tx{display:flex;flex-direction:column;min-width:0;text-align:left}
+body.va .emr .t{font-size:.9rem;font-weight:700;opacity:.95}
+body.va .emr .n{font-family:var(--display);font-weight:800;font-stretch:90%;font-size:2.1rem;line-height:1.05;font-variant-numeric:tabular-nums}
+body.va .emr .d{font-size:.8rem;opacity:.92;margin-top:2px}
+body.va .emr .c{margin-left:auto;flex:0 0 56px;width:56px;height:56px;border-radius:50%;background:#fff;color:#c0141c;display:grid;place-items:center}
+body.va .emr .c .i{width:26px;height:26px}
+body.va .ems{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+body.va .ems a{background:#fdeeee;color:#9e0f18;border:1.5px solid #e2a9ad;border-radius:14px;padding:8px 12px;min-height:58px;font-size:.84rem;line-height:1.3;text-decoration:none;text-align:left}
+body.va .ems a b{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;font-variant-numeric:tabular-nums}
+body.va .emx{display:flex;justify-content:space-between;align-items:center;gap:0 10px;flex-wrap:wrap;margin:-4px 2px -6px}
+body.va .emx a{display:inline-flex;align-items:center;gap:4px;min-height:44px;color:var(--link);font-weight:700;font-size:.86rem;text-decoration:none;white-space:nowrap}
+body.va .emx a b{color:var(--red-ink);font-variant-numeric:tabular-nums}
+body.va .emx .i{width:16px;height:16px;transform:rotate(-90deg)}
+body.va .bnav{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:var(--paper);border-top:1px solid var(--line);box-shadow:0 -6px 18px rgba(19,32,46,.10);padding:6px max(6px,calc((100% - 820px)/2)) calc(8px + env(safe-area-inset-bottom,0px))}
+body.va .bnav a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:54px;border-radius:14px;font-size:.74rem;font-weight:700;color:var(--muted);text-decoration:none}
+body.va .bnav a .i{width:24px;height:24px}
+body.va .bnav a.e{color:var(--red)}
+body.va .bnav a[aria-current="page"]{background:#e7effb;color:#1556b8}
+body.va .bnav a.e[aria-current="page"]{background:var(--red-tint);color:var(--red)}
+body.va .guide2{display:flex;flex-direction:column;gap:12px}
+body.va .hbar .tv{display:none}
+body.va header.hd2{padding-top:20px!important}
+body.va header.hd2::before{content:"";position:absolute;top:0;left:50%;width:100vw;transform:translateX(-50%);height:6px;background:linear-gradient(90deg,#008c45 0 33.33%,#ffffff 33.33% 66.66%,#cd212a 66.66%);border-bottom:.5px solid #000}
+body.va .hbar .meteo{font-size:1.12rem;gap:7px;padding:5px 14px 5px 10px;min-height:44px;border-width:1.5px}
+body.va .hbar .meteo .mi{font-size:1.6rem}
+body.va .guide2 h2{font-family:var(--display);font-weight:800;font-size:1.4rem;margin:0;text-align:left}
 </style>
 </head>
 <body class="va">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.8 4.6-2.3 1.5a11.5 11.5 0 0 0 6.7 6.7l1.5-2.3 4.6 1.8v3.2a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
-  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
   <symbol id="i-cross" viewBox="0 0 24 24"><path d="M9 2.5h6v6.5h6.5v6H15v6.5H9V15H2.5V9H9z"/></symbol>
   <symbol id="i-hosp" viewBox="0 0 24 24"><rect x="3.5" y="3" width="17" height="18" rx="2"/><path d="M9 8v8M15 8v8M9 12h6"/></symbol>
@@ -842,11 +872,11 @@ body.va .notte{background:var(--paper);border:1px solid var(--line);border-radiu
   <main id="contenuto">
   <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
   <div class="home2" id="indice">
-  <section class="emc" aria-labelledby="emc-t">
-    <h2 id="emc-t"><span class="mk" aria-hidden="true"><svg class="i"><use href="#i-cross"/></svg></span>Emergenza, 24 ore su 24</h2>
-    <a class="emb" href="tel:+3265443333"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span><span class="n">065 44 33 33</span><span class="d">Dentro SHAPE: Joint Police Desk, in inglese. Dal fisso della base: 3333</span></span></a>
-    <div class="em2"><a href="tel:+3265443334"><b>065 44 33 34</b>Stesso servizio, in francese</a><a href="tel:112"><b>112</b>Solo fuori da SHAPE</a></div>
-    <a class="emm" href="#emergenza">Ospedali, interprete e cosa fare<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a>
+  <section class="emc2" aria-labelledby="emc-t">
+    <h2 class="sr" id="emc-t">Emergenza</h2>
+    <a class="emr" href="tel:+3265443333" aria-label="Emergenza a SHAPE, 24 ore su 24: chiama 065 44 33 33, Joint Police Desk"><span class="tx"><span class="t">Emergenza a SHAPE, 24 ore su 24</span><span class="n">065 44 33 33</span><span class="d">Joint Police Desk, in inglese · dal fisso della base 3333</span></span><span class="c" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span></a>
+    <div class="ems"><a href="tel:112"><b>112</b>Fuori da SHAPE</a><a href="tel:1733"><b>1733</b>Guardia medica, non urgente</a></div>
+    <p class="emx"><a href="tel:+3265443334">In francese: <b>065 44 33 34</b></a><a href="#emergenza">Ospedali e interprete<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a></p>
   </section>
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
   <div class="srch" role="search"><label class="sr" for="q">Cerca nella guida</label><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Cerca: dentista, vaccini, mutua" autocomplete="off" enterkeyhint="search"><div class="qres" id="qres" hidden></div></div>
@@ -1299,6 +1329,11 @@ body.va .notte{background:var(--paper);border:1px solid var(--line);border-radiu
   </details>
   </div>
 
+  <section class="guide2" id="guide" aria-labelledby="gd-t">
+    <h2 id="gd-t">Tutte le guide</h2>
+    <nav class="idx2" id="guide-idx" aria-label="Tutte le guide"></nav>
+  </section>
+
   <section class="notte" id="notte" aria-labelledby="nt-t">
     <h2 id="nt-t">Di notte, nel weekend e nei festivi</h2>
     <p class="ln">Quando la clinica SHF è chiusa e non è un'emergenza.</p>
@@ -1366,7 +1401,7 @@ body.va .notte{background:var(--paper);border:1px solid var(--line);border-radiu
   <div class="mapv-bar"><button type="button" id="mapz" aria-label="Ingrandisci la mappa"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21M11 8v6M8 11h6"/></svg><span id="mapzt">Ingrandisci</span></button><button type="button" id="mapc" class="mapc">Chiudi</button></div>
   <div class="mapv-sc" id="mapsc"><img id="mapimg" alt="Mappa della base SHAPE: il puntino rosso indica la clinica SHF, edificio 401" decoding="async"></div>
 </div>
-<nav class="sosbar2" id="sosbar" aria-label="Chiamate di emergenza"><a class="s1" href="tel:+3265443333" aria-label="Emergenza dentro SHAPE, chiama 065 44 33 33"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>065 44 33 33</a><a class="s2" href="tel:112" aria-label="Emergenza fuori da SHAPE, chiama 112">112</a></nav>
+<nav class="bnav" id="bnav" aria-label="Navigazione principale"><a href="#indice" data-n="home"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Home</a><a href="#emergenza" data-n="emergenza" class="e"><svg class="i" aria-hidden="true"><use href="#i-cross"/></svg>Emergenza</a><a href="#clinica" data-n="clinica"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg>Clinica</a><a href="#guide" data-n="guide"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Guide</a><a href="#contatti" data-n="contatti"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Contatti</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
 document.addEventListener("click",async e=>{
@@ -1381,7 +1416,7 @@ chs.forEach(d=>d.addEventListener("toggle",()=>{ if(d.open){ chs.forEach(o=>{ if
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{const t=document.querySelector(a.getAttribute("href")); const d=t&&t.closest("details.ch"); if(d) d.open=true;}));
 const gg=["","Lun","Mar","Mer","Gio","Ven"][new Date().getDay()]; if(gg) document.querySelectorAll(".wk tbody th").forEach(th=>{if(th.textContent.trim()===gg){th.parentElement.classList.add("oggi");th.insertAdjacentHTML("beforeend",'<span class="sr"> (oggi)</span>');}});
 /* Le sezioni dell'indice si aprono come pagine; Indietro del telefono torna all'indice */
-const PAGINE="details.ch,#emergenza,#clinica,#contatti,#feedback,#app,#notte",TIT0=document.title;let dentro=false;
+const PAGINE="details.ch,#emergenza,#clinica,#contatti,#feedback,#app,#notte,#guide",TIT0=document.title;let dentro=false;
 function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;try{t=h&&h!=="indice"?document.getElementById(h):null}catch(e){}
  const ch=t&&t.closest(PAGINE);
  document.querySelectorAll(".cur").forEach(x=>x.classList.remove("cur"));
@@ -1395,7 +1430,10 @@ function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;t
 document.querySelectorAll("details.ch>summary").forEach(sm=>sm.addEventListener("click",e=>{if(document.body.classList.contains("pg"))e.preventDefault()}));
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(a)dentro=true});
 document.getElementById("pgback").addEventListener("click",()=>{if(dentro&&history.length>1)history.back();else{try{history.replaceState(null,"",location.pathname)}catch(e){}route()}});
-route();addEventListener("hashchange",route);
+(function(){const g=document.getElementById("guide-idx"),h=document.querySelector(".home2 .idx2");if(g&&h)g.innerHTML=h.innerHTML})();
+const NAVK={emergenza:"emergenza",clinica:"clinica",orari:"clinica",contatti:"contatti",feedback:"contatti",app:"contatti"};
+function navAttiva(){const c=document.querySelector(".cur");const k=c?(NAVK[c.id]||"guide"):"home";document.querySelectorAll("#bnav a").forEach(a=>{if(a.dataset.n===k)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})}
+route();navAttiva();addEventListener("hashchange",()=>{route();navAttiva()});
 /* Capitolo notte: riusa i blocchi 1733 e farmacie di turno della sezione Emergenza */
 (function(){const m=document.querySelector("#emergenza .mini"),d=document.getElementById("notte-mini");if(m&&d)d.innerHTML=m.innerHTML})();
 /* Ricerca nella guida */
