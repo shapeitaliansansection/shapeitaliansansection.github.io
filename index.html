@@ -1127,9 +1127,27 @@ body.va a.tel,body.va a.map,body.va a.btn,body.va a.btn-doc,body.va a.btn-vcf,bo
 body.va a.tel>svg.i,body.va a.map>svg.i,body.va a.btn>svg.i,body.va a.btn-doc>svg.i,body.va a.btn-vcf>svg.i,body.va button.copy>svg.i{background:transparent;color:#fff;padding:3px}
 body.va button.copy{background:linear-gradient(180deg,#ffffff,#e9edf2)!important;color:#2f3c4c!important;border-color:#c9d1db!important;box-shadow:0 4px 0 #aeb8c5!important}
 body.va button.copy>svg.i{color:#2f3c4c}
-body.va .bnav a{color:#fff!important;background:linear-gradient(180deg,color-mix(in srgb,var(--vc) 78%,#ffffff) 0%,var(--vc) 100%)!important;border:1px solid color-mix(in srgb,var(--vc) 75%,#000000)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--vc) 60%,#000000),0 7px 12px rgba(19,32,46,.18)!important}
-body.va .bnav a[aria-current="page"]{background:linear-gradient(180deg,color-mix(in srgb,var(--vc) 78%,#ffffff) 0%,var(--vc) 100%)!important;border:1px solid color-mix(in srgb,var(--vc) 75%,#000000)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--vc) 60%,#000000),0 7px 12px rgba(19,32,46,.18)!important;outline:3px solid #ffd34d;outline-offset:-4px}
-body.va .bnav a[data-n="contatti"]{--vc:#1a7a43}
+body.va .emc2{gap:6px}
+body.va .emr{min-height:0;padding:8px 12px 10px 60px;gap:10px}
+body.va .emr .t{font-size:.8rem}
+body.va .emr .n{font-size:1.7rem}
+body.va .emr .d{font-size:.74rem;margin-top:1px;line-height:1.3}
+body.va .emr .c{flex:0 0 46px;width:46px;height:46px}
+body.va .emr .c .i{width:22px;height:22px}
+body.va .ems3{gap:7px}
+body.va .ems3 a{padding:6px 10px;gap:10px;border-radius:14px;border-left-width:6px;box-shadow:0 3px 0 #c3ccd8,0 5px 10px rgba(19,32,46,.08)}
+body.va .ems3 .pic{flex:0 0 40px;width:40px;height:40px}
+body.va .ems3 .pic svg{width:24px;height:24px}
+body.va .ems3 .e112 .pic svg{width:28px;stroke-width:2.4}
+body.va .ems3 .tx{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:8px;line-height:1.2}
+body.va .ems3 .num{font-size:1.35rem}
+body.va .ems3 .t{font-size:.9rem}
+body.va .ems3 .x{flex-basis:100%;font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.va .ems3 .go{padding:7px 11px;font-size:.8rem}
+body.va .emx{margin:-6px 2px -8px}
+body.va .emx a{min-height:32px;font-size:.88rem}
+body.va .emx{flex-direction:row;flex-wrap:wrap;justify-content:center;column-gap:14px;margin:-4px 0 -6px}
+body.va .emx a{font-size:.82rem;min-height:30px}
 </style>
 </head>
 <body class="va">
@@ -1189,7 +1207,7 @@ body.va .bnav a[data-n="contatti"]{--vc:#1a7a43}
   <section class="emc2" aria-labelledby="emc-t">
     <h2 class="sr" id="emc-t">Emergenza</h2>
     <a class="emr" href="tel:+3265443333" aria-label="Emergenza a SHAPE, 24 ore su 24: chiama 065 44 33 33, Joint Police Desk"><span class="tx"><span class="t">Emergenza a SHAPE, 24 ore su 24</span><span class="n">065 44 33 33</span><span class="d">Joint Police Desk, in inglese · dal fisso della base 3333</span></span><span class="c" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span></a>
-    <div class="ems3"><a class="e112" href="tel:112" aria-label="Chiama il 112, numero unico fuori da SHAPE: ambulanza, vigili del fuoco, polizia"><span class="pic"><svg viewBox="0 0 64 44" aria-hidden="true"><use href="#e-amb"/></svg></span><span class="tx"><span class="num">112</span><span class="t">Fuori da SHAPE</span><span class="x">Ambulanza, vigili del fuoco, polizia</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a><a class="e1733" href="tel:1733" aria-label="Chiama il 1733, guardia medica belga: notte, weekend e festivi, casi non urgenti"><span class="pic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#e-doc"/></svg></span><span class="tx"><span class="num">1733</span><span class="t">Guardia medica</span><span class="x">Notte, weekend e festivi, non urgente</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a></div>
+    <div class="ems3"><a class="e112" href="tel:112" aria-label="Chiama il 112, numero unico fuori da SHAPE: ambulanza, vigili del fuoco, polizia"><span class="pic"><svg viewBox="0 0 64 44" aria-hidden="true"><use href="#e-amb"/></svg></span><span class="tx"><span class="num">112</span><span class="t">Fuori da SHAPE</span><span class="x">Ambulanza, pompieri, polizia</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a><a class="e1733" href="tel:1733" aria-label="Chiama il 1733, guardia medica belga: notte, weekend e festivi, casi non urgenti"><span class="pic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#e-doc"/></svg></span><span class="tx"><span class="num">1733</span><span class="t">Guardia medica</span><span class="x">Notte e festivi, non urgente</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a></div>
     <p class="emx"><a href="tel:+3265443334">In francese: <b>065 44 33 34</b></a><a href="#emergenza">Ospedali e interprete<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a></p>
   </section>
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
