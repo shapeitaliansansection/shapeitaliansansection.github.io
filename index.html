@@ -1040,6 +1040,26 @@ body.va .body .key,body.va .body .key .ln,body.va .body .formbox,body.va .body .
 }
 
 
+/* Pulsanti in rilievo (effetto 3D) */
+body.va .bnav{gap:6px;padding-top:9px;background:linear-gradient(#f4f6f9,#e9edf2)}
+body.va .bnav a{background:linear-gradient(180deg,#ffffff 0%,#eef2f7 100%);border:1px solid #cdd5df;box-shadow:0 4px 0 #b3bfcd,0 7px 12px rgba(19,32,46,.16);transition:transform .08s,box-shadow .08s;margin-bottom:4px}
+body.va .bnav a.e{background:linear-gradient(180deg,#ffffff 0%,#fdeaea 100%);border-color:#e6b1b5;box-shadow:0 4px 0 #d08f95,0 7px 12px rgba(160,20,30,.18)}
+body.va .bnav a[aria-current="page"]{background:linear-gradient(180deg,#f3f7fe 0%,#d9e6fa 100%);border-color:#a9c2ec;box-shadow:0 4px 0 #8eaee0,0 7px 12px rgba(21,86,184,.2)}
+body.va .bnav a.e[aria-current="page"]{background:linear-gradient(180deg,#fff4f4 0%,#f8d6d8 100%);border-color:#dd9aa0;box-shadow:0 4px 0 #c4767e,0 7px 12px rgba(160,20,30,.22)}
+body.va .bnav a:active{transform:translateY(4px);box-shadow:0 0 0 transparent,0 2px 4px rgba(19,32,46,.18)}
+body.va .emr{box-shadow:0 6px 0 #8a0b12,0 12px 22px -8px rgba(160,15,25,.55);background:linear-gradient(180deg,#d01a23 0%,#b5121a 100%);transition:transform .08s,box-shadow .08s}
+body.va .emr:active{transform:translateY(5px);box-shadow:0 1px 0 #8a0b12,0 4px 8px rgba(160,15,25,.4)}
+body.va .emr .c{box-shadow:0 3px 0 #e3c4c6,inset 0 -2px 0 #f1dcdd}
+body.va .ems a{background:linear-gradient(180deg,#fff6f6 0%,#fbe3e4 100%);box-shadow:0 4px 0 #dca2a7,0 6px 10px rgba(160,20,30,.12);transition:transform .08s,box-shadow .08s}
+body.va .ems a:active{transform:translateY(4px);box-shadow:0 0 0 transparent}
+body.va .idx2 a{box-shadow:0 4px 0 color-mix(in srgb,var(--c) 45%,#ffffff),0 7px 12px rgba(19,32,46,.12);background:linear-gradient(180deg,#ffffff 0%,var(--cs) 55%);transition:transform .08s,box-shadow .08s}
+body.va .idx2 a:active{transform:translateY(4px);box-shadow:0 0 0 transparent}
+body.va .idx2 a .ic{box-shadow:inset 0 -3px 0 rgba(0,0,0,.18),0 2px 3px rgba(0,0,0,.15)}
+body.va .htes a{background:linear-gradient(180deg,#ffffff 0%,#e6ebf2 100%);box-shadow:0 4px 0 #8796ad,0 8px 14px rgba(0,0,0,.3)}
+body.va .htes a:active{transform:translateY(4px);box-shadow:0 0 0 transparent}
+body.va .shfnow{box-shadow:0 4px 0 color-mix(in srgb,var(--sc) 40%,#ffffff),0 6px 10px rgba(19,32,46,.1)}
+@media (prefers-reduced-motion:reduce){body.va .bnav a,body.va .emr,body.va .ems a,body.va .idx2 a{transition:none}}
+
 /* Titolo del capitolo: niente riquadro quando riceve il focus all'apertura */
 body.va h2[tabindex="-1"]:focus{outline:none}
 /* Nome della Sezione e data centrati tra logo e meteo */
