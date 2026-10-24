@@ -1106,13 +1106,29 @@ body.va .bnav a[data-n="guide"]{--vc:#6a35aa}
 body.va .bnav a[data-n="contatti"]{--vc:#1a7a43}
 body.va .bnav a[aria-current="page"]{background:linear-gradient(180deg,#ffffff 0%,color-mix(in srgb,var(--vc) 18%,#ffffff) 100%)!important;border-color:color-mix(in srgb,var(--vc) 55%,#ffffff)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--vc) 60%,#ffffff),0 7px 12px rgba(19,32,46,.16)!important}
 body.va .bnav a:active{transform:translateY(4px);box-shadow:0 0 0 transparent!important}
+
+/* ===== Riquadri 112 e 1733: pittogramma a sinistra, numero e spiegazione, pulsante Chiama ===== */
+body.va .ems3{display:flex;flex-direction:column;gap:10px}
+body.va .ems3 a{--c:#c0141c;display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,#ffffff 0%,#f5f7fa 100%);border:1.5px solid #d3dae3;border-left:8px solid var(--c);border-radius:16px;padding:10px 12px;box-shadow:0 4px 0 #c3ccd8,0 7px 12px rgba(19,32,46,.10);text-decoration:none;color:var(--ink);transition:transform .08s,box-shadow .08s}
+body.va .ems3 a:active{transform:translateY(4px);box-shadow:0 0 0 transparent}
+body.va .ems3 a.e1733{--c:#22356e}
+body.va .ems3 .pic{flex:0 0 58px;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 80%,#ffffff),var(--c));color:#fff;box-shadow:inset 0 -4px 0 rgba(0,0,0,.2),0 2px 4px rgba(0,0,0,.15)}
+body.va .ems3 .pic svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+body.va .ems3 .e112 .pic svg{width:40px;stroke-width:2.6}
+body.va .ems3 .tx{flex:1;min-width:0;display:flex;flex-direction:column;text-align:left;line-height:1.25}
+body.va .ems3 .num{font-family:var(--display);font-weight:800;font-stretch:92%;font-size:1.85rem;line-height:1.05;color:var(--c);font-variant-numeric:tabular-nums}
+body.va .ems3 .t{font-weight:800;font-size:.95rem}
+body.va .ems3 .x{font-size:.82rem;color:var(--muted)}
+body.va .ems3 .go{flex:0 0 auto;display:flex;align-items:center;gap:6px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 82%,#ffffff),var(--c));color:#fff;border-radius:999px;padding:9px 13px;font-weight:800;font-size:.85rem;box-shadow:0 3px 0 color-mix(in srgb,var(--c) 60%,#000000)}
+body.va .ems3 .go .ph{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:359px){body.va .ems3 .go{padding:9px}body.va .ems3 .go{font-size:0;gap:0}body.va .ems3 .go .ph{width:18px;height:18px}}
 </style>
 </head>
 <body class="va">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.2l1.8 4.6-2.3 1.5a11.5 11.5 0 0 0 6.7 6.7l1.5-2.3 4.6 1.8v3.2a2 2 0 0 1-2 2A17 17 0 0 1 3 5.5a2 2 0 0 1 2-2z"/></symbol>
-  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></symbol><symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol><symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M12 11v7M9 15l3 3 3-3"/></symbol><symbol id="i-vcf" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 3v4M17 5h4"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol><symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol><symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></symbol><symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol><symbol id="i-pdf" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M12 11v7M9 15l3 3 3-3"/></symbol><symbol id="i-vcf" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 3v4M17 5h4"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></symbol><symbol id="e-amb" viewBox="0 0 64 44"><path d="M3 32V12a2 2 0 0 1 2-2h32v22"/><path d="M37 16h12l10 10v6h-4"/><path d="M3 32h6M17 32h22"/><circle cx="13" cy="33" r="5"/><circle cx="51" cy="33" r="5"/><path d="M20 14v12M14 20h12"/><path d="M41 19h7l5 6H41z"/><path d="M9 6l3 3M27 6l-3 3"/></symbol><symbol id="e-doc" viewBox="0 0 24 24"><path d="M6 3v6a5 5 0 0 0 10 0V3"/><path d="M4 3h4M14 3h4"/><path d="M11 14v2a5 5 0 0 0 10 0v-2"/><circle cx="21" cy="12" r="2"/></symbol><symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.3-7-11.5a7 7 0 0 1 14 0c0 5.2-7 11.5-7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
   <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
   <symbol id="i-cross" viewBox="0 0 24 24"><path d="M9 2.5h6v6.5h6.5v6H15v6.5H9V15H2.5V9H9z"/></symbol>
   <symbol id="i-hosp" viewBox="0 0 24 24"><rect x="3.5" y="3" width="17" height="18" rx="2"/><path d="M9 8v8M15 8v8M9 12h6"/></symbol>
@@ -1165,7 +1181,7 @@ body.va .bnav a:active{transform:translateY(4px);box-shadow:0 0 0 transparent!im
   <section class="emc2" aria-labelledby="emc-t">
     <h2 class="sr" id="emc-t">Emergenza</h2>
     <a class="emr" href="tel:+3265443333" aria-label="Emergenza a SHAPE, 24 ore su 24: chiama 065 44 33 33, Joint Police Desk"><span class="tx"><span class="t">Emergenza a SHAPE, 24 ore su 24</span><span class="n">065 44 33 33</span><span class="d">Joint Police Desk, in inglese · dal fisso della base 3333</span></span><span class="c" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span></a>
-    <div class="ems"><a href="tel:112"><b>112</b>Fuori da SHAPE</a><a href="tel:1733"><b>1733</b>Guardia medica, non urgente</a></div>
+    <div class="ems3"><a class="e112" href="tel:112" aria-label="Chiama il 112, numero unico fuori da SHAPE: ambulanza, vigili del fuoco, polizia"><span class="pic"><svg viewBox="0 0 64 44" aria-hidden="true"><use href="#e-amb"/></svg></span><span class="tx"><span class="num">112</span><span class="t">Fuori da SHAPE</span><span class="x">Ambulanza, vigili del fuoco, polizia</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a><a class="e1733" href="tel:1733" aria-label="Chiama il 1733, guardia medica belga: notte, weekend e festivi, casi non urgenti"><span class="pic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#e-doc"/></svg></span><span class="tx"><span class="num">1733</span><span class="t">Guardia medica</span><span class="x">Notte, weekend e festivi, non urgente</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a></div>
     <p class="emx"><a href="tel:+3265443334">In francese: <b>065 44 33 34</b></a><a href="#emergenza">Ospedali e interprete<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a></p>
   </section>
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
