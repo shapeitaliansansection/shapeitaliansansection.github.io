@@ -1122,6 +1122,14 @@ body.va .ems3 .x{font-size:.82rem;color:var(--muted)}
 body.va .ems3 .go{flex:0 0 auto;display:flex;align-items:center;gap:6px;background:linear-gradient(180deg,color-mix(in srgb,var(--c) 82%,#ffffff),var(--c));color:#fff;border-radius:999px;padding:9px 13px;font-weight:800;font-size:.85rem;box-shadow:0 3px 0 color-mix(in srgb,var(--c) 60%,#000000)}
 body.va .ems3 .go .ph{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:359px){body.va .ems3 .go{padding:9px}body.va .ems3 .go{font-size:0;gap:0}body.va .ems3 .go .ph{width:18px;height:18px}}
+/* ===== Prova proposta 1: colore pieno per funzione e barra 1 ===== */
+body.va a.tel,body.va a.map,body.va a.btn,body.va a.btn-doc,body.va a.btn-vcf,body.va button.copy{background:linear-gradient(180deg,color-mix(in srgb,var(--fc) 82%,#ffffff) 0%,var(--fc) 100%)!important;color:#fff!important;border-color:color-mix(in srgb,var(--fc) 80%,#000000)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--fc) 65%,#000000),0 7px 12px rgba(19,32,46,.18)!important}
+body.va a.tel>svg.i,body.va a.map>svg.i,body.va a.btn>svg.i,body.va a.btn-doc>svg.i,body.va a.btn-vcf>svg.i,body.va button.copy>svg.i{background:transparent;color:#fff;padding:3px}
+body.va button.copy{background:linear-gradient(180deg,#ffffff,#e9edf2)!important;color:#2f3c4c!important;border-color:#c9d1db!important;box-shadow:0 4px 0 #aeb8c5!important}
+body.va button.copy>svg.i{color:#2f3c4c}
+body.va .bnav a{color:#fff!important;background:linear-gradient(180deg,color-mix(in srgb,var(--vc) 78%,#ffffff) 0%,var(--vc) 100%)!important;border:1px solid color-mix(in srgb,var(--vc) 75%,#000000)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--vc) 60%,#000000),0 7px 12px rgba(19,32,46,.18)!important}
+body.va .bnav a[aria-current="page"]{background:linear-gradient(180deg,color-mix(in srgb,var(--vc) 78%,#ffffff) 0%,var(--vc) 100%)!important;border:1px solid color-mix(in srgb,var(--vc) 75%,#000000)!important;box-shadow:0 4px 0 color-mix(in srgb,var(--vc) 60%,#000000),0 7px 12px rgba(19,32,46,.18)!important;outline:3px solid #ffd34d;outline-offset:-4px}
+body.va .bnav a[data-n="contatti"]{--vc:#1a7a43}
 </style>
 </head>
 <body class="va">
