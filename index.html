@@ -1248,7 +1248,7 @@ body.va .flu{margin:12px 0 4px;padding:12px 14px;border:2px solid #1556b8;border
 body.va .flu p{margin:0 0 6px}
 body.va .flu .flu-t{font-weight:800;font-size:1.05rem;color:#0d3f8f}
 body.va .flu ul{margin:6px 0;padding:0;list-style:none}
-body.va .flu .flu-l li{display:grid;grid-template-columns:5.8em 1fr auto;gap:6px;padding:5px 0;border-top:1px solid #d3def2;align-items:baseline}
+body.va .flu .flu-l li{display:grid;grid-template-columns:6em 1fr;gap:6px;padding:5px 0;border-top:1px solid #d3def2;align-items:baseline}
 body.va .flu .flu-l li.oggi{background:#fff6d6;font-weight:700}
 body.va .flu .fd{font-weight:700}
 body.va .flu .fl{font-size:.82rem;font-weight:700;color:#0d3f8f;background:#dfe9fb;border-radius:999px;padding:1px 9px}
@@ -1258,6 +1258,18 @@ body.va .flu small{font-size:.76rem;color:var(--muted)}
 
 @media (min-width:1000px){body.va .fluhome{padding:16px 22px}body.va .fluhome b{font-size:1.15rem}body.va .fluhome small{font-size:.95rem}body.va .fluhome .fi{font-size:2.2rem}}
 body.va .flu .flu-l li{margin:0!important;padding:5px 0!important;min-height:0}body.va .flu .flu-l li::before,body.va .flu .flu-l li::after{display:none}
+
+body.va .hlogo{box-shadow:0 4px 0 #b9c2cf,0 8px 14px rgba(0,0,0,.35);transition:transform .08s,box-shadow .08s}
+body.va .hlogo:active{transform:translateY(3px);box-shadow:0 1px 0 #b9c2cf,0 3px 6px rgba(0,0,0,.3)}
+@media (min-width:700px){body.va .hlogo{box-shadow:0 6px 0 #b9c2cf,0 11px 18px rgba(0,0,0,.35)}}
+body.va .hd2{--tile:78px}
+@media (min-width:700px){body.va .hd2{--tile:100px}}
+@media (min-width:1000px){body.va .hd2{--tile:120px}}
+body.va .hd2 .hlogo,body.va .hd2 .hbar .meteo{flex:0 0 var(--tile)!important;width:var(--tile)!important;height:var(--tile)!important;min-height:0!important;box-sizing:border-box!important}
+body.va .hd2 .hbar .meteo{padding:4px 2px!important;gap:0!important;line-height:1.05!important;justify-content:center!important;font-size:calc(var(--tile)*.2)!important}
+body.va .hd2 .hbar .meteo .mi{font-size:calc(var(--tile)*.34)!important;line-height:1!important;margin-bottom:1px}
+body.va .hd2 .hbar .meteo::after{content:attr(data-ora);display:block;width:72%;margin-top:3px;padding-top:3px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 35%,transparent);text-align:center;font-size:.7em;font-weight:700;opacity:.92;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+body.va .hd2 .hbar .meteo:not([data-ora])::after{display:none}
 
 </style>
 </head>
@@ -2031,22 +2043,31 @@ carica();setInterval(carica,10*60e3);document.addEventListener("visibilitychange
 
 /* Campagna antinfluenzale 2026 2027 della SHF: volantino SHAPE Public Health aggiornato al 16 ottobre 2026 */
 (function(){
-const SHF="SHF",CHI="Chièvres";
-const D=[["2026-10-26","14:00","18:00",SHF],["2026-10-29","9:00","13:00",SHF],["2026-11-04","14:00","18:00",SHF],["2026-11-12","14:00","18:00",CHI],["2026-11-16","14:00","18:00",SHF],["2026-11-18","14:00","18:00",SHF],["2026-11-23","14:00","18:00",SHF],["2026-11-30","14:00","18:00",SHF],["2026-12-09","14:00","18:00",SHF],["2026-12-14","14:00","18:00",CHI],["2026-12-17","14:00","18:00",SHF],["2027-01-06","14:00","18:00",SHF]];
+const SHF="SHF";
+const D=[["2026-10-26","14:00","18:00",SHF],["2026-10-29","9:00","13:00",SHF],["2026-11-04","14:00","18:00",SHF],["2026-11-16","14:00","18:00",SHF],["2026-11-18","14:00","18:00",SHF],["2026-11-23","14:00","18:00",SHF],["2026-11-30","14:00","18:00",SHF],["2026-12-09","14:00","18:00",SHF],["2026-12-17","14:00","18:00",SHF],["2027-01-06","14:00","18:00",SHF]];
 const GG=["dom","lun","mar","mer","gio","ven","sab"],MM=["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
 const oggi=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Brussels",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const fine=d=>{const p=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Brussels",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(new Date());const m=(+p.find(x=>x.type=="hour").value)*60+(+p.find(x=>x.type=="minute").value);const[h,mi]=d[2].split(":");return d[0]<oggi||(d[0]===oggi&&m>=h*60+ +mi)};
 const dt=d=>{const x=new Date(d+"T12:00:00Z");return`${GG[x.getUTCDay()]} ${x.getUTCDate()} ${MM[x.getUTCMonth()]}`};
-const MAPS={[SHF]:"https://www.google.com/maps/search/?api=1&query=SHAPE+Healthcare+Facility+Casteau",[CHI]:"https://www.google.com/maps/search/?api=1&query=Chi%C3%A8vres+Air+Base"};
+const MAPS={[SHF]:"https://www.google.com/maps/search/?api=1&query=SHAPE+Healthcare+Facility+Casteau"};
 const prossime=D.filter(d=>!fine(d));
 const box=`<div class="flu"><p class="flu-t">💉 Vaccino antinfluenzale 2026 2027</p>
-<p class="flu-k"><b>Senza appuntamento (walk in)</b>, per tutto il personale SHAPE e Benelux e i familiari dai 3 anni in su.</p><p class="flu-k"><b>Dove:</b> <a href="${MAPS[SHF]}" target="_blank" rel="noopener">SHF, livello 2, sala conferenze</a>; le date «Chièvres» si tengono nella palestra della <a href="${MAPS[CHI]}" target="_blank" rel="noopener">Chièvres Air Base</a>.</p>
-${prossime.length?`<ul class="flu-l">${prossime.map((d,i)=>`<li${d[0]===oggi?' class="oggi"':""}><span class="fd">${d[0]===oggi?"Oggi":dt(d[0])}</span><span class="fh">${d[1]} a ${d[2]}</span><span class="fl">${d[3]}</span></li>`).join("")}</ul>`:"<p>La campagna di quest'anno è terminata: per il vaccino rivolgiti all'Immunization Clinic.</p>"}
+<p class="flu-k"><b>Senza appuntamento (walk in)</b>, per tutto il personale SHAPE e i familiari dai 3 anni in su.</p><p class="flu-k"><b>Dove:</b> <a href="${MAPS[SHF]}" target="_blank" rel="noopener">SHF, livello 2, sala conferenze</a>.</p>
+${prossime.length?`<ul class="flu-l">${prossime.map((d,i)=>`<li${d[0]===oggi?' class="oggi"':""}><span class="fd">${d[0]===oggi?"Oggi":dt(d[0])}</span><span class="fh">${d[1]} a ${d[2]}</span></li>`).join("")}</ul>`:"<p>La campagna di quest'anno è terminata: per il vaccino rivolgiti all'Immunization Clinic.</p>"}
 <ul class="flu-n"><li>Bisogna essere già registrati alla clinica SHF.</li><li>Bambini da 6 a 35 mesi: solo all'Immunization Clinic (livello 2, stanza 2D124), senza appuntamento, in orario normale.</li><li>Quest'anno il vaccino non si fa in farmacia SHF.</li><li>Non disponibile per il personale belga della Host Nation e le loro famiglie, per legge belga.</li></ul>
 <small>Fonte: volantino SHAPE Public Health aggiornato al 16 ottobre 2026 (shape2day.com).</small></div>`;
 document.querySelectorAll("[data-flu]").forEach(e=>e.innerHTML=box);
 const h=document.getElementById("fluhome");
-if(h&&prossime.length){const p=prossime[0];h.innerHTML=`<span class="fi" aria-hidden="true">💉</span><span class="tx"><b>Vaccino antinfluenzale, senza appuntamento</b><small>${p[0]===oggi?"Oggi":"Prossima: "+dt(p[0])}, ${p[1]} a ${p[2]}${p[3]===CHI?" · Chièvres Air Base":" · SHF, livello 2"}</small></span><span class="go">Tutte le date ›</span>`;h.hidden=false}
+if(h&&prossime.length){const p=prossime[0];h.innerHTML=`<span class="fi" aria-hidden="true">💉</span><span class="tx"><b>Vaccino antinfluenzale, senza appuntamento</b><small>${p[0]===oggi?"Oggi":"Prossima: "+dt(p[0])}, ${p[1]} a ${p[2]} · SHF, livello 2</small></span><span class="go">Tutte le date ›</span>`;h.hidden=false}
+})();
+
+/* Micro orologio nel riquadro del meteo: ora di Bruxelles, aggiornata ogni minuto */
+(function(){const el=document.getElementById("meteo");if(!el)return;
+const f=new Intl.DateTimeFormat("it-IT",{timeZone:"Europe/Brussels",hour:"2-digit",minute:"2-digit",hourCycle:"h23"});
+function tic(){const o=f.format(new Date());el.dataset.ora=o;
+ if(el.hidden&&!el.classList.contains("allerta")){el.innerHTML='<span class="mi" aria-hidden="true">🕒</span>';el.setAttribute("aria-label","Ora a SHAPE: "+o);el.hidden=false}
+ setTimeout(tic,60000-Date.now()%60000+50)}
+tic();document.addEventListener("visibilitychange",()=>{if(!document.hidden)el.dataset.ora=f.format(new Date())});
 })();
 </script>
 
