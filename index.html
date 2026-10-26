@@ -1271,6 +1271,30 @@ body.va .hd2 .hbar .meteo .mi{font-size:calc(var(--tile)*.34)!important;line-hei
 body.va .hd2 .hbar .meteo::after{content:attr(data-ora);display:block;width:72%;margin-top:3px;padding-top:3px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 35%,transparent);text-align:center;font-size:.7em;font-weight:700;opacity:.92;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 body.va .hd2 .hbar .meteo:not([data-ora])::after{display:none}
 
+body.va .ticker{display:flex;align-items:stretch;margin:0;border-radius:12px;overflow:hidden;background:#ffe9a8;border:2px solid #e0a800;box-shadow:0 3px 0 #c99a00;min-height:38px;font-size:.9rem}
+body.va .ticker[hidden]{display:none}
+body.va .ticker.tk-alta{background:#ffd9c2;border-color:#e0661b;box-shadow:0 3px 0 #b84f12}
+body.va .tk-l{flex:0 0 auto;display:flex;align-items:center;gap:6px;padding:0 10px;background:#c0141c;color:#fff;font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+body.va .tk-l i{width:8px;height:8px;border-radius:50%;background:#fff;animation:tkp 1.4s ease-in-out infinite}
+@keyframes tkp{50%{opacity:.25}}
+body.va .tk-w{position:relative;flex:1;overflow:hidden;display:flex;align-items:center;-webkit-mask:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent);mask:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+body.va .tk-t{display:flex;white-space:nowrap;animation:tks var(--tkd,20s) linear infinite;will-change:transform}
+body.va .tk-g{display:inline-flex;align-items:center;padding-right:28px}
+body.va .ticker:hover .tk-t,body.va .ticker:focus-within .tk-t,body.va .ticker.tk-ferma .tk-t{animation-play-state:paused}
+@keyframes tks{to{transform:translateX(calc(-1 * var(--tkw,50%)))}}
+body.va .tk-i{color:#1d1a10;font-weight:700;text-decoration:none;padding:8px 2px}
+body.va .tk-i:hover,body.va .tk-i:focus-visible{text-decoration:underline}
+body.va .tk-s{margin:0 14px;color:#b07d00;font-size:.6rem}
+@media (prefers-reduced-motion:reduce){body.va .tk-t{animation:none;flex-direction:column}body.va .tk-g{white-space:normal;display:block;padding:6px 0}body.va .tk-g[aria-hidden]{display:none}body.va .tk-w{-webkit-mask:none;mask:none}}
+@media (min-width:1000px){body.va .ticker{min-height:48px;font-size:1.05rem}body.va .tk-l{font-size:.85rem;padding:0 16px}}
+body.va .home2>.ticker{margin-top:-12px}
+
+body.va .ticker.tk-san{min-height:30px;font-size:.82rem;background:#fff;border:1.5px solid #b9cdee;border-radius:999px;box-shadow:0 2px 6px rgba(21,86,184,.15)}
+body.va .ticker.tk-san .tk-i{padding:5px 2px;color:#0d3f8f}
+body.va .ticker.tk-san .tk-l{font-size:.66rem;background:linear-gradient(180deg,#2a74db,#1556b8);border-radius:999px;margin:3px;padding:0 10px}
+body.va .ticker.tk-san .tk-s{color:#1556b8}
+@media (min-width:1000px){body.va .ticker.tk-san{min-height:40px;font-size:1rem}body.va .ticker.tk-san .tk-l{font-size:.8rem;padding:0 14px}}
+
 </style>
 </head>
 <body class="va">
@@ -1328,12 +1352,12 @@ body.va .hd2 .hbar .meteo:not([data-ora])::after{display:none}
   <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
   <div class="home2" id="indice">
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
+  <div class="ticker" id="ticker" role="region" hidden><span class="tk-l"><i aria-hidden="true"></i>Avvisi</span><div class="tk-w"><div class="tk-t" id="tk-t"></div></div></div>
   <section class="emc2" aria-labelledby="emc-t">
     <h2 class="sr" id="emc-t">Emergenza</h2>
     <a class="emr" href="tel:+3265443333" aria-label="Emergenza a SHAPE, 24 ore su 24: chiama 065 44 33 33, Joint Police Desk"><span class="tx"><span class="t">Emergenza a SHAPE, 24 ore su 24</span><span class="n">065 44 33 33</span><span class="d">Joint Police Desk, in inglese · dal fisso della base 3333</span></span><span class="c" aria-hidden="true"><svg class="i"><use href="#i-phone"/></svg></span></a>
     <div class="ems3"><a class="e112" href="tel:112" aria-label="Chiama il 112, numero unico fuori da SHAPE: ambulanza, vigili del fuoco, polizia"><span class="pic"><svg viewBox="0 0 64 44" aria-hidden="true"><use href="#e-amb"/></svg></span><span class="tx"><span class="num">112</span><span class="t">Fuori da SHAPE</span><span class="x">Ambulanza, pompieri, polizia</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a><a class="e1733" href="tel:1733" aria-label="Chiama il 1733, guardia medica belga: notte, weekend e festivi, casi non urgenti"><span class="pic"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#e-doc"/></svg></span><span class="tx"><span class="num">1733</span><span class="t">Guardia medica</span><span class="x">Notte e festivi, non urgente</span></span><span class="go"><svg class="ph" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg>Chiama</span></a></div>
     <p class="emx"><a href="tel:+3265443334">In francese: <b>065 44 33 34</b></a><a href="#emergenza">Ospedali e interprete<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a></p>
-  <a class="fluhome" id="fluhome" href="#h-9" hidden></a>
   </section>
   <div class="srch" role="search"><label class="sr" for="q">Cerca nella guida</label><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="q" type="search" placeholder="Cerca: dentista, vaccini, mutua" autocomplete="off" enterkeyhint="search"><div class="qres" id="qres" hidden></div></div>
   <h2 class="idx2-t" id="idx-t">Argomenti</h2>
@@ -1860,6 +1884,22 @@ body.va .hd2 .hbar .meteo:not([data-ora])::after{display:none}
 <nav class="bnav" id="bnav" aria-label="Navigazione principale"><a href="#indice" data-n="home"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg>Home</a><a href="#emergenza" data-n="emergenza" class="e"><svg class="i" aria-hidden="true"><use href="#i-cross"/></svg>Emergenza</a><a href="#clinica" data-n="clinica"><svg class="i" aria-hidden="true"><use href="#i-hosp"/></svg>Clinica</a><a href="#guide" data-n="guide"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Guide</a><a href="#contatti" data-n="contatti"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Contatti</a></nav>
 <div class="toast" id="toast" role="status"></div>
 <script>
+/* Striscia avvisi (stile telegiornale): compare solo quando c'è almeno un avviso */
+(function(){const SRC={};let tm=null;
+function rendi(){const box=document.getElementById("ticker"),t=document.getElementById("tk-t");if(!box||!t)return;
+ const it=[].concat(...["meteo","clinica","flu","man"].map(k=>SRC[k]||[]));
+ if(!it.length){box.hidden=true;t.innerHTML="";return}
+ const esc=s=>String(s).replace(/[<&]/g,c=>c=="<"?"&lt;":"&amp;");
+ const one=it.map(a=>`<a class="tk-i tk-${a.c||"info"}" href="${a.h||"#"}"${a.id?` data-k="${a.id}"`:""}>${esc(a.t)}</a>`).join('<span class="tk-s" aria-hidden="true">◆</span>');
+ t.innerHTML=`<span class="tk-g">${one}</span><span class="tk-g" aria-hidden="true">${one}</span>`;
+ t.querySelectorAll('.tk-g[aria-hidden] a').forEach(a=>a.tabIndex=-1);
+ box.hidden=false;box.classList.toggle("tk-alta",it.some(a=>a.c==="al-a"||a.c==="al-r"));box.classList.toggle("tk-san",!it.some(a=>a.id==="meteo"));
+ requestAnimationFrame(()=>{const w=t.firstElementChild.getBoundingClientRect().width;t.style.setProperty("--tkd",Math.max(12,w/55)+"s");t.style.setProperty("--tkw",w+"px")});
+ box.setAttribute("aria-label","Avvisi: "+it.map(a=>a.t).join(". "))}
+window.addAvv=function(k,v){SRC[k]=v||[];clearTimeout(tm);tm=setTimeout(rendi,30)};
+document.addEventListener("click",e=>{const a=e.target.closest('#ticker a[data-k="meteo"]');if(!a)return;e.preventDefault();const m=document.getElementById("meteo");if(m){window.scrollTo({top:0,behavior:"smooth"});setTimeout(()=>m.click(),250)}});
+})();
+
 document.addEventListener("click",async e=>{
   const b=e.target.closest(".copy"); if(!b) return;
   e.preventDefault(); const t=document.getElementById("toast");
@@ -1986,6 +2026,8 @@ ${S.N.d>FY1?'<p class="shfleg">Calendario festività del nuovo anno non ancora d
     if(mese)html+="</ul>";
     c.innerHTML=`<h3>Giorni con orario diverso, questo mese e il prossimo</h3><p class="shfleg"><span class="st-warn">Solo 8:00 a 12:00</span><span class="st-no">Clinica chiusa</span></p>${html||"<p>Nessun giorno con orario diverso in questo mese e nel prossimo.</p>"}<small>Fonte: calendario FY 2027 SHAPE/Brussels (v4) della SHAPE Healthcare Facility. Gli orari possono cambiare: in caso di dubbio chiama il desk.</small>`;c.dataset.ok="1"}
 }
+function avvClinica(){const N=adesso(),out=[];[[N.d,"Oggi"],[piu(N.d,1),"Domani"]].forEach(([d,q])=>{const g=giorno(d);if(g.t==="c")out.push({t:`🏥 ${q} clinica SHF chiusa: ${g.lab}`,h:"#orari"});else if(g.t==="r")out.push({t:`🏥 ${q} clinica SHF aperta solo ${seg2txt(g.seg)}: ${g.lab}`,h:"#orari"});else if(g.t==="g3")out.push({t:`🏥 ${q} clinica SHF aperta solo dalle 13:00 alle 17:00 (terzo giovedì del mese)`,h:"#orari"});if(g.nota)out.push({t:`🏥 ${q}: ${g.nota}`,h:"#orari"})});if(window.addAvv)addAvv("clinica",out)}
+avvClinica();setInterval(avvClinica,10*60e3);
 disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)disegna()});
 })();
 
@@ -2026,7 +2068,8 @@ function apri(){chiudi();pop=document.createElement("div");pop.className="alpop"
  pop.innerHTML=lista.map(({x,ora})=>`<div class="ali ${LIV[x.l][1]}"><b>⚠️ Allerta ${LIV[x.l][0]}: ${TIPO[x.t]||"meteo"}</b><span>${ora?"In corso, fino a "+quando(x.E):"Da "+quando(x.O)+" a "+quando(x.E)}</span><span>${CONS[x.t]||""} ${LCONS[x.l]||""}</span>${x.d?`<details><summary>Testo ufficiale IRM (in francese)</summary><span lang="fr">${x.d.replace(/[<&]/g,c=>c=="<"?"&lt;":"&amp;")}</span></details>`:""}</div>`).join("")+
  `<small>Provincia dell'Hainaut (Mons, SHAPE). Fonte: IRM, Istituto Reale Meteorologico belga · <a href="https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique" target="_blank" rel="noopener">mappa delle allerte</a></small><button type="button" class="alx">Chiudi</button>`;
  document.body.appendChild(pop);posiz();el.setAttribute("aria-expanded","true");pop.querySelector(".alx").addEventListener("click",()=>{chiudi();el.focus()})}
-window.allertaMeteo=function(){el.classList.remove("allerta","al-g","al-a","al-r");const v=el.querySelector(".aw");if(v)v.remove();
+function avvMeteo(){if(window.addAvv)addAvv("meteo",lista.map(({x,ora})=>({t:`⚠️ Allerta ${LIV[x.l][0]} per ${TIPO[x.t]||"maltempo"}: ${ora?"in corso fino a "+quando(x.E):"da "+quando(x.O)+" a "+quando(x.E)}`,c:LIV[x.l][1],id:"meteo"})))}
+window.allertaMeteo=function(){avvMeteo();el.classList.remove("allerta","al-g","al-a","al-r");const v=el.querySelector(".aw");if(v)v.remove();
  if(!lista.length){el.setAttribute("role","img");el.removeAttribute("tabindex");el.removeAttribute("aria-expanded");chiudi();return}
  const top=lista[0].x.l;el.classList.add("allerta",LIV[top][1]);
  if(el.hidden||!el.querySelector(".mi")){el.innerHTML='<span class="mi" aria-hidden="true">⚠️</span>Allerta';el.hidden=false}
@@ -2057,6 +2100,8 @@ ${prossime.length?`<ul class="flu-l">${prossime.map((d,i)=>`<li${d[0]===oggi?' c
 <ul class="flu-n"><li>Bisogna essere già registrati alla clinica SHF.</li><li>Bambini da 6 a 35 mesi: solo all'Immunization Clinic (livello 2, stanza 2D124), senza appuntamento, in orario normale.</li><li>Quest'anno il vaccino non si fa in farmacia SHF.</li><li>Non disponibile per il personale belga della Host Nation e le loro famiglie, per legge belga.</li></ul>
 <small>Fonte: volantino SHAPE Public Health aggiornato al 16 ottobre 2026 (shape2day.com).</small></div>`;
 document.querySelectorAll("[data-flu]").forEach(e=>e.innerHTML=box);
+{const p=prossime[0],dd=p?Math.round((Date.parse(p[0])-Date.parse(oggi))/864e5):99;
+ if(p&&dd<=7)addAvv("flu",[{t:`💉 ${p[0]===oggi?"Oggi":dd===1?"Domani":"Il "+dt(p[0])} vaccino antinfluenzale senza appuntamento, ${p[1]} a ${p[2]}, SHF livello 2`,h:"#h-9"}])}
 const h=document.getElementById("fluhome");
 if(h&&prossime.length){const p=prossime[0];h.innerHTML=`<span class="fi" aria-hidden="true">💉</span><span class="tx"><b>Vaccino antinfluenzale, senza appuntamento</b><small>${p[0]===oggi?"Oggi":"Prossima: "+dt(p[0])}, ${p[1]} a ${p[2]} · SHF, livello 2</small></span><span class="go">Tutte le date ›</span>`;h.hidden=false}
 })();
@@ -2069,6 +2114,9 @@ function tic(){const o=f.format(new Date());el.dataset.ora=o;
  setTimeout(tic,60000-Date.now()%60000+50)}
 tic();document.addEventListener("visibilitychange",()=>{if(!document.hidden)el.dataset.ora=f.format(new Date())});
 })();
+
+/* Avvisi scritti a mano: file avvisi.json (testo, dal, al, link) */
+(function(){function c(){fetch("avvisi.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(!j)return;const o=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Brussels",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());addAvv("man",(j.avvisi||[]).filter(a=>a.testo&&(!a.dal||a.dal<=o)&&(!a.al||o<=a.al)).map(a=>({t:a.testo,h:a.link||"#"})))}).catch(()=>{})}c();setInterval(c,15*60e3)})();
 </script>
 
 </body>
