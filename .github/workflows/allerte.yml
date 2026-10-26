@@ -1,0 +1,60 @@
+name: Allerte meteo
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: allerte
+  cancel-in-progress: false
+jobs:
+  allerte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scarica le allerte IRM per l'Hainaut
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime, sys
+          FEED = "https://feeds.meteoalarm.org/api/v1/warnings/feeds-belgium"
+          ZONA = "BE32"
+          req = urllib.request.Request(FEED, headers={"User-Agent": "guida-sanitaria-shape"})
+          d = json.load(urllib.request.urlopen(req, timeout=60))
+          ora = datetime.datetime.now(datetime.timezone.utc)
+          lim = ora + datetime.timedelta(hours=48)
+          out = []
+          for w in d.get("warnings", []):
+              a = w.get("alert", {})
+              if a.get("status") != "Actual" or a.get("msgType") == "Cancel":
+                  continue
+              info = [i for i in a.get("info", []) if i.get("language", "").startswith("fr")]
+              for i in info:
+                  if not any(g.get("value") == ZONA for ar in i.get("area", []) for g in ar.get("geocode", [])):
+                      continue
+                  P = {p["valueName"]: p["value"] for p in i.get("parameter", [])}
+                  try:
+                      liv = int(P["awareness_level"].split(";")[0]); tipo = int(P["awareness_type"].split(";")[0])
+                      on = datetime.datetime.fromisoformat(i.get("onset") or i["effective"]); ex = datetime.datetime.fromisoformat(i["expires"])
+                  except Exception:
+                      continue
+                  if ex <= ora or on > lim:
+                      continue
+                  desc = (i.get("description") or "").strip()
+                  if desc.lower().startswith("aucune"):
+                      desc = ""
+                  out.append({"s": a.get("sent", ""), "t": tipo, "l": liv, "o": on.isoformat(), "e": ex.isoformat(), "d": desc[:600]})
+          out.sort(key=lambda x: (x["o"], x["t"], x["s"]))
+          json.dump({"giorno": ora.astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat(), "zona": "Hainaut", "fonte": "IRM tramite MeteoAlarm", "m": out}, open("allerte.json", "w"), ensure_ascii=False, separators=(",", ":"))
+          print(len(out), "messaggi")
+          PY
+      - name: Salva se sono cambiate
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add allerte.json
+          if git diff --cached --quiet; then echo "Nessuna novità"; exit 0; fi
+          git commit -m "Allerte meteo aggiornate"
+          git pull --rebase
+          git push
