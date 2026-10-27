@@ -1,6 +1,6 @@
 // Funzionamento offline della guida SHAPE Healthcare Italian Section.
 // Le pagine si scaricano sempre aggiornate dalla rete; se la rete manca si usa la copia salvata.
-const VERSIONE = 'shi-2026-10-27l';
+const VERSIONE = 'shi-2026-10-27m';
 const BASE = [
   './', 'index.html', 'scheda.html', 'tessera.html', 'jsbarcode.min.js', 'manifest.webmanifest',
   'emergenza.vcf', 'kennedy.vcf', 'sezione.vcf',
