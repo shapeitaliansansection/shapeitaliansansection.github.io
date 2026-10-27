@@ -1351,6 +1351,13 @@ a.inst3d:focus-visible{outline:3px solid #ffd34d;outline-offset:3px}
 /* Link agli orari sotto ogni servizio (27 ottobre) */
 a.svc-orari{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-weight:700;font-size:.92rem;color:var(--link,#1556b8);text-decoration:underline;text-underline-offset:3px;min-height:40px}
 a.svc-orari svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Scheda orari evidenziata per 20 secondi quando ci arrivi da un link (27 ottobre) */
+.hcard.evid{position:relative;border-color:#e0a400!important;box-shadow:0 0 0 4px #ffd34d,0 0 0 8px rgba(255,211,77,.35)!important;background:#fffaf0!important;animation:evidpulse 1.6s ease-in-out infinite}
+@keyframes evidpulse{0%,100%{box-shadow:0 0 0 4px #ffd34d,0 0 0 8px rgba(255,211,77,.35)}50%{box-shadow:0 0 0 4px #ffd34d,0 0 0 14px rgba(255,211,77,.12)}}
+.hcard.evid::before{content:"Servizio selezionato";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#ffd34d;color:#3a2c00;font-weight:800;font-size:.75rem;letter-spacing:.03em;padding:2px 10px;border-radius:999px;white-space:nowrap}
+body.pg .hcard,body.pg .svc{scroll-margin-top:104px}
+@media (prefers-reduced-motion:reduce){.hcard.evid{animation:none}}
 </style>
 </head>
 <body class="va">
@@ -2190,6 +2197,16 @@ var q=location.search,app=(window.matchMedia&&matchMedia("(display-mode: standal
 if(qr&&history.replaceState){var u=new URL(location.href);u.searchParams.delete("qr");history.replaceState(null,"",u.pathname+(u.search||"")+u.hash)}
 setTimeout(function(){fetch(ENDPOINT,{method:"POST",body:new URLSearchParams({modulo:"visita",app:app?"1":"0",qr:qr?"1":"0"}),mode:"no-cors",keepalive:true}).catch(function(){})},1500);
 }catch(e){}})();
+</script>
+<script>
+/* Evidenzia per 20 secondi la scheda orari raggiunta da un link */
+(function(){let t=null;
+ function evid(id){const c=document.getElementById(id);if(!c||!c.classList.contains("hcard"))return;document.querySelectorAll(".hcard.evid").forEach(x=>x.classList.remove("evid"));clearTimeout(t);
+  setTimeout(()=>{c.classList.add("evid");t=setTimeout(()=>c.classList.remove("evid"),20000)},250)}
+ const da=()=>{const h=decodeURIComponent(location.hash.slice(1));if(/^h-\d+$/.test(h))evid(h)};
+ addEventListener("hashchange",da);da();
+ document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#h-"]');if(a&&a.getAttribute("href")===location.hash)setTimeout(da,50)});
+})();
 </script>
 </body>
 </html>
