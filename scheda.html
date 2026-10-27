@@ -448,6 +448,16 @@ legend{margin:0 auto;text-align:center}
 .flag{border:0.5px solid #000;box-sizing:content-box}
 footer .flagbar i:nth-child(2){box-shadow:none!important}
 footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:4px;align-self:stretch;text-align:center}
+
+/* Tasti 3D per tornare alla Home (27 ottobre) */
+.home3d{font:inherit;font-weight:800;font-size:1.12rem;min-height:58px;width:100%;max-width:440px;margin:0 auto;padding:10px 22px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:12px;text-decoration:none!important;color:#fff!important;background:linear-gradient(180deg,#2a4f8a 0%,#14294d 100%);box-shadow:0 6px 0 #0a1730,0 10px 18px rgba(10,23,48,.35),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .08s,box-shadow .08s;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+.home3d:active{transform:translateY(5px);box-shadow:0 1px 0 #0a1730,0 3px 8px rgba(10,23,48,.3)}
+.home3d svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.home3d.light{color:#14294d!important;background:linear-gradient(180deg,#ffffff 0%,#e6ecf5 100%);box-shadow:0 6px 0 #8fa3c2,0 10px 18px rgba(0,0,0,.3),inset 0 1px 0 #fff}
+.home3d.light:active{box-shadow:0 1px 0 #8fa3c2,0 3px 8px rgba(0,0,0,.25)}
+.home3d:focus-visible{outline:3px solid #ffd34d;outline-offset:3px}
+.hometop{margin:2px 0 18px}
+.homeend{padding:22px 16px 10px}
 </style>
 </head>
 <body>
@@ -475,7 +485,8 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
 <div class="wrap">
   <header>
     <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
-    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span><span class="upd"><a href="./">Torna a SHAPE Healthcare Italian Section</a></span></div>
+    <div class="top"><span class="who">Sezione Sanitaria Italiana · SHAPE</span></div>
+    <div class="hometop"><a class="home3d light" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>Torna alla Home</a></div>
     <div class="hrow"><img class="logo" src="logo_sezione_sanitaria.jpg" alt="Logo della Sezione Sanitaria Italiana di SHAPE" width="104" height="104"><h1>Scheda contatti militari</h1></div>
     <p class="lead">Riservata al personale militare italiano in servizio a SHAPE.<br>Compilala all'arrivo, e di nuovo se cambia qualcosa: bastano anche solo i dati nuovi.<br>Ci serve per contattarti e per tenere aggiornate le tue pratiche sanitarie.</p>
   </header>
@@ -562,11 +573,12 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     <h2>Grazie, scheda inviata</h2>
     <p>La Sezione Sanitaria ha ricevuto i tuoi dati.<br>Se qualcosa cambia, compila di nuovo la scheda, anche solo con i dati nuovi: la Sezione aggiornerà il tuo profilo.</p>
     <p id="tess" hidden><a class="btn solid" href="tessera.html">Crea la tessera digitale con il tuo DoD ID</a></p>
-    <a class="btn solid" href="./">Torna a SHAPE Healthcare Italian Section</a>
+    <a class="home3d" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>Torna alla Home</a>
   </div>
 
   </main>
 
+  <div class="homeend"><a class="home3d" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>Torna alla Home</a></div>
   <footer>
     <div class="flagbar" aria-hidden="true"><i></i><i></i><i></i></div>
     <span><b>Sezione Sanitaria Italiana · SHAPE</b> · SHAPE Healthcare Facility, edificio 401, stanze <span class="room">1B104</span> e <span class="room">1B113</span> · <a href="mailto:infermeria.shape@gmail.com">infermeria.shape@gmail.com</a></span>

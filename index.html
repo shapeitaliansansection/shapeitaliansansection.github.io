@@ -679,7 +679,7 @@ footer .flagbar i:nth-child(2){box-shadow:none!important}
 .idxcard .idx-t{margin:0 0 12px;text-align:center}
 main .sos{margin-top:16px!important}
 body:not(.pg) .chs{display:none}
-body.pg header,body.pg main>*:not(.chs):not(.pgbar):not(.cur){display:none!important}
+body.pg header,body.pg main>*:not(.chs):not(.pgbar):not(.pgbar2):not(.cur){display:none!important}
 body:not(.pg) #contatti,body:not(.pg) #feedback{display:none}
 body.pgsec .chs{display:none!important}
 body.pg .chs{margin-top:0}
@@ -1317,6 +1317,17 @@ body.va .home2>.shfnow .dot{width:11px;height:11px;box-shadow:0 0 0 3px color-mi
 body.va .home2>.shfnow .go{font-size:.78rem!important}
 body.va .home2>.shfnow+.ticker{margin-top:-16px}
 }
+
+/* Tasti 3D per tornare alla Home (27 ottobre) */
+.pgbar2{display:none}
+body.pg .pgbar2{display:flex;justify-content:center;padding:22px 0 8px}
+body.pg main>.pgbar2{display:flex!important}
+body.pg .pgbar{justify-content:center}
+.pgbar .home3d,.pgbar2 .home3d{font:inherit;font-weight:800;font-size:1.12rem;letter-spacing:.01em;min-height:58px;width:100%;max-width:440px;padding:10px 22px;border-radius:16px;border:0;cursor:pointer;display:inline-flex!important;align-items:center;justify-content:center;gap:12px;color:#fff!important;background:linear-gradient(180deg,#2a4f8a 0%,var(--navy) 100%)!important;box-shadow:0 6px 0 #0a1730,0 10px 18px rgba(10,23,48,.35),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .08s,box-shadow .08s;-webkit-tap-highlight-color:transparent}
+.pgbar .home3d:active,.pgbar2 .home3d:active{transform:translateY(5px);box-shadow:0 1px 0 #0a1730,0 3px 8px rgba(10,23,48,.3),inset 0 1px 0 rgba(255,255,255,.2)}
+.pgbar .home3d svg,.pgbar2 .home3d svg{width:26px!important;height:26px!important;fill:none;stroke:#fff;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+.home3d:focus-visible{outline:3px solid #ffd34d;outline-offset:3px}
+body.pg .pgbar{padding:12px 0 16px}
 </style>
 </head>
 <body class="va">
@@ -1371,7 +1382,7 @@ body.va .home2>.shfnow+.ticker{margin-top:-16px}
   </header>
 
   <main id="contenuto">
-  <div class="pgbar"><button type="button" id="pgback"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>Torna all'indice</button></div>
+  <div class="pgbar"><button type="button" id="pgback" class="home3d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>Torna alla Home</button></div>
   <div class="home2" id="indice">
   <a class="shfnow" id="shfnow" href="#clinica" hidden></a>
   <div class="ticker" id="ticker" role="region" hidden><span class="tk-l"><i aria-hidden="true"></i>Avvisi</span><div class="tk-w"><div class="tk-t" id="tk-t"></div></div></div>
@@ -1892,6 +1903,7 @@ body.va .home2>.shfnow+.ticker{margin-top:-16px}
     <p class="howto ok" id="how-ok" hidden><b>App già installata.</b> La stai usando dalla schermata Home.</p>
   </section>
 
+  <div class="pgbar2"><button type="button" class="home3d" id="pghome2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h5v-5.5h3V20h5V9.5"/></svg>Torna alla Home</button></div>
 </main>
 
   <footer>
@@ -1947,7 +1959,8 @@ function route(){const h=decodeURIComponent(location.hash.slice(1));let t=null;t
  if(t&&t.id!=="indice")setTimeout(()=>t.scrollIntoView(),era?60:0);else if(era)window.scrollTo(0,0);}
 document.querySelectorAll("details.ch>summary").forEach(sm=>sm.addEventListener("click",e=>{if(document.body.classList.contains("pg"))e.preventDefault()}));
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(a)dentro=true});
-document.getElementById("pgback").addEventListener("click",()=>{if(dentro&&history.length>1)history.back();else{try{history.replaceState(null,"",location.pathname)}catch(e){}route()}});
+function vaiHome(){try{history.pushState(null,"",location.pathname)}catch(e){}route();if(typeof navAttiva==="function")navAttiva();window.scrollTo(0,0)}
+document.getElementById("pgback").addEventListener("click",vaiHome);document.getElementById("pghome2").addEventListener("click",vaiHome);
 (function(){const g=document.getElementById("guide-idx"),h=document.querySelector(".home2 .idx2");if(g&&h)g.innerHTML=h.innerHTML})();
 const NAVK={emergenza:"emergenza",clinica:"clinica",orari:"clinica",contatti:"contatti",feedback:"contatti",app:"contatti"};
 function navAttiva(){const c=document.querySelector(".cur");const k=c?(NAVK[c.id]||"guide"):"home";document.querySelectorAll("#bnav a").forEach(a=>{if(a.dataset.n===k)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")})}
