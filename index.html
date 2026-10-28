@@ -1415,6 +1415,7 @@ body.va .htes{gap:12px;align-items:center}
 .nwp .nwt{display:block;font-family:var(--display);font-weight:800;color:var(--navy);margin-bottom:4px}
 .nwp a{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 0;border-top:1px solid var(--line);color:var(--link);font-weight:700;text-decoration:none;font-size:.95rem;text-align:left}
 .nwp .nwd{flex:0 0 48px;font-size:.78rem;color:var(--muted);font-weight:700}
+.nwp .nwv{margin:6px 0 10px;color:var(--muted);font-size:.92rem}
 .nwp .nwn{margin-left:auto;flex:0 0 auto;font-size:.66rem;font-weight:800;background:#ffd34d;color:#2a1a00;padding:2px 7px;border-radius:999px}
 
 /* Allineamento sezioni nuove (28 ottobre) */
@@ -2421,15 +2422,18 @@ var MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic
 function d(s){var a=s.split('-');return new Date(+a[0],a[1]-1,+a[2]);}
 var seen='';try{seen=localStorage.getItem('nwSeen')||'';}catch(e){}
 var nuove=0;
-NEWS.forEach(function(n){var t=d(n[0]),recente=(oggi-t)<30*G;
- if(recente&&n[0]>seen)nuove++;
+/* mostra solo le novita degli ultimi 30 giorni, al massimo 6, le piu recenti */
+var vis=NEWS.filter(function(n){var a=oggi-d(n[0]);return a>=-G&&a<30*G;}).sort(function(x,y){return x[0]<y[0]?1:-1;}).slice(0,6);
+if(!vis.length){var v=document.createElement('p');v.className='nwv';v.textContent='Nessuna novità negli ultimi 30 giorni.';l.appendChild(v);}
+vis.forEach(function(n){var t=d(n[0]),nuova=n[0]>seen;
+ if(nuova)nuove++;
  var a=document.createElement('a');a.href=n[2];
- a.innerHTML='<span class="nwd">'+t.getDate()+' '+MESI[t.getMonth()]+'</span><span></span>'+(recente?'<span class="nwn">NUOVO</span>':'');
+ a.innerHTML='<span class="nwd">'+t.getDate()+' '+MESI[t.getMonth()]+'</span><span></span>'+(nuova?'<span class="nwn">NUOVO</span>':'');
  a.children[1].textContent=n[1];l.appendChild(a);});
 function badge(){if(nuove>0){c.textContent=nuove;c.hidden=false;b.setAttribute('aria-label','Novità nella guida: '+nuove+' da leggere');}else{c.hidden=true;b.setAttribute('aria-label','Novità nella guida');}}
 badge();
 function apri(v){p.hidden=!v;b.setAttribute('aria-expanded',v?'true':'false');
- if(v){nuove=0;badge();try{localStorage.setItem('nwSeen',NEWS[0][0]);}catch(e){}}}
+ if(v){nuove=0;badge();try{if(vis.length)localStorage.setItem('nwSeen',vis[0][0]);}catch(e){}}}
 b.addEventListener('click',function(e){e.stopPropagation();apri(p.hidden);});
 l.addEventListener('click',function(){apri(false);});
 document.addEventListener('click',function(e){if(!p.hidden&&!p.contains(e.target))apri(false);});
