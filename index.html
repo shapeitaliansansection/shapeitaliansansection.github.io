@@ -1401,6 +1401,21 @@ body{overflow-x:clip}
 .gv-en{font-size:clamp(1.2rem,4.5vw,1.6rem);color:#2f3c4c;margin:0 0 10px}
 .gv-it{font-size:1rem;color:#4b5869;margin:0 0 18px}
 .gv-x{font:inherit;font-weight:700;min-height:48px;padding:0 26px;border-radius:999px;border:0;background:#14294d;color:#fff;cursor:pointer}
+
+body.va .htes{gap:12px;align-items:center}
+.nwb{position:relative;width:48px;height:48px;flex:0 0 48px;border-radius:50%;border:0;cursor:pointer;background:linear-gradient(180deg,#ffffff 0%,#e6ebf2 100%);color:var(--navy);display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.nwb svg{width:22px;height:22px}
+.nwb:active{transform:translateY(2px)}
+.nwb:focus-visible{outline:3px solid var(--focus-navy);outline-offset:3px}
+.nwb[aria-expanded="true"]{background:#ffd34d}
+.nwb .bdg{position:absolute;top:-5px;right:-5px;min-width:21px;height:21px;padding:0 4px;border-radius:11px;background:#b3121b;color:#fff;font-size:.72rem;font-weight:800;display:grid;place-items:center;border:2px solid var(--navy)}
+.nwb .bdg[hidden]{display:none}
+.nwp{background:#fff;color:var(--ink);border-radius:16px;padding:12px 14px 6px;margin:12px auto 0;max-width:360px;text-align:left;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.nwp[hidden]{display:none}
+.nwp .nwt{display:block;font-family:var(--display);font-weight:800;color:var(--navy);margin-bottom:4px}
+.nwp a{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 0;border-top:1px solid var(--line);color:var(--link);font-weight:700;text-decoration:none;font-size:.95rem;text-align:left}
+.nwp .nwd{flex:0 0 48px;font-size:.78rem;color:var(--muted);font-weight:700}
+.nwp .nwn{margin-left:auto;flex:0 0 auto;font-size:.66rem;font-weight:800;background:#ffd34d;color:#2a1a00;padding:2px 7px;border-radius:999px}
 </style>
 </head>
 <body class="va">
@@ -1451,7 +1466,7 @@ body{overflow-x:clip}
     <div class="hbar"><a class="hlogo" href="./" aria-label="Torna alla pagina iniziale"><img src="logo_sezione_sanitaria.jpg" alt="" width="44" height="44"></a><span class="hname"><b class="hss">Sezione Sanitaria <span class="ita" aria-label="ITA"><i>I</i><i>T</i><i>A</i></span></b><span class="hsh">SHAPE</span><span class="upd" id="upd">aggiornata il 21 ottobre 2026</span></span><span class="meteo" id="meteo" role="img" hidden></span><span class="tv" aria-hidden="true"><i></i><i></i><i></i></span></div>
     <h1>Guida sanitaria SHAPE</h1>
     <p class="hsub">Registrandoti alla<br><b class="hshf">SHAPE HEALTHCARE FACILITY (SHF)</b><br>potrai usufruire dei suoi servizi, <a class="hcome" href="#arrivo">scopri come</a></p>
-    <div class="htes"><a href="tessera.html"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg>La mia tessera digitale</a></div>
+    <div class="htes"><a href="tessera.html"><svg class="i" aria-hidden="true"><use href="#i-bar"/></svg>La mia tessera digitale</a><button type="button" class="nwb" id="nwb" aria-expanded="false" aria-controls="nwp" aria-label="Novità nella guida"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="bdg" id="nwc" hidden></span></button></div><div class="nwp" id="nwp" hidden><b class="nwt">Novità nella guida</b><div id="nwl"></div></div>
   </header>
 
   <main id="contenuto">
@@ -2390,5 +2405,35 @@ document.addEventListener('click',function(e){var b=e.target.closest('.glr');
 if(b){last=b;o.querySelector('.gv-fr').textContent=b.dataset.fr;o.querySelector('.gv-en').textContent=b.dataset.en;o.querySelector('.gv-it').textContent=b.dataset.it;o.hidden=false;o.querySelector('.gv-x').focus();return;}
 if(e.target===o||e.target.closest('.gv-x'))chiudi();});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!o.hidden)chiudi();});})();
+</script><script>
+(function(){
+/* Novità: aggiungere in cima le nuove voci (data AAAA MM GG con trattini ISO solo nel codice) */
+var NEWS=[
+ ['2026-10-28','Gravidanza e nascita','#gravidanza'],
+ ['2026-10-28','Parole utili dal medico','#parole'],
+ ['2026-10-28','Salute stagionale','#stagioni'],
+ ['2026-10-28','Cosa portare dall\'Italia','#cosaportare'],
+ ['2026-10-28','Servizi sul territorio','#territorio'],
+ ['2026-10-27','Orari delle visite pediatriche','#h-15']
+];
+var b=document.getElementById('nwb'),p=document.getElementById('nwp'),l=document.getElementById('nwl'),c=document.getElementById('nwc');if(!b)return;
+var MESI=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'],oggi=Date.now(),G=864e5;
+function d(s){var a=s.split('-');return new Date(+a[0],a[1]-1,+a[2]);}
+var seen='';try{seen=localStorage.getItem('nwSeen')||'';}catch(e){}
+var nuove=0;
+NEWS.forEach(function(n){var t=d(n[0]),recente=(oggi-t)<30*G;
+ if(recente&&n[0]>seen)nuove++;
+ var a=document.createElement('a');a.href=n[2];
+ a.innerHTML='<span class="nwd">'+t.getDate()+' '+MESI[t.getMonth()]+'</span><span></span>'+(recente?'<span class="nwn">NUOVO</span>':'');
+ a.children[1].textContent=n[1];l.appendChild(a);});
+function badge(){if(nuove>0){c.textContent=nuove;c.hidden=false;b.setAttribute('aria-label','Novità nella guida: '+nuove+' da leggere');}else{c.hidden=true;b.setAttribute('aria-label','Novità nella guida');}}
+badge();
+function apri(v){p.hidden=!v;b.setAttribute('aria-expanded',v?'true':'false');
+ if(v){nuove=0;badge();try{localStorage.setItem('nwSeen',NEWS[0][0]);}catch(e){}}}
+b.addEventListener('click',function(e){e.stopPropagation();apri(p.hidden);});
+l.addEventListener('click',function(){apri(false);});
+document.addEventListener('click',function(e){if(!p.hidden&&!p.contains(e.target))apri(false);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!p.hidden){apri(false);b.focus();}});
+})();
 </script></body>
 </html>
