@@ -1373,6 +1373,12 @@ body.pg .hcard,body.pg .svc{scroll-margin-top:104px}
 .terr .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .terr .acts a{min-height:44px;display:inline-flex;align-items:center;gap:6px}
 .tavv{margin-bottom:6px}
+
+/* Argomenti: tessere su righe centrate, l'ultima riga incompleta resta al centro */
+body.va .idx2{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+body.va .idx2 a{flex:0 0 calc((100% - 8px)/2);min-width:0}
+@media (min-width:700px){body.va .idx2{gap:10px}body.va .idx2 a{flex-basis:calc((100% - 20px)/3)}}
+@media (min-width:1200px){body.va .idx2 a{flex-basis:calc((100% - 30px)/4)}}
 </style>
 </head>
 <body class="va">
