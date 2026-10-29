@@ -2,6 +2,8 @@
 <html lang="it">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com; manifest-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://script.google.com">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Guida sanitaria SHAPE · Sezione Sanitaria Italiana</title>
 <link rel="icon" type="image/png" href="favicon.png">
@@ -2154,7 +2156,8 @@ function rendi(){const box=document.getElementById("ticker"),t=document.getEleme
  const it=[].concat(...["meteo","clinica","flu","man"].map(k=>SRC[k]||[]));
  if(!it.length){box.hidden=true;t.innerHTML="";return}
  const esc=s=>String(s).replace(/[<&]/g,c=>c=="<"?"&lt;":"&amp;");
- const one=it.map(a=>`<a class="tk-i tk-${a.c||"info"}" href="${a.h||"#"}"${a.id?` data-k="${a.id}"`:""}>${esc(a.t)}</a>`).join('<span class="tk-s" aria-hidden="true">◆</span>');
+ const okh=h=>{h=String(h||"#");return /^(#[\w-]*|https:\/\/[^\s"<>]+|[\w-]+\.(html|pdf|vcf)(#[\w-]*)?)$/.test(h)?h:"#"};
+  const one=it.map(a=>`<a class="tk-i tk-${String(a.c||"info").replace(/[^\w-]/g,"")}" href="${okh(a.h)}"${a.id?` data-k="${a.id}"`:""}>${esc(a.t)}</a>`).join('<span class="tk-s" aria-hidden="true">◆</span>');
  t.innerHTML=`<span class="tk-g">${one}</span><span class="tk-g" aria-hidden="true">${one}</span>`;
  t.querySelectorAll('.tk-g[aria-hidden] a').forEach(a=>a.tabIndex=-1);
  box.hidden=false;box.classList.toggle("tk-alta",it.some(a=>a.c==="al-a"||a.c==="al-r"));box.classList.toggle("tk-san",!it.some(a=>a.id==="meteo"));
@@ -2305,8 +2308,8 @@ function mostra(d){if(!d||d.t==null)return;const w=W.find(x=>x[0].includes(d.c))
   el.innerHTML=`<span class="mi" aria-hidden="true">${d.g?w[1]:w[2]}</span>${t}°C<span class="ml">SHAPE</span>`;
   el.setAttribute("aria-label",`Meteo a SHAPE: ${t} gradi, ${w[3]}`);el.title=`Meteo a SHAPE adesso: ${t}°C, ${w[3]}${d.mx!=null?`. Oggi minima ${Math.round(d.mn)}°C, massima ${Math.round(d.mx)}°C`:""}`;el.hidden=false;if(window.allertaMeteo)allertaMeteo()}
 try{const c=JSON.parse(localStorage.getItem("meteo_shape")||"null");if(c&&Date.now()-c.at<3*3600e3)mostra(c)}catch(e){}
-function carica(){fetch("https://api.open-meteo.com/v1/forecast?latitude=50.502&longitude=3.983&current=temperature_2m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=Europe%2FBrussels").then(r=>r.ok?r.json():null).then(j=>{if(!j||!j.current)return;
-  const d={t:j.current.temperature_2m,c:j.current.weather_code,g:j.current.is_day===1,mx:j.daily&&j.daily.temperature_2m_max[0],mn:j.daily&&j.daily.temperature_2m_min[0],at:Date.now()};mostra(d);try{localStorage.setItem("meteo_shape",JSON.stringify(d))}catch(e){}}).catch(()=>{})}
+function carica(){fetch("meteo.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(!j||j.t==null||(j.ts&&Date.now()-Date.parse(j.ts)>6*3600e3))return;
+  const d={t:j.t,c:j.c,g:j.g===1||j.g===true,mx:j.mx,mn:j.mn,at:Date.now()};mostra(d);try{localStorage.setItem("meteo_shape",JSON.stringify(d))}catch(e){}}).catch(()=>{})}
 carica();setInterval(carica,15*60e3);document.addEventListener("visibilitychange",()=>{if(!document.hidden)carica()});
 })();
 

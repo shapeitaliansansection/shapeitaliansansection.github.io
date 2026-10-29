@@ -1,6 +1,6 @@
 // Funzionamento offline della guida SHAPE Healthcare Italian Section.
 // Le pagine si scaricano sempre aggiornate dalla rete; se la rete manca si usa la copia salvata.
-const VERSIONE = 'shi-2026-10-29c';
+const VERSIONE = 'shi-2026-10-29d';
 const BASE = [
   './', 'index.html', 'scheda.html', 'tessera.html', 'jsbarcode.min.js', 'manifest.webmanifest',
   'emergenza.vcf', 'kennedy.vcf', 'sezione.vcf',
@@ -18,8 +18,11 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const r = e.request;
   if (r.method !== 'GET' || new URL(r.url).origin !== location.origin) return;
-  if (new URL(r.url).pathname.endsWith('allerte.json')) {
-    e.respondWith(fetch(r).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || new Response('{"m":[]}', { headers: { 'Content-Type': 'application/json' } }))));
+  if (/\/(allerte|meteo|avvisi)\.json$/.test(new URL(r.url).pathname)) {
+    e.respondWith(fetch(r).then(res => {
+      if (res.ok) { const copia = res.clone(); caches.open(VERSIONE).then(c => c.put(new URL(r.url).pathname, copia)); }
+      return res;
+    }).catch(() => caches.match(new URL(r.url).pathname).then(m => m || new Response('{"m":[]}', { headers: { 'Content-Type': 'application/json' } }))));
     return;
   }
   const pagina = r.mode === 'navigate' || r.destination === 'document';
