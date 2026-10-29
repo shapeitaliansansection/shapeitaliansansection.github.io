@@ -1,4 +1,4 @@
-name: Allerte meteo
+name: Allerte e meteo
 on:
   schedule:
     - cron: "7,37 * * * *"
@@ -49,12 +49,30 @@ jobs:
           json.dump({"giorno": ora.astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat(), "zona": "Hainaut", "fonte": "IRM tramite MeteoAlarm", "m": out}, open("allerte.json", "w"), ensure_ascii=False, separators=(",", ":"))
           print(len(out), "messaggi")
           PY
+      - name: Scarica il meteo di SHAPE (Open Meteo), cosi i telefoni non chiamano servizi esterni
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, datetime
+          URL = ("https://api.open-meteo.com/v1/forecast?latitude=50.502&longitude=3.983"
+                 "&current=temperature_2m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min"
+                 "&forecast_days=1&timezone=Europe%2FBrussels")
+          try:
+              j = json.load(urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": "guida-sanitaria-shape"}), timeout=60))
+              c = j["current"]; dl = j.get("daily", {})
+              out = {"t": c["temperature_2m"], "c": c["weather_code"], "g": c["is_day"],
+                     "mx": (dl.get("temperature_2m_max") or [None])[0], "mn": (dl.get("temperature_2m_min") or [None])[0],
+                     "ts": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "fonte": "Open Meteo"}
+              json.dump(out, open("meteo.json", "w"), ensure_ascii=False, separators=(",", ":"))
+              print("meteo", out["t"])
+          except Exception as e:
+              print("meteo non aggiornato:", e)
+          PY
       - name: Salva se sono cambiate
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add allerte.json
+          git add allerte.json meteo.json
           if git diff --cached --quiet; then echo "Nessuna novità"; exit 0; fi
-          git commit -m "Allerte meteo aggiornate"
+          git commit -m "Allerte e meteo aggiornati"
           git pull --rebase
           git push
