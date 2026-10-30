@@ -24,7 +24,7 @@
 <meta name="description" content="Guida rapida della Sezione Sanitaria italiana di SHAPE: numeri di emergenza, clinica SHF, mutua belga e contatti.">
 
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="robots" content="noindex">
+<meta name="robots" content="noindex, nofollow">
 <style>
 /* v4: testata ed emergenza della variante B (chiara), indice e capitoli della variante C. Un solo tema chiaro, un solo sistema di token. */
 :root{
@@ -498,6 +498,11 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
   <form id="f" class="sheet" novalidate>
     <div class="hp" aria-hidden="true"><input type="text" name="sito" tabindex="-1" autocomplete="off"></div>
 
+    <fieldset><legend>Codice della Sezione</legend>
+      <label class="fl">Codice personale *<input name="codice" required autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" placeholder="per esempio K7M2QX"></label>
+      <p class="hint">Il codice ti viene dato dalla Sezione Sanitaria insieme al link. Vale una sola volta e scade dopo 30 giorni.</p>
+    </fieldset>
+
     <fieldset><legend>Dati del militare</legend>
       <input type="hidden" name="categoria" value="Militare">
       <label class="fl">Grado *<input name="grado" required placeholder="per esempio M1"></label>
@@ -616,6 +621,8 @@ document.querySelectorAll('input[type="date"]').forEach(d=>{
 <script>
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const f=document.getElementById("f");
+try{const qc=new URLSearchParams(location.search).get("codice");if(qc)f.codice.value=qc.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);}catch(y){}
+const ERR_COD={codice:"Codice non valido: controlla il codice ricevuto dalla Sezione.",scaduto:"Codice scaduto: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",usato:"Questo codice è già stato usato: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",occupato:"Troppi tentativi: riprova tra qualche minuto.",campi:"Compila tutti i campi obbligatori."};
 f.addEventListener("submit",async ev=>{
   ev.preventDefault(); const er=document.getElementById("err"); er.hidden=true;
   const miss=[...f.querySelectorAll("[required]")].filter(i=>i.type==="checkbox"?!i.checked:!i.value.trim());
@@ -624,9 +631,10 @@ f.addEventListener("submit",async ev=>{
   if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){er.textContent="Controlla l'email di contatto.";er.hidden=false;f.email.focus();return;}
   const b=document.getElementById("send"); b.disabled=true; b.textContent="Invio in corso";
   const body=new URLSearchParams(new FormData(f));
-  let ok=false;
-  try{await fetch(ENDPOINT,{method:"POST",body,mode:"no-cors"}); ok=true;}catch(y){ok=false;}
+  let ok=false,code="";
+  try{const res=await fetch(ENDPOINT,{method:"POST",body});const j=await res.json();ok=!!j.ok;code=j.err||"";}catch(y){ok=false;}
   if(ok){if(f.dodid.value.trim()){try{sessionStorage.setItem("tessera_prefill",JSON.stringify({cognome:f.cognome.value,nome:f.nome.value,nascita:f.nascita.value,numero:f.dodid.value.replace(/\s/g,"")}))}catch(y){}document.getElementById("tess").hidden=false;}f.hidden=true;const d=document.getElementById("done");d.hidden=false;window.scrollTo(0,0);d.focus();}
+  else if(ERR_COD[code]){er.textContent=ERR_COD[code];er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";if(code!=="campi"){f.codice.setAttribute("aria-invalid","true");f.codice.focus();}}
   else{er.textContent="Invio non riuscito. Controlla la connessione e riprova, oppure scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
 });
 </script>
