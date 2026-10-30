@@ -1,0 +1,135 @@
+name: Controllo fonti e link aggiornati
+on:
+  schedule:
+    - cron: "47 3 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: controllo-fonti
+  cancel-in-progress: false
+jobs:
+  fonti:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - name: Controlla le fonti e aggiorna i link spostati
+        id: check
+        run: |
+          python3 - <<'PY'
+          import re, json, html, hashlib, datetime, os, urllib.request, urllib.error, urllib.parse, ssl
+          UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          SALTA = ("script.google.com", "maps.google", "google.com/maps", "wa.me", "x.com/share", "facebook.com/sharer", "t.me/share", "shapeitaliansansection.github.io")
+          s = open("index.html", encoding="utf-8").read()
+          # sezione in cui compare ogni link, per il resoconto
+          sezioni = {}
+          for m in re.finditer(r'<details class="ch[^"]*" id="([^"]+)".*?<h2 class="t">(.*?)</h2>(.*?)</details>', s, re.S):
+              for u in re.findall(r'href="(https?://[^"$`{}]+)"', m.group(3)):
+                  sezioni.setdefault(html.unescape(u), m.group(2))
+          link = sorted({html.unescape(u) for u in re.findall(r'href="(https?://[^"$`{}]+)"', s) if not any(k in u for k in SALTA)})
+          stato = json.load(open("fonti.json")) if os.path.exists("fonti.json") else {}
+          ctx = ssl.create_default_context()
+          class NoRedir(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *a, **k): return None
+          op_no = urllib.request.build_opener(NoRedir, urllib.request.HTTPSHandler(context=ctx))
+          op_si = urllib.request.build_opener(urllib.request.HTTPSHandler(context=ctx))
+          def testo(b):
+              t = b.decode("utf-8", "ignore")
+              t = re.sub(r"(?is)<(script|style|noscript|svg|header|footer|nav)[^>]*>.*?</\1>", " ", t)
+              t = re.sub(r"(?s)<[^>]+>", " ", t)
+              t = html.unescape(t)
+              # tolti orari e numeri di versione che cambiano a ogni visita
+              t = re.sub(r"\b\d{1,2}:\d{2}(:\d{2})?\b", " ", t)
+              return re.sub(r"\s+", " ", t).strip()
+          oggi = datetime.date.today().isoformat()
+          cambiate, spostati, aggiornati = [], [], []
+          for u in link:
+              rec = stato.get(u, {})
+              try:
+                  r = op_no.open(urllib.request.Request(u, headers={"User-Agent": UA, "Accept-Language": "fr,it;q=0.8,en;q=0.6"}), timeout=25)
+                  code, loc = r.status, None
+              except urllib.error.HTTPError as e:
+                  code, loc = e.code, e.headers.get("Location")
+              except Exception:
+                  continue
+              if code in (301, 308) and loc:
+                  nuovo = urllib.parse.urljoin(u, loc)
+                  try:
+                      r2 = op_si.open(urllib.request.Request(nuovo, headers={"User-Agent": UA}), timeout=25)
+                      fin = r2.geturl()
+                      vecchio_dom = urllib.parse.urlsplit(u).netloc.removeprefix("www.")
+                      nuovo_dom = urllib.parse.urlsplit(fin).netloc.removeprefix("www.")
+                      percorso = urllib.parse.urlsplit(fin).path.strip("/")
+                      if r2.status == 200 and vecchio_dom == nuovo_dom and percorso and fin != u:
+                          aggiornati.append((u, fin))
+                      else:
+                          spostati.append((u, fin))
+                  except Exception:
+                      spostati.append((u, nuovo))
+                  continue
+              if code != 200:
+                  continue
+              try:
+                  corpo = op_si.open(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=25).read(3_000_000)
+              except Exception:
+                  continue
+              h = hashlib.sha256(testo(corpo).encode()).hexdigest()
+              if rec.get("h") and rec["h"] != h:
+                  rec["serie"] = rec.get("serie", 0) + 1
+                  rec["ultimo"] = oggi
+                  # una pagina che cambia tre notti di fila ha parti dinamiche: non si segnala più
+                  if rec["serie"] >= 3:
+                      rec["dinamica"] = True
+                  if not rec.get("dinamica"):
+                      cambiate.append(u)
+              elif rec.get("h"):
+                  rec["serie"] = 0
+              rec["h"] = h
+              stato[u] = rec
+          # link spostati in modo permanente sullo stesso sito: aggiornati da soli
+          mappa = json.load(open("link_aggiornati.json")) if os.path.exists("link_aggiornati.json") else {}
+          if aggiornati:
+              for a, b in aggiornati:
+                  s = s.replace(f'href="{a}"', f'href="{b}"')
+                  mappa[a] = b
+                  stato[b] = stato.pop(a, {})
+              open("index.html", "w", encoding="utf-8").write(s)
+              json.dump(mappa, open("link_aggiornati.json", "w"), ensure_ascii=False, indent=1)
+              sw = open("sw.js", encoding="utf-8").read()
+              m = re.search(r"VERSIONE = 'shi-(\d{4}-\d{2}-\d{2})([a-z]?)'", sw)
+              if m:
+                  lettera = chr(ord(m.group(2)) + 1) if m.group(1) == oggi and m.group(2) and m.group(2) < "z" else "a"
+                  sw = sw.replace(m.group(0), f"VERSIONE = 'shi-{oggi}{lettera}'")
+                  open("sw.js", "w", encoding="utf-8").write(sw)
+          json.dump(stato, open("fonti.json", "w"), ensure_ascii=False, indent=1, sort_keys=True)
+          righe = []
+          if cambiate:
+              righe.append("**Fonti cambiate da verificare** (il contenuto della pagina ufficiale è cambiato: controlla se il sito va aggiornato)")
+              righe += [f"* {u} (sezione: {sezioni.get(u, 'non in un capitolo')})" for u in cambiate]
+          if aggiornati:
+              righe.append("**Link aggiornati automaticamente** (la pagina si è spostata in modo permanente sullo stesso sito)")
+              righe += [f"* {a} diventa {b}" for a, b in aggiornati]
+          if spostati:
+              righe.append("**Link spostati da controllare** (portano a un altro sito o alla pagina iniziale)")
+              righe += [f"* {a} porta a {b}" for a, b in spostati]
+          corpo = f"Controllo del {datetime.datetime.utcnow():%d/%m/%Y %H:%M} UTC, {len(link)} fonti.\n\n" + "\n".join(righe)
+          open("esito.md", "w").write(corpo)
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"segnala={1 if righe else 0}\n")
+          print(corpo)
+          PY
+      - name: Salva lo stato delle fonti e i link aggiornati
+        run: |
+          git config user.name "controllo-fonti"
+          git config user.email "actions@users.noreply.github.com"
+          git add fonti.json link_aggiornati.json index.html sw.js 2>/dev/null || true
+          if ! git diff --cached --quiet; then git commit -q -m "Controllo fonti: stato aggiornato"; git pull -q --rebase; git push; fi
+      - name: Apri o aggiorna la segnalazione
+        if: steps.check.outputs.segnala == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh issue list --state open --search "Fonti da verificare in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file esito.md; else gh issue create --title "Fonti da verificare" --body-file esito.md; fi
