@@ -2266,12 +2266,20 @@ route();navAttiva();addEventListener("hashchange",()=>{route();navAttiva()});
 /* Ricerca nella guida */
 (function(){const q=document.getElementById("q"),r=document.getElementById("qres");if(!q||!r)return;
  const norm=x=>x.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
- const SIN={dentista:"dentist",denti:"dentist",dentisti:"dentist",occhi:"optom",vista:"optom",psicologo:"psicolog",sangue:"sangue",analisi:"sangue",certificato:"certific",malattia:"malatt",ricetta:"ricett",notte:"1733",guardia:"guardia"};
+ const SIN={dentista:"dentist",denti:"dentist",dentisti:"dentist",occhi:"optom",vista:"optom",psicologo:"psicolog",sangue:"sangue",analisi:"sangue",certificato:"certific",malattia:"malatt",ricetta:"ricett",notte:"1733",guardia:"guardia",vaccini:"vaccin",vaccino:"vaccin",vaccinazione:"vaccin",vaccinazioni:"vaccin",fuoco:"zoster",bronchiolite:"vrs"};
  let idx=null;function build(){idx=[];document.querySelectorAll("details.ch,#emergenza,#clinica,#notte,#contatti").forEach(p=>{const tit=(p.querySelector("h2")||{}).textContent||"";
   p.querySelectorAll(".body li,.body p,.body .ln,.svc,.hcard,.note,.alt,.mini>div,.er,.big,section>p,.ln").forEach(el=>{if(el.closest(".qres"))return;const tw=document.createTreeWalker(el,NodeFilter.SHOW_TEXT),pz=[];while(tw.nextNode())pz.push(tw.currentNode.nodeValue);const tx=pz.join(" ").replace(/\s+/g," ").trim();if(tx.length>12)idx.push({p,el,tit:tit.replace(/\s+/g," ").trim(),tx,n:norm(tx)})})})}
  function cerca(){const v=norm(q.value.trim());if(v.length<3){r.hidden=true;return}if(!idx)build();
-  const ws=v.split(/\s+/).map(w=>SIN[w]||w);const seen=new Set(),out=[];
-  for(const it of idx){if(ws.every(w=>it.n.includes(w))&&!seen.has(it.el)){let par=it.el.parentElement,dup=false;while(par){if(seen.has(par)){dup=true;break}par=par.parentElement}if(dup)continue;seen.add(it.el);out.push(it);if(out.length>=8)break}}
+  /* parole vuote tolte, sinonimi, radice delle parole lunghe (farmacia trova anche farmacie) */
+  const STOP=new Set(["di","a","da","in","con","su","per","tra","fra","il","lo","la","i","gli","le","un","una","uno","del","della","dei","delle","al","alla","e","o","che","come","dove","quando"]);
+  let ws=v.split(/\s+/).filter(w=>!STOP.has(w));if(!ws.length)ws=v.split(/\s+/);
+  ws=ws.map(w=>SIN[w]||(w.length>=5?w.replace(/[aeio]$/,""):w));
+  const seen=new Set(),cand=[];
+  for(const it of idx){if(ws.every(w=>it.n.includes(w))&&!seen.has(it.el)){let par=it.el.parentElement,dup=false;while(par){if(seen.has(par)){dup=true;break}par=par.parentElement}if(dup)continue;seen.add(it.el);
+    const nt=norm(it.tit);cand.push({it,s:(ws.every(w=>nt.includes(w))?10:ws.some(w=>nt.includes(w))?5:0)+(it.el.matches("li")?1:0)})}}
+  /* prima i capitoli che parlano dell'argomento, al massimo 2 risultati per capitolo */
+  cand.sort((x,y)=>y.s-x.s);const per=new Map(),out=[];
+  for(const c of cand){const k=per.get(c.it.p)||0;if(k>=2)continue;per.set(c.it.p,k+1);out.push(c.it);if(out.length>=8)break}
   r.innerHTML=out.length?out.map((it,i)=>{const k=it.n.indexOf(ws[0]),a=Math.max(0,k-40);return `<button type="button" data-i="${i}"><b>${it.tit}</b><span>${(a?"…":"")+it.tx.slice(a,a+120).replace(/[<&]/g,c=>c=="<"?"&lt;":"&amp;")}…</span></button>`}).join(""):`<p>Nessun risultato. Prova con un'altra parola, oppure scrivi alla Sezione.</p>`;
   r._out=out;r.hidden=false}
  q.addEventListener("input",cerca);q.addEventListener("focus",()=>setTimeout(()=>{const t=q.closest(".srch").getBoundingClientRect().top+scrollY-12;window.scrollTo({top:t,behavior:"smooth"})},250));
