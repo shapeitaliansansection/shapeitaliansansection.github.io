@@ -124,7 +124,7 @@ jobs:
         run: |
           git config user.name "controllo-fonti"
           git config user.email "actions@users.noreply.github.com"
-          git add fonti.json link_aggiornati.json index.html sw.js 2>/dev/null || true
+          for f in fonti.json link_aggiornati.json index.html sw.js; do if [ -f "$f" ]; then git add "$f"; fi; done
           if ! git diff --cached --quiet; then git commit -q -m "Controllo fonti: stato aggiornato"; git pull -q --rebase; git push; fi
       - name: Apri o aggiorna la segnalazione
         if: steps.check.outputs.segnala == '1'
