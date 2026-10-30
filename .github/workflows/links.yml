@@ -51,11 +51,12 @@ jobs:
           for u, dove in sorted(link.items()):
               if any(k in u for k in SALTA):
                   continue
+              # Nessuna risposta: molti siti pubblici belgi bloccano i server di GitHub, quindi non si segnala.
               c = prova(u)
-              if c in (0, 404, 410) or c >= 500:
+              if c in (404, 410) or c >= 500:
                   time.sleep(20)
                   c2 = prova(u)
-                  if c2 in (0, 404, 410) or c2 >= 500:
+                  if c2 in (404, 410) or c2 >= 500:
                       rotti.append(f"{u} (risposta {c2 or 'nessuna'}) in {', '.join(sorted(dove))}")
           ora = datetime.datetime.now(datetime.timezone.utc)
           for f in ("meteo.json", "allerte.json"):
