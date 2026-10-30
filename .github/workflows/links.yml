@@ -1,0 +1,89 @@
+name: Controllo link notturno
+on:
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: controllo-link
+  cancel-in-progress: true
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - name: Controlla link esterni, ancore interne e dati meteo
+        id: check
+        run: |
+          python3 - <<'PY'
+          import re, json, time, html, datetime, urllib.request, urllib.error, ssl, os, glob
+          UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          pagine = [p for p in ["index.html", "tessera.html", "scheda.html", "anamnestico.html"] if os.path.exists(p)]
+          link, rotti, avvisi = {}, [], []
+          for p in pagine:
+              s = open(p, encoding="utf-8").read()
+              for u in re.findall(r'href="(https?://[^"$`{}]+)"', s):
+                  link.setdefault(html.unescape(u), set()).add(p)
+              ids = set(re.findall(r'id="([^"]+)"', s))
+              for a in set(re.findall(r'href="#([^"]+)"', s)):
+                  if a not in ids:
+                      rotti.append(f"Ancora interna #{a} non trovata in {p}")
+          SALTA = ("script.google.com", "maps.google", "google.com/maps", "wa.me", "x.com/share", "facebook.com/sharer", "t.me/share")
+          def prova(u):
+              ctx = ssl.create_default_context()
+              for metodo in ("HEAD", "GET"):
+                  try:
+                      r = urllib.request.Request(u, method=metodo, headers={"User-Agent": UA, "Accept-Language": "it,fr;q=0.8,en;q=0.6"})
+                      with urllib.request.urlopen(r, timeout=25, context=ctx) as x:
+                          return x.status
+                  except urllib.error.HTTPError as e:
+                      if metodo == "HEAD" and e.code in (403, 405, 429, 400, 404, 500, 501, 503):
+                          continue
+                      return e.code
+                  except Exception as e:
+                      if metodo == "HEAD":
+                          continue
+                      return 0
+              return 0
+          for u, dove in sorted(link.items()):
+              if any(k in u for k in SALTA):
+                  continue
+              c = prova(u)
+              if c in (0, 404, 410) or c >= 500:
+                  time.sleep(20)
+                  c2 = prova(u)
+                  if c2 in (0, 404, 410) or c2 >= 500:
+                      rotti.append(f"{u} (risposta {c2 or 'nessuna'}) in {', '.join(sorted(dove))}")
+          ora = datetime.datetime.now(datetime.timezone.utc)
+          for f in ("meteo.json", "allerte.json"):
+              try:
+                  mt = os.popen(f"git log -1 --format=%ct -- {f}").read().strip()
+                  eta = (ora.timestamp() - int(mt)) / 3600 if mt else 999
+                  if eta > 3:
+                      avvisi.append(f"{f} non aggiornato da {eta:.0f} ore: controlla il workflow Allerte e meteo")
+              except Exception as e:
+                  avvisi.append(f"{f}: controllo non riuscito ({e})")
+          tutto = rotti + avvisi
+          corpo = "Controllo del " + ora.strftime("%d/%m/%Y %H:%M") + " UTC, " + str(len(link)) + " link controllati.\n\n" + "\n".join("* " + r for r in tutto)
+          open("esito.md", "w").write(corpo)
+          open(os.environ["GITHUB_OUTPUT"], "a").write(f"problemi={len(tutto)}\n")
+          print(corpo)
+          PY
+      - name: Apri o aggiorna la segnalazione
+        if: steps.check.outputs.problemi != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh issue list --state open --search "Link rotti nel sito in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file esito.md; else gh issue create --title "Link rotti nel sito" --body-file esito.md; fi
+          exit 1
+      - name: Chiudi la segnalazione se è tutto a posto
+        if: steps.check.outputs.problemi == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh issue list --state open --search "Link rotti nel sito in:title" --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue close "$n" --comment "Tutti i link funzionano di nuovo."; fi
