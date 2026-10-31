@@ -1,155 +1,221 @@
 {
  "https://airallergy.sciensano.be/": {
-  "h": "d4d691da0fe7e152e753e7cbd51b8e23963a0f2b5027bb5242adc8defe042b4c"
+  "h": "d4d691da0fe7e152e753e7cbd51b8e23963a0f2b5027bb5242adc8defe042b4c",
+  "serie": 0
  },
  "https://apps.apple.com/it/app/traduci/id1514844618": {
-  "h": "6e4a95d7d33e3c5bab608d3cc3a67b373e4e6a13e2a3a410a3e4315dc6fefe04"
+  "h": "33e82be45211d102566fda492f6914ee93c4970bec78c2cef2e8ffee35c80278",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {
-  "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c"
+  "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c",
+  "serie": 0
  },
  "https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_it.htm": {
-  "h": "55516c9e1517820dc6af12a7153252b2d336239cb517670784d0ed62c38fd38f"
+  "h": "55516c9e1517820dc6af12a7153252b2d336239cb517670784d0ed62c38fd38f",
+  "serie": 0
  },
  "https://my.one.be": {
-  "h": "19d7711cc8a71e44b9c4808c293497348219b245f35adf0044a00c063d471985"
+  "h": "19d7711cc8a71e44b9c4808c293497348219b245f35adf0044a00c063d471985",
+  "serie": 0
  },
  "https://my.one.be/information/consultations-prenatales/": {
-  "h": "e508d2e81897a7a4071a984dadeb57dfbaf8fcad0ec9c7d986bad8f5be1c2885"
+  "h": "e508d2e81897a7a4071a984dadeb57dfbaf8fcad0ec9c7d986bad8f5be1c2885",
+  "serie": 0
  },
  "https://rosa.be/en/": {
-  "h": "c6c42da331f85c1dfa116c713cfd222e6960960dea6a0684340caefa2ddd2611"
+  "h": "c6c42da331f85c1dfa116c713cfd222e6960960dea6a0684340caefa2ddd2611",
+  "serie": 0
  },
  "https://tiquesnet.sciensano.be/": {
-  "h": "f95f95b1ff0bcacf0b0579a746df59a2457452537b8825b84159cd5cad73490d"
+  "h": "f95f95b1ff0bcacf0b0579a746df59a2457452537b8825b84159cd5cad73490d",
+  "serie": 0
  },
  "https://translate.google.com/intl/it/about/": {
-  "h": "1a831a2c18a63fddfdb1fc558ca28de18edf535085ab88d9f8a8505a16538ad8"
+  "h": "1a831a2c18a63fddfdb1fc558ca28de18edf535085ab88d9f8a8505a16538ad8",
+  "serie": 0
  },
  "https://wallonie.be/fr/demarches/lutter-contre-la-propagation-de-la-chenille-processionnaire-du-chene-en-wallonie": {
-  "h": "628288ffa0bd7a86614f6b7207f9ee1ef7c1bbde392dd1d87226080d95a8cced"
+  "h": "628288ffa0bd7a86614f6b7207f9ee1ef7c1bbde392dd1d87226080d95a8cced",
+  "serie": 0
  },
  "https://www.chrhautesenne.be/fr/shape-liaison": {
-  "h": "e175511f1038eb3888f363bbde32b144d618747492ddaeccb40b03fc1e6f62c4"
+  "h": "e175511f1038eb3888f363bbde32b144d618747492ddaeccb40b03fc1e6f62c4",
+  "serie": 0
  },
  "https://www.dentistedegarde.be/": {
-  "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3"
+  "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
+  "serie": 0
  },
  "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "h": "c74c80327aee0f4d4dd7a6993f6cce6e722f19658ca1de9f956aa1ab9beb8806"
+  "h": "fc5b7c096e129e7e41468fa07ed91c8b97d0ac792873bc9437f0f20126aa6e2e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "h": "2f0987fbf3a406bf93dcd54fa3e14f94e996e5f80493d081c3c3947c19a9d9fd"
+  "h": "548d01a2e5379480e513921e1f30de1375187767ac7fcecf171e85e087eefed0",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
-  "h": "57d82e0fde5ad99a323784d84c9cb794f5f4bbb1b7ff474579aff5a315123f92"
+  "h": "57d82e0fde5ad99a323784d84c9cb794f5f4bbb1b7ff474579aff5a315123f92",
+  "serie": 0
  },
  "https://www.hgr-css.be/fr": {
-  "h": "91667ca83fdbffd0f6aacc027ffde9755ca037e823a5ac4f785534891761cbe6"
+  "h": "91667ca83fdbffd0f6aacc027ffde9755ca037e823a5ac4f785534891761cbe6",
+  "serie": 0
  },
  "https://www.italian-psychologist.com/": {
-  "h": "26f3bf6902cd18b6446d5b6946ddde3cc001457d0bb0ebcd624ceedd886e3daa"
+  "h": "8139b7157478544ba47cd52ab791960d6501c6a1558715401629918cd7f2369d",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
-  "h": "0f6638fe63f208deef1d9dfd85f06a60a14fef280277c6f349f7d4634e429f23"
+  "h": "2eea994f5836a80e2b8183c0d3847f28dc2ff30f32cc940199e114856f4e6e1f",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.meteo.be/fr/meteo/avertissements/explications-avertissements": {
-  "h": "64b68ae4f94f39d719e6d11f6bc58c21113c9f8e6ebfe314e2f093f203725348"
+  "h": "64b68ae4f94f39d719e6d11f6bc58c21113c9f8e6ebfe314e2f093f203725348",
+  "serie": 0
  },
  "https://www.microsoft.com/it-it/translator/apps/": {
-  "h": "3b1491ab8539e42e7b8e9257bce5c6232544107bfba895c9f3c4c174c2e3b28e"
+  "h": "3b1491ab8539e42e7b8e9257bce5c6232544107bfba895c9f3c4c174c2e3b28e",
+  "serie": 0
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
-  "h": "0275ede65f377a34629dea94eb9e9e752f811544ded78399cfb964866b439e0d"
+  "h": "f1d5532b4e650341339cbe74ac32c5991f596a0bf0f5f54266138ffaa120c59d",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.one.be/public/": {
-  "h": "bd9e471971ae3ed64eeda682cb7241c3f46cf29dc97686222c9f47f6392fe4e6"
+  "h": "720296826a49d7123d9dc3d448c65ed9d39932e91b365800f8aff4b480380564",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.partenamut.be/fr/assurances-sante/couverture-de-base": {
-  "h": "33e0f12437aacc698185002116d8a998379cccdf6f1fc1328a966ba0563e9f8e"
+  "h": "33e0f12437aacc698185002116d8a998379cccdf6f1fc1328a966ba0563e9f8e",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/controle-dentiste": {
-  "h": "6bd9aaa56bfd9930ed978285d26c325a85183e4ae53f1d4ad9535a73316fceed"
+  "h": "6bd9aaa56bfd9930ed978285d26c325a85183e4ae53f1d4ad9535a73316fceed",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/controle-dermatologue": {
-  "h": "acb41bc596d388f5737a902853ab513949d2152c393b768f5a4da53949125cff"
+  "h": "acb41bc596d388f5737a902853ab513949d2152c393b768f5a4da53949125cff",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/controle-gynecologue": {
-  "h": "1b66b4a8eb540d4bd4f75316029095f3ec315f5815dbd68db407dd03642dd5ac"
+  "h": "1b66b4a8eb540d4bd4f75316029095f3ec315f5815dbd68db407dd03642dd5ac",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/depistage-cancer-colorectal": {
-  "h": "31d7ae70cca6806e686a29e8d83e101a1a183f70190b40fb125810b484a424d3"
+  "h": "31d7ae70cca6806e686a29e8d83e101a1a183f70190b40fb125810b484a424d3",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/depistage-cancer-sein": {
-  "h": "0313bea22d84433953089af89362fec2abc69f55c7ada1fff7c0661d92032475"
+  "h": "0313bea22d84433953089af89362fec2abc69f55c7ada1fff7c0661d92032475",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/prevention-et-depistages/depistage-frottis-cancer-col-uterus": {
-  "h": "0cf846c3f7e10cbf6066e5bf3c9985d2f157e7055228bef5d61a59c2eb62293d"
+  "h": "0cf846c3f7e10cbf6066e5bf3c9985d2f157e7055228bef5d61a59c2eb62293d",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages": {
-  "h": "7439cc12becb878ab835971b03e170a67481f1e6e9ace5ca6f2bbec72883f96f"
+  "h": "7439cc12becb878ab835971b03e170a67481f1e6e9ace5ca6f2bbec72883f96f",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/optique-audition/materiel-optique": {
-  "h": "8906939cec9531a08b8198299ba9619e659f500b409e64ea12b2a65912e73d8c"
+  "h": "8906939cec9531a08b8198299ba9619e659f500b409e64ea12b2a65912e73d8c",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/paramedical-et-autres-therapies/dietetique": {
-  "h": "1d352797a776a46bef62fbdf4de01ba7096dc77f15f8f50f9457d879d9b2318d"
+  "h": "1d352797a776a46bef62fbdf4de01ba7096dc77f15f8f50f9457d879d9b2318d",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/paramedical-et-autres-therapies/psychologie": {
-  "h": "48a92a55b6b67896174f8f692e841fb87d053932953053a32186649121c0c96c"
+  "h": "48a92a55b6b67896174f8f692e841fb87d053932953053a32186649121c0c96c",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/prevention/addictologie": {
-  "h": "32c3a86dcc06f1b60fa155faf72fdcfe9fdd02993cdc0a02a7cd3db3373211b5"
+  "h": "32c3a86dcc06f1b60fa155faf72fdcfe9fdd02993cdc0a02a7cd3db3373211b5",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/prevention/club-sport": {
-  "h": "3868680d7905ed8a2e88e29562f5b7b51db0c59b032ae2e508e9cd7ac844e182"
+  "h": "3868680d7905ed8a2e88e29562f5b7b51db0c59b032ae2e508e9cd7ac844e182",
+  "serie": 0
  },
  "https://www.partenamut.be/fr/remboursements-avantages/prevention/depistage-prevention": {
-  "h": "345d4563c0f60547f6e087722917ce201a990eb03cc410517c9a30f641a996e0"
+  "h": "345d4563c0f60547f6e087722917ce201a990eb03cc410517c9a30f641a996e0",
+  "serie": 0
  },
  "https://www.patronatoacli.be/it/sanita--": {
-  "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28"
+  "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28",
+  "serie": 0
  },
  "https://www.psy.it/il-sistema-di-assistenza-sanitaria-in-belgio/": {
-  "h": "60c00fc22f515c53bf6cedf0a3c64ef1c459e68a2d2c32a30f1df48d2969e82f"
+  "h": "60c00fc22f515c53bf6cedf0a3c64ef1c459e68a2d2c32a30f1df48d2969e82f",
+  "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
-  "h": "cb327d4e7cebff28ce5efc421fe6b6c2279d05c571bdd38be4c1a6818efdf77c"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "h": "250921ac1412b0e7b1ddf15c1e06ada4646ec820f3f2ec00b4f8be38ec3f5a01"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
-  "h": "cb327d4e7cebff28ce5efc421fe6b6c2279d05c571bdd38be4c1a6818efdf77c"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
-  "h": "250921ac1412b0e7b1ddf15c1e06ada4646ec820f3f2ec00b4f8be38ec3f5a01"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "h": "cb327d4e7cebff28ce5efc421fe6b6c2279d05c571bdd38be4c1a6818efdf77c"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "h": "cb327d4e7cebff28ce5efc421fe6b6c2279d05c571bdd38be4c1a6818efdf77c"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "h": "250921ac1412b0e7b1ddf15c1e06ada4646ec820f3f2ec00b4f8be38ec3f5a01"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "h": "cb327d4e7cebff28ce5efc421fe6b6c2279d05c571bdd38be4c1a6818efdf77c"
+  "h": "16951afcf6a3d21e41807216d4cc3b9cca6d8f6ac99f93df239cc7804ffcc71e",
+  "serie": 1,
+  "ultimo": "2026-10-31"
  },
  "https://www.shapecaretherapy.com/book-online": {
-  "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410"
+  "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
+  "serie": 0
  },
  "https://www.socialsecurity.be/citizen/fr/sante/vaccinations-remboursees": {
-  "h": "0deeaab35cac393af2c4ada6f697bdd0829925d05dc1d38a564c9cd8327f0f64"
+  "h": "0deeaab35cac393af2c4ada6f697bdd0829925d05dc1d38a564c9cd8327f0f64",
+  "serie": 0
  },
  "https://www.vaccination-info.be/calendrier-de-vaccination/": {
-  "h": "afec854fe8c376a7266d157fc71ba573ae4590024e4cc08e7e86f4f5672fff5a"
+  "h": "afec854fe8c376a7266d157fc71ba573ae4590024e4cc08e7e86f4f5672fff5a",
+  "serie": 0
  },
  "https://www.vaccination-info.be/le-calendrier-de-vaccination-des-nourrissons-change-le-1er-novembre-2026/": {
-  "h": "95fe90374158e8fd1b0065731566b22d5f8d9bcad280c0578c081cf9c337e42a"
+  "h": "95fe90374158e8fd1b0065731566b22d5f8d9bcad280c0578c081cf9c337e42a",
+  "serie": 0
  },
  "https://www.viaggiaresicuri.it/find-country/country/BEL": {
-  "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314"
+  "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314",
+  "serie": 0
  }
 }
