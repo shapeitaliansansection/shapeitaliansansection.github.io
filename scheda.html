@@ -513,14 +513,13 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
       <label class="fl">Data di nascita *<input type="date" name="nascita" required autocomplete="bday"></label>
       <label class="fl">Forza Armata *
         <select name="fa" required><option value="">Scegli</option><option>Esercito</option><option>Marina</option><option>Aeronautica</option><option>Carabinieri</option></select></label>
-      <input type="hidden" name="sede" value="SHAPE">
-      <label class="fl">Ente o reparto di servizio<input name="ente" placeholder="per esempio ITA NMR, ITA NSE"></label>
-      <label class="fl">Telefono d'ufficio o interno<input name="interno" inputmode="tel"></label>
+      <label class="fl">Sede di servizio *
+        <select name="sede" required><option value="">Scegli</option><option selected>SHAPE</option><option>Bruxelles</option><option>Lille</option><option>Capellen</option><option>Strasburgo</option><option value="JFC Brunssum">Brunssum (JFC)</option><option>L'Aia</option><option>Soesterberg</option><option>Ulm</option><option>Altra sede</option></select></label>
     </fieldset>
 
-    <fieldset><legend>Recapiti</legend>
-      <label class="fl">Cellulare *<input type="tel" name="cellulare" required autocomplete="tel" placeholder="+32 o +39"></label>
-      <label class="fl">Email di contatto *<input type="email" name="email" required autocomplete="email"></label>
+    <fieldset><legend>Recapiti personali</legend>
+      <label class="fl">Cellulare personale *<input type="tel" name="cellulare" required autocomplete="tel" placeholder="+32 o +39"></label>
+      <label class="fl">Email personale *<input type="email" name="email" required autocomplete="email" placeholder="una sola, quella che controlli più spesso"></label>
       <label class="fl">Indirizzo di residenza attuale<input name="indirizzo" autocomplete="street-address"></label>
     </fieldset>
 
@@ -628,7 +627,7 @@ f.addEventListener("submit",async ev=>{
   const miss=[...f.querySelectorAll("[required]")].filter(i=>i.type==="checkbox"?!i.checked:!i.value.trim());
   f.querySelectorAll("[aria-invalid]").forEach(i=>i.removeAttribute("aria-invalid"));
   if(miss.length){miss.forEach(i=>i.setAttribute("aria-invalid","true"));const nomi=miss.map(i=>i.type==="checkbox"?"informativa privacy":(i.closest("label")?.firstChild.textContent||i.name).replace("*","").trim());er.textContent="Compila: "+nomi.join(", ")+".";er.hidden=false;miss[0].focus();return;}
-  if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){er.textContent="Controlla l'email di contatto.";er.hidden=false;f.email.focus();return;}
+  if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){er.textContent="Controlla l'email personale.";er.hidden=false;f.email.focus();return;}
   const b=document.getElementById("send"); b.disabled=true; b.textContent="Invio in corso";
   const body=new URLSearchParams(new FormData(f));
   let ok=false,code="";
