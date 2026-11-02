@@ -26,6 +26,12 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="robots" content="noindex, nofollow">
 <style>
+.altinv{margin:14px 0;padding:14px;border:1px solid #c9d3e3;border-radius:14px;background:#f6f8fc;text-align:center}
+.alt-t{margin:0 0 10px}.alt-c{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.alt-q,.alt-m{flex:1 1 240px;display:flex;flex-direction:column;gap:8px;align-items:center;font-size:.92rem}
+.alt-m .btn{flex:0 0 auto;height:auto;align-self:center;padding:12px 18px}
+.alt-q img{width:220px;height:220px;image-rendering:pixelated;background:#fff;padding:8px;border-radius:8px}
+.prefill{margin:0 0 12px;padding:10px 12px;border-radius:10px;background:#e5f3ea;color:#1a5c34;font-size:.92rem;text-align:center}
 /* v4: testata ed emergenza della variante B (chiara), indice e capitoli della variante C. Un solo tema chiaro, un solo sistema di token. */
 :root{
   color-scheme:light;
@@ -574,6 +580,13 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
     </div>
 
     <p class="err" id="err" role="alert" hidden></p>
+    <div class="altinv" id="alt" hidden>
+      <p class="alt-t"><b>Due modi per completare l'invio</b></p>
+      <div class="alt-c">
+        <div class="alt-q"><b>1. Continua sul telefono</b><span>Inquadra il codice QR con la fotocamera del telefono, con la rete mobile: la scheda si apre già compilata, poi premi Invia.</span><img id="altqr" alt="Codice QR per aprire la scheda compilata sul telefono" width="220" height="220"></div>
+        <div class="alt-m"><b>2. Invia per email</b><span>Si apre la tua posta con un messaggio già pronto per la Sezione: premi Invia senza modificare il testo. Riceverai una conferma.</span><a class="btn solid" id="altmail" href="#">Apri l'email già compilata</a></div>
+      </div>
+    </div>
     <button class="btn solid send" type="submit" id="send">Invia la scheda</button>
     <p class="hint">I campi con * sono obbligatori.</p>
   </form>
@@ -619,6 +632,7 @@ document.querySelectorAll('input[type="date"]').forEach(d=>{
 });
 })();
 </script>
+<script src="qrcode.min.js"></script>
 <script>
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const f=document.getElementById("f");
@@ -627,6 +641,17 @@ try{const qc=new URLSearchParams(location.search).get("codice");if(qc)f.codice.v
 const SEDI_BE=["SHAPE","Bruxelles"];
 function mutuaVis(){const be=SEDI_BE.includes(f.sede.value)||!f.sede.value;const m=document.getElementById("mutuabox");m.hidden=!be;if(!be){f.querySelectorAll('#mutuabox input[type=radio]').forEach(i=>i.checked=false);f.mutua_nome.value="";}}
 f.sede.addEventListener("change",mutuaVis);mutuaVis();
+/* invio alternativo quando la rete d'ufficio blocca il servizio: QR per il telefono ed email già compilata */
+const b64e=t=>btoa(String.fromCharCode(...new TextEncoder().encode(t))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+const b64d=t=>new TextDecoder().decode(Uint8Array.from(atob(t.replace(/-/g,"+").replace(/_/g,"/")),c=>c.charCodeAt(0)));
+function datiScheda(){const o={};for(const [k,v] of new FormData(f)){if(k==="sito"||k==="categoria")continue;const x=String(v).trim();if(x)o[k]=x}return o}
+function riempi(o){for(const k in o){const el=f.elements[k];if(!el)continue;if(el instanceof RadioNodeList||el.length&&el[0]&&el[0].type==="radio"){for(const r of el)r.checked=r.value===o[k]}else if(el.type==="checkbox"){el.checked=!!o[k]}else{el.value=o[k];if(el.ggSync)el.ggSync()}}mutuaVis()}
+try{const h=location.hash;if(h.startsWith("#d=")){riempi(JSON.parse(b64d(h.slice(3))));history.replaceState(null,"",location.pathname+location.search);const n=document.createElement("p");n.className="prefill";n.textContent="Scheda compilata dall'altro dispositivo: controlla i dati e premi Invia la scheda.";f.prepend(n)}}catch(y){}
+function mostraAlternative(){const o=datiScheda();const url=location.origin+location.pathname+"?codice="+encodeURIComponent(o.codice||"")+"#d="+b64e(JSON.stringify(o));
+  try{const q=qrcode(0,"L");q.addData(url,"Byte");q.make();document.getElementById("altqr").src=q.createDataURL(4,8)}catch(y){document.getElementById("altqr").hidden=true}
+  const righe=["SCHEDA CONTATTI","Non modificare le righe qui sotto.",""];for(const k in o)righe.push(k+" = "+o[k].replace(/[\r\n]+/g," "));righe.push("","FINE SCHEDA");
+  document.getElementById("altmail").href="mailto:infermeria.shape@gmail.com?subject="+encodeURIComponent("Scheda contatti "+(o.codice||""))+"&body="+encodeURIComponent(righe.join("\r\n"));
+  const a=document.getElementById("alt");a.hidden=false;a.scrollIntoView({behavior:"smooth",block:"center"})}
 const ERR_COD={codice:"Codice non valido: controlla il codice ricevuto dalla Sezione.",scaduto:"Codice scaduto: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",usato:"Questo codice è già stato usato: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",occupato:"Troppi tentativi: riprova tra qualche minuto.",campi:"Compila tutti i campi obbligatori."};
 f.addEventListener("submit",async ev=>{
   ev.preventDefault(); const er=document.getElementById("err"); er.hidden=true;
@@ -640,7 +665,7 @@ f.addEventListener("submit",async ev=>{
   try{const res=await fetch(ENDPOINT,{method:"POST",body});const j=await res.json();ok=!!j.ok;code=j.err||"";}catch(y){ok=false;rete=true;}
   if(ok){if(f.dodid.value.trim()){try{sessionStorage.setItem("tessera_prefill",JSON.stringify({cognome:f.cognome.value,nome:f.nome.value,nascita:f.nascita.value,numero:f.dodid.value.replace(/\s/g,"")}))}catch(y){}document.getElementById("tess").hidden=false;}f.hidden=true;const d=document.getElementById("done");d.hidden=false;window.scrollTo(0,0);d.focus();}
   else if(ERR_COD[code]){er.textContent=ERR_COD[code];er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";if(code!=="campi"){f.codice.setAttribute("aria-invalid","true");f.codice.focus();}}
-  else if(rete){er.textContent="Invio non riuscito: la rete che stai usando non raggiunge il servizio della Sezione (succede su alcune reti d'ufficio NATO o Difesa). Riprova dal telefono con la rete mobile o dalla rete di casa: il tuo codice è ancora valido. Se non funziona scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
+  else if(rete){er.textContent="Invio non riuscito: la rete che stai usando non raggiunge il servizio della Sezione (succede su alcune reti d'ufficio NATO o Difesa). Il tuo codice è ancora valido: completa l'invio in uno dei due modi qui sotto.";er.hidden=false;b.disabled=false;b.textContent="Riprova l'invio";mostraAlternative();}
   else{er.textContent="Invio non riuscito. Controlla la connessione e riprova, oppure scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
 });
 </script>
