@@ -25,19 +25,299 @@
 <meta name="description" content="Sezione Sanitaria Italiana di SHAPE: la scheda da compilare e firmare online prima della visita di idoneità.">
 <meta name="theme-color" content="#14294d">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbxex5OrheHlbzdlNYp9dSU5H2dQdFCY5XhRAPI3hzJwCA14QnYitDzBRqwQsOsEoWl3sQ/exec">
-<style>
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef1f5;color:#1b2430;display:flex;min-height:100vh;align-items:center;justify-content:center;padding:16px;box-sizing:border-box}
-.c{background:#fff;border-radius:10px;padding:24px;max-width:420px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.12);border-top:6px solid #14294d}
-a{display:inline-block;margin-top:14px;background:#14294d;color:#fff;text-decoration:none;font-weight:bold;padding:12px 18px;border-radius:8px}
+<style>body{margin:0;background:#eef1f5;font-family:Arial,Helvetica,sans-serif;color:#1b2430;font-size:16px}#app{max-width:760px;margin:0 auto;padding:12px}.card{background:#fff;border-radius:10px;padding:16px;margin:12px 0;box-shadow:0 1px 3px rgba(0,0,0,.12);border-top:6px solid var(--c,#1d4e89)}h1{font-size:20px;margin:0 0 4px}h2{font-size:17px;margin:-16px -16px 12px;padding:12px 16px;color:#fff;background:var(--c,#1d4e89);text-transform:uppercase;letter-spacing:.03em;border-radius:4px 4px 0 0}.hd{font-size:15px;margin:18px 0 4px;color:var(--c,#1d4e89);border-bottom:2px solid var(--c,#1d4e89);padding-bottom:4px}.sub{color:#5a6676;font-size:14px;font-weight:normal}.q{margin:12px 0}.q label.t{display:block;font-weight:bold;margin-bottom:5px;font-size:15px}.req{color:#b3261e}input[type=text],input[type=date],textarea,select{width:100%;box-sizing:border-box;font-size:16px;padding:9px;border:1px solid #b9c2cf;border-radius:6px;background:#fff;color:#1b2430}textarea{min-height:70px}.opts{display:flex;flex-wrap:wrap;gap:8px}.opts label{display:flex;align-items:center;gap:6px;border:1px solid #b9c2cf;border-radius:6px;padding:8px 12px;cursor:pointer}.opts label:has(input:checked){border-color:var(--c,#1d4e89);background:#eef3fb;font-weight:bold}.opts input{width:18px;height:18px}.dich{white-space:pre-line;font-size:14px;line-height:1.45;background:#f5f7fa;padding:10px;border-radius:6px}#pad{width:100%;height:200px;border:2px dashed #1d4e89;border-radius:8px;background:#fff;touch-action:none;display:block}button{font-size:16px;padding:12px 18px;border-radius:8px;border:0;cursor:pointer}.pri{background:#1d4e89;color:#fff;font-weight:bold;flex:1}.pri.send{background:#1f7a4d}.sec{background:#e3e8ef;color:#1b2430}.nav{position:sticky;bottom:0;background:#eef1f5;padding:10px 0}.btns{display:flex;gap:10px}.prog{margin-top:10px;font-size:13px;color:#5a6676}.bar{height:8px;background:#dfe5ee;border-radius:4px;overflow:hidden;margin-bottom:4px}.bar i{display:block;height:100%;width:0;background:#1d4e89;transition:width .2s}.err{color:#b3261e;font-weight:bold;margin:0 0 8px}.ok{color:#1f7a4d;font-weight:bold;font-size:18px}.hid,.off{display:none!important}.dt{display:flex;gap:8px;align-items:stretch}.dt .dtxt{flex:1;min-width:0}.dt .cal{position:relative;flex:none;width:52px;border:1px solid #b9c2cf;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;color:#1d4e89;cursor:pointer}.dt .cal svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;pointer-events:none}.dt .cal input[type=date]{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;padding:0;margin:0;border:0;cursor:pointer}.dt .dtxt.bad{border-color:#b3261e;background:#fdf0ef}#gate .card{border-top-color:#1d4e89}#gate label{display:block;font-weight:bold;margin-top:8px}#gate input{font-size:22px;padding:10px;width:100%;box-sizing:border-box;letter-spacing:.15em;text-transform:uppercase;margin:8px 0;border:1px solid #9aa7b8;border-radius:8px}#gate button{font-size:17px;padding:12px 22px;border:0;border-radius:8px;background:#1d4e89;color:#fff;cursor:pointer}#gate button:disabled{opacity:.6}#gate .gm{color:#b3121b;min-height:1.3em;margin:10px 0 0}
+.avv{margin:10px 0 0;padding:10px 12px;border-radius:8px;background:#fff4e0;color:#7a4b00;font-size:14px}
+.prefill{margin:10px 0 0;padding:10px 12px;border-radius:8px;background:#e5f3ea;color:#1a5c34;font-size:14px}
+.alt{border-top-color:#b45309}.alt h3{margin:0 0 10px;font-size:17px}
+.altc{display:flex;flex-wrap:wrap;gap:16px}
+.altq,.altm{flex:1 1 260px;display:flex;flex-direction:column;gap:8px;align-items:center;text-align:center;font-size:14px}
+.altq img{width:260px;max-width:100%;height:auto;image-rendering:pixelated;background:#fff;border:1px solid #dfe5ee;border-radius:8px}
+.altm .pri{flex:none}.altm a{color:#1d4e89;font-size:13px}
+.altnota{font-size:12px;color:#5a6676}
+#alttesto{width:100%;min-height:90px;font-size:11px;font-family:monospace}
+noscript p{max-width:760px;margin:20px auto;padding:16px;background:#fff;border-radius:10px}
 </style>
 </head>
 <body>
-<div class="c">
-  <b>Scheda anamnestica online (Allegato A)</b>
-  <p>Sezione Sanitaria Italiana di SHAPE. Apertura della scheda in corso.</p>
-  <a id="vai" href="https://script.google.com/macros/s/AKfycbxex5OrheHlbzdlNYp9dSU5H2dQdFCY5XhRAPI3hzJwCA14QnYitDzBRqwQsOsEoWl3sQ/exec">Apri la scheda</a>
-</div>
-<script>(function(){var u="https://script.google.com/macros/s/AKfycbxex5OrheHlbzdlNYp9dSU5H2dQdFCY5XhRAPI3hzJwCA14QnYitDzBRqwQsOsEoWl3sQ/exec",c="";try{c=(new URLSearchParams(location.search).get("codice")||"").toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);}catch(e){}if(c)u+="?codice="+c;document.getElementById("vai").href=u;location.replace(u);})();</script>
+<noscript><p>Per compilare la scheda serve JavaScript attivo nel browser.</p></noscript>
+<div id="gate"><div class="card"><h1>Scheda anamnestica</h1><p>Sezione Sanitaria ITA NMR SHAPE. Per compilare la scheda inserisci il codice personale che ti ha dato la Sezione, di persona o via email.</p><label for="gcod">Codice della Sezione</label><input id="gcod" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12"><button type="button" id="gbtn">Continua</button><p class="gm" id="gmsg" role="alert"></p><p>Non hai il codice? Rivolgiti alla Sezione Sanitaria, stanze 1B104 e 1B113, o scrivi a infermeria.shape@gmail.com.</p></div></div><div id="app"></div>
+<script src="qrcode.min.js"></script>
+<script>
+var Q=[["page", "Prima di iniziare", ""], ["ok", "Presa visione del percorso della visita di idoneità", "La visita di idoneità al servizio militare incondizionato (S.M.I.) si svolge in tre fasi:\n\n1. Visita preliminare: il medico La visita e Le prescrive gli esami del sangue e l'elettrocardiogramma (ECG).\n2. Esami: esegue gli esami di laboratorio e l'ECG prescritti.\n3. Visita finale: il medico valuta i referti, esprime il giudizio medico legale e rilascia il certificato.\n\nIl certificato di idoneità viene rilasciato solo al termine della terza fase.\n\nConfermo di aver ricevuto e compreso queste informazioni."], ["page", "Dati anagrafici", "Di seguito è riportata una serie di domande intese ad evidenziare, attraverso i Suoi ricordi, elementi di grande importanza per la verifica del Suo stato di salute. È quindi essenziale che Ella, nel Suo precipuo interesse, risponda con la massima sincerità. Ad alcuni quesiti sarà sufficiente rispondere SI o NO. Altri quesiti richiedono anche di specificare, se ne è a conoscenza e/o ne ha memoria, ulteriori elementi d'informazione. In caso di dubbi nella compilazione non esiti a rivolgersi al personale sanitario, che Le fornirà ogni chiarimento."], ["date", "Data di compilazione", true], ["text", "Grado", true], ["text", "Cognome", true], ["text", "Nome", true], ["mc", "Forza Armata", ["Esercito (EI)", "Marina Militare (MM)", "Aeronautica Militare (AM)", "Arma dei Carabinieri (CC)"], true], ["mc", "Sesso", ["Maschile", "Femminile"], true], ["text", "Luogo di nascita (Provincia)", true], ["date", "Data di nascita", true], ["page", "Servizio e recapiti", "La sede decide in quale cartella sanitaria digitale viene archiviata la scheda."], ["mc", "Sede di servizio", ["SHAPE", "Bruxelles", "Lille", "Capellen", "Strasburgo", "Brunssum", "L'Aia", "Soesterberg", "Ulm", "Altra sede"], true], ["head", "Benessere psicologico", "Lo screening del benessere psicologico viene svolto dalla SHAPE Healthcare Facility a ogni accesso.", {"se": "Sede di servizio", "in": ["SHAPE"]}], ["text", "Email di contatto", true], ["text", "DoD ID (numero assegnato alla registrazione presso la SHAPE Healthcare Facility, se già ricevuto)", false, {"se": "Sede di servizio", "in": ["SHAPE"]}], ["page", "Familiari a carico (dependents)", "Indichi i familiari presenti a SHAPE, registrati o da registrare presso la SHAPE Healthcare Facility, con il DoD ID se già assegnato.", {"se": "Sede di servizio", "in": ["SHAPE"]}], ["sel", "Quanti familiari a carico (dependents) sono con Lei in sede?", ["Nessuno", "1", "2", "3", "4", "5", "6"], true], ["head", "Familiare 1", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["1", "2", "3", "4", "5", "6"]}], ["text", "Familiare 1: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["1", "2", "3", "4", "5", "6"]}], ["text", "Familiare 1: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["1", "2", "3", "4", "5", "6"]}], ["sel", "Familiare 1: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["1", "2", "3", "4", "5", "6"]}], ["text", "Familiare 1: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["1", "2", "3", "4", "5", "6"]}], ["head", "Familiare 2", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["2", "3", "4", "5", "6"]}], ["text", "Familiare 2: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["2", "3", "4", "5", "6"]}], ["text", "Familiare 2: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["2", "3", "4", "5", "6"]}], ["sel", "Familiare 2: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["2", "3", "4", "5", "6"]}], ["text", "Familiare 2: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["2", "3", "4", "5", "6"]}], ["head", "Familiare 3", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["3", "4", "5", "6"]}], ["text", "Familiare 3: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["3", "4", "5", "6"]}], ["text", "Familiare 3: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["3", "4", "5", "6"]}], ["sel", "Familiare 3: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["3", "4", "5", "6"]}], ["text", "Familiare 3: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["3", "4", "5", "6"]}], ["head", "Familiare 4", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["4", "5", "6"]}], ["text", "Familiare 4: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["4", "5", "6"]}], ["text", "Familiare 4: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["4", "5", "6"]}], ["sel", "Familiare 4: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["4", "5", "6"]}], ["text", "Familiare 4: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["4", "5", "6"]}], ["head", "Familiare 5", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["5", "6"]}], ["text", "Familiare 5: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["5", "6"]}], ["text", "Familiare 5: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["5", "6"]}], ["sel", "Familiare 5: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["5", "6"]}], ["text", "Familiare 5: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["5", "6"]}], ["head", "Familiare 6", "", {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["6"]}], ["text", "Familiare 6: cognome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["6"]}], ["text", "Familiare 6: nome", true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["6"]}], ["sel", "Familiare 6: parentela", ["Coniuge", "Unito/a civilmente o convivente", "Figlio/a", "Genitore", "Altro familiare"], true, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["6"]}], ["text", "Familiare 6: DoD ID", false, {"se": "Quanti familiari a carico (dependents) sono con Lei in sede?", "in": ["6"]}], ["page", "Dati fisici", ""], ["text", "Altezza (cm)", true], ["text", "Peso (kg)", true], ["mc", "Gruppo sanguigno", ["0", "A", "B", "AB", "Non conosciuto"]], ["mc", "Fattore Rh", ["Positivo", "Negativo", "Non conosciuto"]], ["page", "Anamnesi familiare", ""], ["head", "Padre", ""], ["sn", "Padre: è vivente?"], ["sn", "Padre: è in buono stato di salute?", null, {"se": "Padre: è vivente?", "in": ["SI"]}], ["sn", "Padre: soffre o soffriva di ipertensione?"], ["sn", "Padre: soffre o soffriva di malattie del cuore?"], ["sn", "Padre: è affetto da altre malattie?", null, {"se": "Padre: è vivente?", "in": ["SI"]}], ["text", "Padre: quali altre malattie?", false, {"se": "Padre: è affetto da altre malattie?", "in": ["SI"]}], ["text", "Padre: causa di morte", false, {"se": "Padre: è vivente?", "in": ["NO"]}], ["head", "Madre", ""], ["sn", "Madre: è vivente?"], ["sn", "Madre: è in buono stato di salute?", null, {"se": "Madre: è vivente?", "in": ["SI"]}], ["sn", "Madre: soffre o soffriva di ipertensione?"], ["sn", "Madre: soffre o soffriva di malattie del cuore?"], ["sn", "Madre: è affetta da altre malattie?", null, {"se": "Madre: è vivente?", "in": ["SI"]}], ["text", "Madre: quali altre malattie?", false, {"se": "Madre: è affetta da altre malattie?", "in": ["SI"]}], ["text", "Madre: causa di morte", false, {"se": "Madre: è vivente?", "in": ["NO"]}], ["head", "Fratelli e sorelle", ""], ["sn", "Ha fratelli o sorelle?"], ["text", "Numero di fratelli", false, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["text", "Numero di sorelle", false, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["sn", "Fratelli e sorelle sono in buono stato di salute?", null, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["sn", "Fratelli e sorelle soffrono o soffrivano di ipertensione?", null, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["sn", "Fratelli e sorelle soffrono o soffrivano di malattie del cuore?", null, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["sn", "Fratelli e sorelle sono affetti da altre malattie?", null, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["text", "Fratelli e sorelle: quali altre malattie?", false, {"se": "Fratelli e sorelle sono affetti da altre malattie?", "in": ["SI"]}], ["text", "Fratelli e sorelle deceduti: causa di morte", false, {"se": "Ha fratelli o sorelle?", "in": ["SI"]}], ["page", "Anamnesi fisiologica", ""], ["sn", "È nato/a da parto normale?"], ["sn", "È nato/a dopo una gravidanza di durata normale (9 mesi)?"], ["sn", "È stato/a allattato/a al seno?"], ["sn", "Ha figli?"], ["text", "Quanti figli ha?", false, {"se": "Ha figli?", "in": ["SI"]}], ["head", "Alimentazione, alvo e diuresi", ""], ["sn", "La Sua dieta è regolare?"], ["mc", "Il Suo appetito è", ["scarso", "normale", "eccessivo"]], ["mc", "Il Suo alvo è", ["regolare", "stitico", "diarroico"]], ["sn", "La Sua diuresi è regolare?"], ["text", "Diuresi: cosa nota di irregolare?", false, {"se": "La Sua diuresi è regolare?", "in": ["NO"]}], ["head", "Sonno", ""], ["text", "Quante ore dorme mediamente per notte?"], ["sn", "Il Suo sonno è normale?"], ["cb", "Che problemi ha con il sonno? (più risposte possibili)", ["dormo male", "dormo poco", "mi sveglio frequentemente", "al mattino sono stanco/a", "durante il giorno ho sonnolenza", "altro"], null, {"se": "Il Suo sonno è normale?", "in": ["NO"]}], ["text", "Sonno: altro problema", false, {"se": "Che problemi ha con il sonno? (più risposte possibili)", "in": ["altro"]}], ["head", "Attività fisica", ""], ["sn", "Pratica attività fisica, anche ginnica o sportiva autogestita?"], ["text", "Quale attività fisica pratica?", false, {"se": "Pratica attività fisica, anche ginnica o sportiva autogestita?", "in": ["SI"]}], ["sel", "Quanti giorni a settimana?", ["1", "2", "3", "4", "5", "6", "7"], false, {"se": "Pratica attività fisica, anche ginnica o sportiva autogestita?", "in": ["SI"]}], ["sel", "Quanto dura in media ogni sessione?", ["meno di 30 minuti", "da 30 minuti a 1 ora", "da 1 a 2 ore", "più di 2 ore"], false, {"se": "Pratica attività fisica, anche ginnica o sportiva autogestita?", "in": ["SI"]}], ["sn", "Durante l'attività o gli sforzi fisici ha avuto disturbi?", null, {"se": "Pratica attività fisica, anche ginnica o sportiva autogestita?", "in": ["SI"]}], ["text", "Quali disturbi durante l'attività fisica?", false, {"se": "Durante l'attività o gli sforzi fisici ha avuto disturbi?", "in": ["SI"]}], ["head", "Fumo, alcol e sostanze", ""], ["sn", "Fuma?"], ["mc", "Cosa fuma?", ["sigarette", "sigaretta elettronica o tabacco riscaldato", "sigari", "pipa", "altro"], false, {"se": "Fuma?", "in": ["SI"]}], ["text", "Quante al giorno?", false, {"se": "Fuma?", "in": ["SI"]}], ["text", "Da quanti anni fuma?", false, {"se": "Fuma?", "in": ["SI"]}], ["mc", "Consuma alcolici (vino, birra)?", ["NO", "SI, occasionalmente ai pasti", "SI, abitualmente ai pasti", "SI, anche fuori pasto"]], ["text", "Alcolici: quanti bicchieri in media al giorno?", false, {"se": "Consuma alcolici (vino, birra)?", "in": ["SI, abitualmente ai pasti", "SI, anche fuori pasto"]}], ["mc", "Consuma superalcolici?", ["NO", "SI, occasionalmente", "SI, abitualmente"]], ["text", "Superalcolici: quanti bicchierini in media alla settimana?", false, {"se": "Consuma superalcolici?", "in": ["SI, abitualmente"]}], ["sn", "Ha mai assunto sostanze stupefacenti per motivi terapeutici?"], ["sn", "Ha mai assunto sostanze stupefacenti per motivi non terapeutici?"], ["sn", "Ha mai avuto comportamenti sessuali a rischio di trasmissione di malattie infettive (rapporti promiscui o non protetti)?"], ["page", "Solo per personale femminile", "", {"se": "Sesso", "in": ["Femminile"]}], ["text", "A quale età sono comparse le prime mestruazioni?"], ["sn", "Le mestruazioni sono regolari per ritmo, quantità e durata?"], ["text", "Mestruazioni: cosa nota di irregolare?", false, {"se": "Le mestruazioni sono regolari per ritmo, quantità e durata?", "in": ["NO"]}], ["sn", "È in stato di gravidanza?", ["NON SO"]], ["date", "Data ultimo ciclo mestruale"], ["sn", "La gravidanza è stata normale per durata (9 mesi)?", null, {"se": "Ha figli?", "in": ["SI"]}], ["text", "Durata della gravidanza: specificare", false, {"se": "La gravidanza è stata normale per durata (9 mesi)?", "in": ["NO"]}], ["sn", "La gravidanza è stata normale per decorso (senza complicanze)?", null, {"se": "Ha figli?", "in": ["SI"]}], ["text", "Complicanze della gravidanza: specificare", false, {"se": "La gravidanza è stata normale per decorso (senza complicanze)?", "in": ["NO"]}], ["sn", "Il parto è stato naturale?", null, {"se": "Ha figli?", "in": ["SI"]}], ["text", "Parto: specificare", false, {"se": "Il parto è stato naturale?", "in": ["NO"]}], ["sn", "L'allattamento è stato naturale (al seno)?", null, {"se": "Ha figli?", "in": ["SI"]}], ["text", "Allattamento: specificare", false, {"se": "L'allattamento è stato naturale (al seno)?", "in": ["NO"]}], ["sn", "Ha fatto o fa uso di farmaci o dispositivi anticoncezionali?"], ["text", "Quali anticoncezionali?", false, {"se": "Ha fatto o fa uso di farmaci o dispositivi anticoncezionali?", "in": ["SI"]}], ["sn", "Ha avuto aborti o interruzioni volontarie di gravidanza?"], ["text", "Aborti o IVG: specificare", false, {"se": "Ha avuto aborti o interruzioni volontarie di gravidanza?", "in": ["SI"]}], ["page", "Anamnesi lavorativa", ""], ["sn", "È stato/a impiegato/a in missioni o attività fuori area?", ["NON RICORDO"]], ["cb", "Missioni fuori area: dove?", ["Balcani", "Iraq", "Golfo Persico", "Afghanistan", "Libano", "altro"], null, {"se": "È stato/a impiegato/a in missioni o attività fuori area?", "in": ["SI"]}], ["text", "Missioni fuori area: altro, specificare", false, {"se": "Missioni fuori area: dove?", "in": ["altro"]}], ["mc", "Ambiente di impiego fuori area", ["Bordo", "Terra", "Bordo e terra"], false, {"se": "È stato/a impiegato/a in missioni o attività fuori area?", "in": ["SI"]}], ["page", "Anamnesi patologica remota", ""], ["cb", "Ha sofferto di una o più di queste malattie?", ["Morbillo", "Varicella", "Rosolia", "Scarlattina", "Parotite", "Pertosse", "Epatite", "Tifo", "Gastrite", "Ulcera", "Calcolosi", "nessuna di queste"]], ["head", "Interventi chirurgici", ""], ["cb", "È stato/a operato/a di", ["tonsillectomia", "appendicectomia", "adenoidectomia", "nessuno di questi"]], ["text", "Tonsillectomia: anno", false, {"se": "È stato/a operato/a di", "in": ["tonsillectomia"]}], ["text", "Appendicectomia: anno", false, {"se": "È stato/a operato/a di", "in": ["appendicectomia"]}], ["text", "Adenoidectomia: anno", false, {"se": "È stato/a operato/a di", "in": ["adenoidectomia"]}], ["sn", "Ha subito altri interventi chirurgici?"], ["para", "Altri interventi: tipo e anno (fino a tre)", false, {"se": "Ha subito altri interventi chirurgici?", "in": ["SI"]}], ["head", "Malattie e terapie", ""], ["sn", "Ha ricevuto trasfusioni di sangue o emoderivati?"], ["sn", "È affetto/a da allergie?"], ["text", "Quali allergie?", false, {"se": "È affetto/a da allergie?", "in": ["SI"]}], ["sn", "È affetto/a da ipertensione arteriosa?"], ["text", "Ipertensione: anno di inizio e terapia in corso", false, {"se": "È affetto/a da ipertensione arteriosa?", "in": ["SI"]}], ["sn", "È affetto/a da altre patologie dell'apparato cardiovascolare?"], ["text", "Patologie cardiovascolari: quali, anno di insorgenza e terapia in corso", false, {"se": "È affetto/a da altre patologie dell'apparato cardiovascolare?", "in": ["SI"]}], ["sn", "È affetto/a da diabete?"], ["text", "Diabete: anno di inizio e terapia in corso", false, {"se": "È affetto/a da diabete?", "in": ["SI"]}], ["sn", "È affetto/a da altre patologie endocrine?"], ["text", "Patologie endocrine: quali, anno di insorgenza e terapia in corso", false, {"se": "È affetto/a da altre patologie endocrine?", "in": ["SI"]}], ["sn", "È affetto/a da altre patologie rilevanti?"], ["text", "Altre patologie: quali, anno di insorgenza e terapia in corso", false, {"se": "È affetto/a da altre patologie rilevanti?", "in": ["SI"]}], ["head", "Dall'ultima visita di idoneità", ""], ["date", "Data dell'ultima visita di idoneità"], ["sn", "Riferisce di NON essere stato/a sottoposto/a ad altre visite con finalità medico legali militari a partire dall'ultima visita di idoneità, nella quale è stato/a giudicato/a IDONEO senza limitazioni, né con note, controindicazioni o motivazioni aggiunte al provvedimento emesso?"], ["sn", "Ha subito infortuni o traumi dalla data dell'ultima visita?"], ["para", "Infortuni o traumi: diagnosi e anno (fino a tre)", false, {"se": "Ha subito infortuni o traumi dalla data dell'ultima visita?", "in": ["SI"]}], ["sn", "È stato/a sottoposto/a a visita presso una CMO dalla data dell'ultima visita?"], ["para", "Visite CMO: diagnosi di dimissione e anno (fino a tre)", false, {"se": "È stato/a sottoposto/a a visita presso una CMO dalla data dell'ultima visita?", "in": ["SI"]}], ["head", "Ricoveri e visite precedenti", ""], ["sn", "È stato/a ricoverato/a in passato presso strutture ospedaliere civili?"], ["para", "Ricoveri civili: diagnosi di dimissione e anno (fino a tre)", false, {"se": "È stato/a ricoverato/a in passato presso strutture ospedaliere civili?", "in": ["SI"]}], ["sn", "È stato/a ricoverato/a in passato presso strutture militari?", ["NON RICORDO"]], ["para", "Ricoveri militari: struttura, anno, P.M.L., diagnosi di dimissione (fino a cinque)", false, {"se": "È stato/a ricoverato/a in passato presso strutture militari?", "in": ["SI"]}], ["sn", "Prima di oggi è stato/a sottoposto/a a visita medica presso questo o altri Comandi o Enti militari?"], ["para", "Visite precedenti: Comando o Ente, anno, P.M.L. (fino a tre)", false, {"se": "Prima di oggi è stato/a sottoposto/a a visita medica presso questo o altri Comandi o Enti militari?", "in": ["SI"]}], ["head", "Causa di servizio", ""], ["sn", "Ha effettuato in passato richieste di dipendenza di infermità da causa di servizio già definite dalle Commissioni Mediche Ospedaliere?", ["NON RICORDO"]], ["para", "Richieste definite: infermità, anno, CMO (anche se giudicate NON dipendenti da causa di servizio)", false, {"se": "Ha effettuato in passato richieste di dipendenza di infermità da causa di servizio già definite dalle Commissioni Mediche Ospedaliere?", "in": ["SI"]}], ["sn", "Ha in corso richieste di dipendenza di infermità da causa di servizio?", ["NON RICORDO"]], ["para", "Richieste in corso: infermità, anno, CMO", false, {"se": "Ha in corso richieste di dipendenza di infermità da causa di servizio?", "in": ["SI"]}], ["page", "Anamnesi patologica prossima", ""], ["sn", "Attualmente è in buona salute?"], ["para", "Buona salute: cosa non va?", false, {"se": "Attualmente è in buona salute?", "in": ["NO"]}], ["sn", "Ha goduto di buona salute nell'ultimo anno?"], ["para", "Ultimo anno: patologia e giorni di assenza dal servizio", false, {"se": "Ha goduto di buona salute nell'ultimo anno?", "in": ["NO"]}], ["sn", "Attualmente riferisce benessere psicofisico?"], ["para", "Benessere psicofisico: cosa non va?", false, {"se": "Attualmente riferisce benessere psicofisico?", "in": ["NO"]}], ["sn", "Attualmente è in cura dal Suo Medico?"], ["para", "In cura: per cosa?", false, {"se": "Attualmente è in cura dal Suo Medico?", "in": ["SI"]}], ["sn", "Attualmente assume farmaci?"], ["para", "Quali farmaci assume?", false, {"se": "Attualmente assume farmaci?", "in": ["SI"]}], ["sn", "Attualmente è sottoposto/a a cure non farmacologiche?"], ["para", "Quali cure non farmacologiche?", false, {"se": "Attualmente è sottoposto/a a cure non farmacologiche?", "in": ["SI"]}], ["sn", "Attualmente utilizza occhiali da vista?"], ["text", "Occhiali: gradazione", false, {"se": "Attualmente utilizza occhiali da vista?", "in": ["SI"]}], ["page", "Dichiarazioni", ""], ["ok", "Dichiarazione (D.P.R. 445/2000 e D.P.R. 90/2010)", "Io sottoscritto/a, consapevole delle sanzioni penali previste per il caso di dichiarazione mendace e di falsità in atti, così come stabilito dall'articolo 76 del D.P.R. 28 dicembre 2000 n. 445, e consapevole dei doveri di cui al Libro IV, Titolo VIII, Capo I (doveri dei militari), Sezione I (doveri generali), del D.P.R. 15 marzo 2010 n. 90, \"Testo Unico delle disposizioni regolamentari in materia di Ordinamento militare\", con particolare riferimento all'articolo 718, comma 1 (dovere di conservare e migliorare le proprie conoscenze e capacità psicofisiche) ed all'articolo 748, comma 5, lettera b) (dovere di comunicare al Comando/Ente di appartenenza ogni evento personale che può avere riflessi sul servizio), DICHIARO di appartenere al gruppo sanguigno e fattore Rh indicati nei dati anagrafici."], ["ok", "Dichiarazione di veridicità", "DICHIARO inoltre sotto la mia piena responsabilità che quanto sopra riportato risponde a verità e nego di essere a conoscenza di altre patologie pregresse o in atto, oltre quelle dichiarate."], ["ok", "Solo per i fumatori: presa visione", "SE FUMATORE, vengo altresì informato/a dei rischi provocati dal fumo e dissuaso/a a tale abitudine, dei rischi provocati dalla vita sedentaria ed invitato/a a svolgere attività fisica moderata, nonché della necessità di essere sottoposto/a agli accertamenti sanitari in materia di Prevenzione Oncologica che mi verranno indicati dall'Ufficiale medico, da eseguire a cura del S.S.N. ed esibire entro i termini indicati.", {"se": "Fuma?", "in": ["SI"]}], ["ok", "Informativa sul trattamento dei dati personali (art. 13 Reg. UE 2016/679)", "In sintesi: i dati di questa scheda sono gestiti dalla Sezione Sanitaria ITA NMR SHAPE esclusivamente per uso interno, nel rispetto della normativa sulla protezione dei dati personali (Regolamento UE 2016/679 e D.Lgs. 196/2003).\n\nTitolare del trattamento: Ministero della Difesa, Via XX Settembre 8, 00187 Roma. Ai sensi del D.M. 4 settembre 2024 le funzioni di titolare sono esercitate dallo Stato Maggiore della Difesa, da cui dipende la Rappresentanza Militare Italiana presso SHAPE. Punto di contatto per questo trattamento: Sezione Sanitaria NMR SHAPE, idshape.infermeria@smd.difesa.it.\n\nResponsabile della protezione dei dati (RPD) del Ministero della Difesa: rpd@difesa.it, PEC rpd@postacert.difesa.it.\n\nOrganizzazione del trattamento: il Referente, i soggetti Designati e i soggetti Autorizzati al trattamento dei dati personali sono individuati dall'Ordine di Servizio dello Stato Maggiore della Difesa n. 87 del 12 ottobre 2026 (artt. 1, 4, 5 e 7 e relativo allegato, lettera b), consultabile sul portale intranet della Difesa Archimede.\n\nFinalità: verifica periodica dell'idoneità al servizio militare incondizionato, adempimenti medico legali e certificativi, medicina preventiva, tutela della salute e sicurezza sul lavoro, gestione sanitaria del personale militare italiano in servizio presso {SEDE}.\n\nBase giuridica: art. 6, par. 1, lett. c) ed e), e art. 9, par. 2, lett. b) e h), e par. 3 del Regolamento (UE) 2016/679; art. 2 sexies, comma 2, lett. dd), e art. 2 septies del D.Lgs. 196/2003; D.Lgs. 66/2010 e D.P.R. 90/2010. Il trattamento non si fonda sul consenso.\n\nConferimento dei dati: obbligatorio. Il mancato o inesatto conferimento può impedire o rendere non valido l'accertamento dell'idoneità.\n\nModalità: strumenti informatici e cartacei, con accesso riservato al personale sanitario autorizzato e tenuto al segreto professionale. Non sono adottate decisioni automatizzate: ogni valutazione è del medico. Gli indirizzi email indicati sono usati anche per gli avvisi di servizio della Sezione (referti disponibili, scadenza dell'idoneità, link personali alle schede); queste email non contengono strumenti di tracciamento.\n\nDestinatari: Comandi ed Enti dell'Amministrazione della Difesa e organi medico legali competenti; altre amministrazioni pubbliche solo nei casi previsti dalla legge. I dati relativi alla salute non sono diffusi (art. 2 septies, comma 8, D.Lgs. 196/2003).\n\nConservazione: per il tempo necessario alle finalità indicate e nel rispetto degli obblighi di conservazione della documentazione sanitaria e degli atti dell'Amministrazione. Al termine dell'incarico la documentazione segue la cartella sanitaria personale.\n\nDiritti: può esercitare i diritti previsti dagli artt. da 15 a 21 del Regolamento (accesso, rettifica, cancellazione nei limiti di legge, limitazione, opposizione) rivolgendosi al punto di contatto o al RPD sopra indicati. Può proporre reclamo al Garante per la protezione dei dati personali, Piazza Venezia 11, 00187 Roma, protocollo@gpdp.it (art. 77 del Regolamento)."]];
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbxex5OrheHlbzdlNYp9dSU5H2dQdFCY5XhRAPI3hzJwCA14QnYitDzBRqwQsOsEoWl3sQ/exec";
+var EMAIL_SEZ = "infermeria.shape@gmail.com";
+
+/* utilità: testo in base64 adatto agli indirizzi, compressione per il QR */
+function u8b64(b) { var s = ""; for (var i = 0; i < b.length; i += 8192) s += String.fromCharCode.apply(null, b.subarray(i, i + 8192)); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+function b64u8(t) { t = t.replace(/-/g, "+").replace(/_/g, "/"); while (t.length % 4) t += "="; var s = atob(t), b = new Uint8Array(s.length); for (var i = 0; i < s.length; i++) b[i] = s.charCodeAt(i); return b; }
+function comprimi(s) {
+  var b = new TextEncoder().encode(s);
+  if (!window.CompressionStream) return Promise.resolve("j" + u8b64(b));
+  return new Response(new Blob([b]).stream().pipeThrough(new CompressionStream("deflate"))).arrayBuffer().then(function (x) { return "z" + u8b64(new Uint8Array(x)); });
+}
+function decomprimi(t) {
+  var b = b64u8(t.slice(1));
+  if (t.charAt(0) === "j") return Promise.resolve(new TextDecoder().decode(b));
+  return new Response(new Blob([b]).stream().pipeThrough(new DecompressionStream("deflate"))).text();
+}
+function invia(dati) {
+  return fetch(ENDPOINT, { method: "POST", body: new URLSearchParams(dati) }).then(function (r) { return r.json(); });
+}
+
+/* scheda arrivata dal QR: si legge subito e si toglie dall'indirizzo */
+var PRECOMP = null;
+try {
+  if (location.hash.indexOf("#s=") === 0) {
+    PRECOMP = decomprimi(location.hash.slice(3)).then(JSON.parse).catch(function () { return null; });
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+} catch (e) { PRECOMP = null; }
+
+var CODICE0 = "";
+try { CODICE0 = (new URLSearchParams(location.search).get("codice") || "").toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 12); } catch (e) {}
+
+function gateMain() {
+  var i = document.getElementById("gcod"), b = document.getElementById("gbtn"), m = document.getElementById("gmsg");
+  var MSG = { codice: "Codice non valido: controlla il codice ricevuto dalla Sezione.", scaduto: "Codice scaduto: chiedi un nuovo codice alla Sezione.", usato: "Questo codice è già stato usato per la scheda anamnestica: chiedi un nuovo codice alla Sezione.", occupato: "Troppi tentativi: riprova tra qualche minuto." };
+  if (CODICE0) i.value = CODICE0;
+  function avvia(c, offline) { window.CODICE_SEZ = c; window.OFFLINE = !!offline; var g = document.getElementById("gate"); g.parentNode.removeChild(g); clientMain(); }
+  function vai() {
+    var c = i.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    if (c.length < 6) { m.textContent = "Inserisci il codice."; i.focus(); return; }
+    b.disabled = true; m.textContent = "Verifica in corso";
+    invia({ azione: "verifica", codice: c }).then(function (r) {
+      if (r && r.ok) avvia(c, false);
+      else { b.disabled = false; m.textContent = MSG[r && r.err] || MSG.codice; }
+    }).catch(function () {
+      /* la rete (per esempio quella dell'ufficio) non raggiunge il servizio: si compila lo stesso, l'invio si completa dopo */
+      avvia(c, true);
+    });
+  }
+  b.addEventListener("click", vai);
+  i.addEventListener("keydown", function (e) { if (e.key === "Enter") vai(); });
+  if (CODICE0) vai();
+}
+
+function clientMain() {
+  var COL = ['#1d4e89', '#0f766e', '#6d28d9', '#b45309', '#be123c', '#047857', '#4338ca', '#a16207', '#0e7490', '#9d174d', '#3f6212', '#475569', '#7c2d12'];
+  var app = document.getElementById('app');
+  function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in (attrs || {})) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function cond(q) { for (var i = 2; i < q.length; i++) { var x = q[i]; if (x && typeof x === 'object' && !Array.isArray(x) && x.se) return x; } return null; }
+  function setCond(n, c) { if (c) { n.setAttribute('data-se', c.se); n.setAttribute('data-in', JSON.stringify(c['in'])); } }
+  var d0 = new Date(), oggi = d0.getFullYear() + '-' + ('0' + (d0.getMonth() + 1)).slice(-2) + '-' + ('0' + d0.getDate()).slice(-2);
+
+  var head = el('div', { 'class': 'card' }, '<h1>Scheda anamnestica (Allegato A)</h1><div class="sub">Rappresentanza Militare Italiana, S.H.A.P.E., Sezione Sanitaria</div>' +
+    '<div class="sub">Si compila una sezione alla volta. I campi con <span class="req">*</span> sono obbligatori. Alla fine firma nel riquadro.</div>' +
+    '<div class="prog"><div class="bar"><i id="pbar"></i></div><span id="ptxt"></span></div>' +
+    (window.OFFLINE ? '<p class="avv">La rete che stai usando non raggiunge il servizio della Sezione. Puoi compilare e firmare la scheda lo stesso: al momento dell\'invio ti proporremo come completarlo, dal telefono o per email.</p>' : ''));
+  app.appendChild(head);
+  var form = el('form', { id: 'f', novalidate: 'novalidate' });
+  app.appendChild(form);
+
+  var cards = [], card = null, idx = 0, boxes = {};
+  Q.forEach(function (q) {
+    var k = q[0], t = q[1], a = q[2], id = 'q' + (idx++), c = cond(q);
+    if (k === 'page') {
+      card = el('section', { 'class': 'card', 'data-title': t }, '<h2>' + esc(t) + '</h2>' + (typeof a === 'string' && a ? '<div class="dich">' + esc(a) + '</div>' : ''));
+      card.style.setProperty('--c', COL[cards.length % COL.length]);
+      setCond(card, c); form.appendChild(card); cards.push(card); return;
+    }
+    if (k === 'head') { var h = el('div', { 'class': 'hd' }, esc(t) + (typeof a === 'string' && a ? '<div class="sub">' + esc(a) + '</div>' : '')); setCond(h, c); card.appendChild(h); return; }
+    var box = el('div', { 'class': 'q', 'data-t': t, 'data-k': k });
+    var req = k === 'ok' || ((k === 'mc' || k === 'sel') ? q[3] === true : ((k === 'text' || k === 'date' || k === 'para') && a === true));
+    if (req) box.setAttribute('data-req', '1');
+    setCond(box, c);
+    if (k === 'ok' || k === 'okf') {
+      box.innerHTML = '<label class="t">' + esc(t) + (k === 'ok' ? ' <span class="req">*</span>' : '') + '</label><div class="dich">' + esc(a) + '</div>' +
+        '<div class="opts" style="margin-top:8px"><label><input type="checkbox" name="' + id + '" value="Ho letto e confermo"> Ho letto e confermo</label></div>';
+    } else {
+      var lab = '<label class="t" for="' + id + '">' + esc(t) + (req ? ' <span class="req">*</span>' : '') + '</label>';
+      if (k === 'text') box.innerHTML = lab + '<input type="text" id="' + id + '" name="' + id + '">';
+      else if (k === 'para') box.innerHTML = lab + '<textarea id="' + id + '" name="' + id + '"></textarea>';
+      else if (k === 'date') box.innerHTML = lab + '<input type="date" id="' + id + '" name="' + id + '"' + (/compilazione/i.test(t) ? ' value="' + oggi + '"' : '') + '>';
+      else if (k === 'sel') box.innerHTML = lab + '<select id="' + id + '" name="' + id + '"><option value="">Scegli</option>' + a.map(function (o) { return '<option>' + esc(o) + '</option>'; }).join('') + '</select>';
+      else {
+        var opts = k === 'sn' ? ['SI', 'NO'].concat(Array.isArray(a) ? a : []) : a, type = k === 'cb' ? 'checkbox' : 'radio';
+        box.innerHTML = '<label class="t">' + esc(t) + (req ? ' <span class="req">*</span>' : '') + '</label><div class="opts">' + opts.map(function (o) {
+          return '<label><input type="' + type + '" name="' + id + '" value="' + esc(o) + '"> ' + esc(o) + '</label>'; }).join('') + '</div>';
+      }
+    }
+    boxes[t] = box; card.appendChild(box);
+  });
+
+  // Date in formato gg/mm/aaaa: si scrivono a mano oppure si scelgono dal calendario (al server va sempre aaaa-mm-gg)
+  (function () {
+    function iso2it(v) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : ''; }
+    function it2iso(t) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(t); if (!m) return ''; var d = +m[1], mo = +m[2], y = +m[3], x = new Date(y, mo - 1, d);
+      if (y < 1900 || y > 2100 || x.getFullYear() !== y || x.getMonth() !== mo - 1 || x.getDate() !== d) return ''; return m[3] + '-' + m[2] + '-' + m[1]; }
+    function mask(v) { var s = v.replace(/\D/g, '').slice(0, 8); return s.length > 4 ? s.slice(0, 2) + '/' + s.slice(2, 4) + '/' + s.slice(4) : s.length > 2 ? s.slice(0, 2) + '/' + s.slice(2) : s; }
+    [].forEach.call(form.querySelectorAll('input[type=date]'), function (d) {
+      var w = el('span', { 'class': 'dt' }), t = el('input', { type: 'text', 'class': 'dtxt', inputmode: 'numeric', placeholder: 'gg/mm/aaaa', maxlength: '10', autocomplete: 'off' });
+      var c = el('span', { 'class': 'cal', title: 'Scegli dal calendario' }, '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>');
+      var lab = d.parentNode.querySelector('label.t'); if (lab) { t.setAttribute('aria-label', lab.textContent.replace('*', '').trim() + ', formato gg/mm/aaaa'); } t.id = d.id + '_gg'; if (lab) lab.setAttribute('for', t.id);
+      d.parentNode.insertBefore(w, d); w.appendChild(t); w.appendChild(c); c.appendChild(d); d.setAttribute('aria-label', 'Apri il calendario'); d.tabIndex = -1;
+      t.addEventListener('input', function () { t.value = mask(t.value); d.value = it2iso(t.value); t.classList.toggle('bad', t.value.length === 10 && !d.value); });
+      t.addEventListener('blur', function () { t.classList.toggle('bad', !!t.value && !d.value); });
+      function sync() { t.value = iso2it(d.value); t.classList.remove('bad'); }
+      d.addEventListener('change', sync); d.addEventListener('input', sync);
+      d.addEventListener('click', function () { try { d.showPicker(); } catch (e) {} });
+      if (d.value) sync();
+    });
+  })();
+
+  var sig = el('section', { 'class': 'card', 'data-title': 'Firma' }, '<h2>Firma dell\'interessato</h2><div class="sub">Firmi con il dito (o con il mouse) nel riquadro, poi invii la scheda.</div>' +
+    '<canvas id="pad" style="margin-top:10px"></canvas><button type="button" class="sec" id="clr" style="margin-top:8px">Cancella firma</button>');
+  sig.style.setProperty('--c', '#1f7a4d'); form.appendChild(sig); cards.push(sig);
+  var nav = el('div', { 'class': 'nav' }, '<p id="msg" class="err"></p><div class="btns"><button type="button" class="sec" id="prev">Indietro</button><button type="button" class="pri" id="next">Avanti</button></div>');
+  form.appendChild(nav);
+  var done = el('div', { 'class': 'card hid', id: 'done' }, '<p class="ok">Scheda inviata. Grazie.</p><p>La Sezione Sanitaria ha ricevuto la Sua scheda firmata. Può chiudere questa pagina.</p>');
+  app.appendChild(done);
+
+  function vals(b) {
+    if (!b || b.closest('.hid')) return [];
+    var out = [];
+    [].forEach.call(b.querySelectorAll('input:not(.dtxt),select,textarea'), function (i) {
+      if (i.type === 'radio' || i.type === 'checkbox') { if (i.checked) out.push(i.value); }
+      else if (String(i.value).trim()) out.push(String(i.value).trim());
+    });
+    return out;
+  }
+  function apply() {
+    var sv = vals(boxes['Sede di servizio'])[0] || '', st = !sv || sv === 'Altra sede' ? 'la propria sede di servizio' : sv;
+    [].forEach.call(form.querySelectorAll('.dich'), function (n) { if (!n.hasAttribute('data-raw')) n.setAttribute('data-raw', n.textContent); var raw = n.getAttribute('data-raw'); if (raw.indexOf('{SEDE}') >= 0) n.textContent = raw.split('{SEDE}').join(st); });
+    for (var pass = 0; pass < 4; pass++) {
+      [].forEach.call(form.querySelectorAll('[data-se]'), function (n) {
+        var want = JSON.parse(n.getAttribute('data-in')), v = vals(boxes[n.getAttribute('data-se')]);
+        n.classList.toggle('hid', !v.some(function (x) { return want.indexOf(x) >= 0; }));
+      });
+    }
+  }
+  function collect(scope) {
+    var data = {}, miss = [];
+    [].forEach.call((scope || form).querySelectorAll('.q'), function (b) {
+      if (b.closest('.hid')) return;
+      var t = b.getAttribute('data-t'), v = vals(b).join(', ');
+      if (v) data[t] = v;
+      if (b.getAttribute('data-req') && !v) miss.push(t);
+    });
+    return { data: data, miss: miss };
+  }
+
+
+  var ERR = { codice: 'Codice non valido: controlla il codice ricevuto dalla Sezione.', scaduto: 'Codice scaduto: chiedi un nuovo codice alla Sezione.', usato: 'Questo codice è già stato usato per la scheda anamnestica: chiedi un nuovo codice alla Sezione.', occupato: 'Troppi tentativi: riprova tra qualche minuto.', campi: 'Mancano cognome o nome.', firma: 'Manca la firma nel riquadro.', errore: 'Invio non riuscito per un errore del servizio. Riprova tra qualche minuto.' };
+  function fatto() { form.classList.add('hid'); head.classList.add('hid'); done.classList.remove('hid'); window.scrollTo(0, 0); }
+  function stato() {
+    var o = {};
+    [].forEach.call(form.elements, function (x) {
+      if (!x.name || x.classList.contains('dtxt')) return;
+      if (x.type === 'radio') { if (x.checked) o[x.name] = x.value; }
+      else if (x.type === 'checkbox') { if (x.checked) (o[x.name] = o[x.name] || []).push(x.value); }
+      else if (String(x.value).trim()) o[x.name] = x.value;
+    });
+    return o;
+  }
+  function riempi(o) {
+    [].forEach.call(form.elements, function (x) {
+      if (!x.name || x.classList.contains('dtxt') || !Object.prototype.hasOwnProperty.call(o, x.name)) return;
+      var v = o[x.name];
+      if (x.type === 'radio') x.checked = x.value === v;
+      else if (x.type === 'checkbox') x.checked = [].concat(v).indexOf(x.value) >= 0;
+      else { x.value = v; if (x.type === 'date') x.dispatchEvent(new Event('change')); }
+    });
+    apply();
+  }
+  var altBox = null;
+  function alternative(data, firma) {
+    if (!altBox) { altBox = el('div', { 'class': 'card alt' }); form.insertBefore(altBox, nav); }
+    altBox.innerHTML = '<h3>Due modi per completare l\'invio</h3><div class="altc">' +
+      '<div class="altq"><b>1. Continua sul telefono</b><span>Inquadra il codice QR con la fotocamera del telefono, usando la rete mobile: la scheda si apre già compilata. Firma di nuovo e premi Invia la scheda.</span><img id="altqr" alt="Codice QR per aprire la scheda compilata sul telefono"><span class="qrno" hidden>La scheda ha troppi dati per il codice QR: usa l\'email.</span></div>' +
+      '<div class="altm"><b>2. Invia per email</b><span>Il pulsante copia la scheda firmata e apre la tua posta con un messaggio già indirizzato alla Sezione. Nel testo del messaggio incolla (tasto destro e Incolla, oppure Ctrl+V) e premi Invia: riceverai una conferma.</span><button type="button" class="pri" id="altcopia">Copia la scheda e apri l\'email</button><a href="#" id="altfile">Se incollare non funziona: scarica il file e allegalo all\'email</a><span class="altnota">Se la posta non si apre, scrivi tu a ' + EMAIL_SEZ + ' con oggetto <b>Invio scheda anamnestica ' + esc(window.CODICE_SEZ || '') + '</b> e incolla la scheda nel testo.</span><textarea id="alttesto" readonly hidden aria-label="Testo della scheda da copiare"></textarea></div></div>';
+    var cod = window.CODICE_SEZ || '';
+    comprimi(JSON.stringify(stato())).then(function (z) {
+      var url = location.origin + location.pathname + '?codice=' + encodeURIComponent(cod) + '#s=' + z, img = document.getElementById('altqr');
+      try { if (url.length > 2900) throw new Error('lungo'); var q = qrcode(0, 'L'); q.addData(url, 'Byte'); q.make(); img.src = q.createDataURL(4, 12); }
+      catch (e) { img.hidden = true; altBox.querySelector('.qrno').hidden = false; }
+    });
+    var t = u8b64(new TextEncoder().encode(JSON.stringify({ codice: cod, dati: data, firma: firma }))), righe = [];
+    for (var i = 0; i < t.length; i += 76) righe.push(t.slice(i, i + 76));
+    var testo = 'INIZIO SCHEDA ANAMNESTICA\n' + righe.join('\n') + '\nFINE SCHEDA ANAMNESTICA\n', ogg = 'Invio scheda anamnestica ' + cod;
+    function posta(corpo) { location.href = 'mailto:' + EMAIL_SEZ + '?subject=' + encodeURIComponent(ogg) + '&body=' + encodeURIComponent(corpo); }
+    document.getElementById('altcopia').onclick = function () {
+      function apri() { posta('Incolla qui sotto la scheda copiata dalla pagina, poi premi Invia.\n\n'); }
+      function manuale() { var ta = document.getElementById('alttesto'); ta.hidden = false; ta.value = testo; ta.focus(); ta.select(); try { document.execCommand('copy'); } catch (e) {} apri(); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(testo).then(apri, manuale); else manuale();
+    };
+    document.getElementById('altfile').onclick = function (e) {
+      e.preventDefault();
+      var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([testo], { type: 'text/plain' })); a.download = 'scheda_anamnestica_' + cod + '.txt';
+      document.body.appendChild(a); a.click(); a.parentNode.removeChild(a);
+      setTimeout(function () { posta('Allego il file della scheda anamnestica.\n'); }, 800);
+    };
+    altBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  var cur = 0;
+  function vis() { return cards.filter(function (c) { return !c.classList.contains('hid'); }); }
+  function show(keep) {
+    var vc = vis(); if (cur > vc.length - 1) cur = vc.length - 1; if (cur < 0) cur = 0;
+    cards.forEach(function (c) { c.classList.add('off'); }); vc[cur].classList.remove('off');
+    document.getElementById('prev').style.visibility = cur ? 'visible' : 'hidden';
+    var last = cur === vc.length - 1, nb = document.getElementById('next');
+    nb.textContent = last ? 'Invia la scheda' : 'Avanti'; nb.className = last ? 'pri send' : 'pri';
+    document.getElementById('pbar').style.width = Math.round((cur + 1) * 100 / vc.length) + '%';
+    document.getElementById('ptxt').textContent = 'Sezione ' + (cur + 1) + ' di ' + vc.length + ': ' + vc[cur].getAttribute('data-title');
+    document.getElementById('msg').textContent = '';
+    if (vc[cur] === sig) size();
+    if (!keep) window.scrollTo(0, 0);
+  }
+  form.addEventListener('change', function () { var now = vis()[cur]; apply(); var i = vis().indexOf(now); if (i >= 0) cur = i; show(true); });
+
+  var pad = document.getElementById('pad'), ctx = null, drawing = false, signed = false;
+  function size() {
+    var r = pad.getBoundingClientRect(); if (!r.width) return;
+    var d = window.devicePixelRatio || 1, old = signed ? pad.toDataURL() : null;
+    pad.width = r.width * d; pad.height = r.height * d; ctx = pad.getContext('2d'); ctx.scale(d, d);
+    ctx.lineWidth = 2.4; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#0a1a3a'; ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, r.width, r.height);
+    if (old) { var im = new Image(); im.onload = function () { ctx.drawImage(im, 0, 0, r.width, r.height); }; im.src = old; }
+  }
+  window.addEventListener('resize', size);
+  function pos(e) { var r = pad.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+  pad.addEventListener('pointerdown', function (e) { if (!ctx) size(); drawing = true; pad.setPointerCapture(e.pointerId); var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); });
+  pad.addEventListener('pointermove', function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); signed = true; e.preventDefault(); });
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(function (ev) { pad.addEventListener(ev, function () { drawing = false; }); });
+  document.getElementById('clr').addEventListener('click', function () { signed = false; var r = pad.getBoundingClientRect(); if (ctx) { ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, r.width, r.height); } });
+
+  document.getElementById('prev').addEventListener('click', function () { cur--; show(); });
+  document.getElementById('next').addEventListener('click', function () {
+    var msg = document.getElementById('msg'), vc = vis(), r = collect(vc[cur]);
+    if (r.miss.length) { msg.textContent = 'Mancano: ' + r.miss.join('; '); return; }
+    if (cur < vc.length - 1) { cur++; show(); return; }
+    var all = collect();
+    if (all.miss.length) { msg.textContent = 'Mancano: ' + all.miss.join('; '); return; }
+    if (!signed) { msg.textContent = 'Manca la firma nel riquadro.'; return; }
+    var btn = this; btn.disabled = true; btn.textContent = 'Invio in corso'; msg.textContent = '';
+    var firma = pad.toDataURL('image/png');
+    invia({ azione: 'salva', codice: window.CODICE_SEZ || '', dati: JSON.stringify(all.data), firma: firma }).then(function (r) {
+      if (r && r.ok) { fatto(); return; }
+      btn.disabled = false; btn.textContent = 'Invia la scheda';
+      msg.textContent = (ERR[r && r.err] || ERR.errore) + (r && r.err === 'errore' && r.msg ? ' (' + r.msg + ')' : '');
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = 'Riprova l\'invio';
+      msg.textContent = 'Invio non riuscito: la rete che stai usando (per esempio quella dell\'ufficio) blocca il servizio della Sezione. Usa una delle due soluzioni qui sopra.';
+      alternative(all.data, firma);
+    });
+  });
+  apply(); show();
+  if (PRECOMP) PRECOMP.then(function (o) {
+    if (!o) return;
+    riempi(o);
+    head.appendChild(el('p', { 'class': 'prefill' }, 'Scheda compilata dall\'altro dispositivo: controlla le risposte, firma nel riquadro e premi Invia la scheda.'));
+    cur = vis().length - 1; show();
+  });
+}
+
+gateMain();
+</script>
 </body>
 </html>
