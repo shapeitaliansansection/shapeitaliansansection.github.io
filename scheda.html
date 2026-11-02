@@ -534,8 +534,10 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
         <label class="fl">Data di arrivo in sede<input type="date" name="arrivo"></label>
         <label class="fl">Fine mandato prevista<input type="date" name="fine"></label>
       </div>
+      <div id="dodbox">
       <label class="fl">DoD ID (se già assegnato dalla clinica SHF)<input name="dodid" inputmode="numeric"></label>
       <p class="hint">Con il DoD ID puoi creare la <a href="tessera.html">tessera digitale con il codice a barre</a> per i totem della SHF.</p>
+      </div>
       <div id="mutuabox">
       <fieldset class="opts-fs"><legend>Iscrizione alla mutua belga</legend>
       <div class="opts">
@@ -639,7 +641,9 @@ const f=document.getElementById("f");
 try{const qc=new URLSearchParams(location.search).get("codice");if(qc)f.codice.value=qc.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);}catch(y){}
 /* la mutua belga serve solo a chi presta servizio in Belgio */
 const SEDI_BE=["SHAPE","Bruxelles"];
-function mutuaVis(){const be=SEDI_BE.includes(f.sede.value)||!f.sede.value;const m=document.getElementById("mutuabox");m.hidden=!be;if(!be){f.querySelectorAll('#mutuabox input[type=radio]').forEach(i=>i.checked=false);f.mutua_nome.value="";}}
+function mutuaVis(){const be=SEDI_BE.includes(f.sede.value)||!f.sede.value;const m=document.getElementById("mutuabox");m.hidden=!be;if(!be){f.querySelectorAll('#mutuabox input[type=radio]').forEach(i=>i.checked=false);f.mutua_nome.value="";}
+  /* il DoD ID esiste solo per chi usa la clinica SHF di SHAPE */
+  const sh=f.sede.value==="SHAPE"||!f.sede.value;document.getElementById("dodbox").hidden=!sh;if(!sh)f.dodid.value="";}
 f.sede.addEventListener("change",mutuaVis);mutuaVis();
 /* invio alternativo quando la rete d'ufficio blocca il servizio: QR per il telefono ed email già compilata */
 const b64e=t=>btoa(String.fromCharCode(...new TextEncoder().encode(t))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
