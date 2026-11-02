@@ -80,13 +80,19 @@ function gateMain() {
   var i = document.getElementById("gcod"), b = document.getElementById("gbtn"), m = document.getElementById("gmsg");
   var MSG = { codice: "Codice non valido: controlla il codice ricevuto dalla Sezione.", scaduto: "Codice scaduto: chiedi un nuovo codice alla Sezione.", usato: "Questo codice è già stato usato per la scheda anamnestica: chiedi un nuovo codice alla Sezione.", occupato: "Troppi tentativi: riprova tra qualche minuto." };
   if (CODICE0) i.value = CODICE0;
-  function avvia(c, offline) { window.CODICE_SEZ = c; window.OFFLINE = !!offline; var g = document.getElementById("gate"); g.parentNode.removeChild(g); clientMain(); }
+  function avvia(c, offline, recapiti) {
+    window.CODICE_SEZ = c; window.OFFLINE = !!offline;
+    /* codice "unico" (tutte le sedi tranne SHAPE): la scheda raccoglie anche i recapiti, al posto della scheda contatti.
+       Senza rete non si sa che codice è: la sezione compare per tutte le sedi tranne SHAPE e il server la usa solo se il codice la prevede. */
+    if (recapiti || offline) Q = Q.concat(recapitiQ(recapiti ? null : { se: "Sede di servizio", "in": ["Bruxelles", "Lille", "Capellen", "Strasburgo", "Brunssum", "L'Aia", "Soesterberg", "Ulm", "Altra sede"] }));
+    var g = document.getElementById("gate"); g.parentNode.removeChild(g); clientMain();
+  }
   function vai() {
     var c = i.value.toUpperCase().replace(/[^A-Z0-9]/g, "");
     if (c.length < 6) { m.textContent = "Inserisci il codice."; i.focus(); return; }
     b.disabled = true; m.textContent = "Verifica in corso";
     invia({ azione: "verifica", codice: c }).then(function (r) {
-      if (r && r.ok) avvia(c, false);
+      if (r && r.ok) avvia(c, false, !!r.contatti);
       else { b.disabled = false; m.textContent = MSG[r && r.err] || MSG.codice; }
     }).catch(function () {
       /* la rete (per esempio quella dell'ufficio) non raggiunge il servizio: si compila lo stesso, l'invio si completa dopo */
@@ -96,6 +102,21 @@ function gateMain() {
   b.addEventListener("click", vai);
   i.addEventListener("keydown", function (e) { if (e.key === "Enter") vai(); });
   if (CODICE0) vai();
+}
+
+function recapitiQ(cond) {
+  var pag = ["page", "Recapiti per la Sezione", "Questi dati servono alla Sezione Sanitaria per contattarti (avvisi sanitari, scadenza dell'idoneità, emergenze). Sostituiscono la scheda contatti: non serve compilarla a parte. Come email si usa quella indicata nei dati anagrafici."];
+  if (cond) pag.push(cond);
+  return [pag,
+    ["text", "Cellulare personale", true],
+    ["text", "Indirizzo di residenza attuale", false],
+    ["date", "Data di arrivo in sede", false],
+    ["date", "Fine mandato prevista", false],
+    ["head", "Contatto di emergenza", "Persona da avvisare in caso di necessità: informala che hai indicato i suoi dati."],
+    ["text", "Contatto di emergenza: cognome e nome", false],
+    ["text", "Contatto di emergenza: relazione", false],
+    ["text", "Contatto di emergenza: telefono", false],
+    ["ok", "Informativa sui recapiti", "I recapiti sono trattati dalla Sezione Sanitaria (titolare: Ministero della Difesa, Stato Maggiore della Difesa) per contattarti, gestire le tue pratiche sanitarie e aggiornare l'elenco del personale. Sono registrati in un foglio di lavoro Google con accesso riservato al personale autorizzato della Sezione, non sono ceduti a terzi e sono conservati per la durata del tuo incarico; dopo la partenza sono cancellati entro 6 mesi. L'email indicata è usata anche per gli avvisi di servizio della Sezione. Informativa completa nella scheda contatti sul sito della Sezione (shapeitaliansansection.github.io/scheda.html)."]];
 }
 
 function clientMain() {
