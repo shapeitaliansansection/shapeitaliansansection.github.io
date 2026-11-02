@@ -530,6 +530,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
       </div>
       <label class="fl">DoD ID (se già assegnato dalla clinica SHF)<input name="dodid" inputmode="numeric"></label>
       <p class="hint">Con il DoD ID puoi creare la <a href="tessera.html">tessera digitale con il codice a barre</a> per i totem della SHF.</p>
+      <div id="mutuabox">
       <fieldset class="opts-fs"><legend>Iscrizione alla mutua belga</legend>
       <div class="opts">
         <label class="opt"><input type="radio" name="mutua" value="Iscritto"> Iscritto</label>
@@ -537,6 +538,7 @@ footer .copyr{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line
         <label class="opt"><input type="radio" name="mutua" value="Non iscritto"> Non iscritto</label>
       </div></fieldset>
       <label class="fl">Quale mutua<input name="mutua_nome" placeholder="per esempio Partenamut"></label>
+      </div>
     </fieldset>
 
     <fieldset><legend>Idoneità</legend>
@@ -621,6 +623,10 @@ document.querySelectorAll('input[type="date"]').forEach(d=>{
 const ENDPOINT="https://script.google.com/macros/s/AKfycbz28rw1ZRutXOJXcN5EC0zp5OClKweHXOryq7kiNxAyD6IYZQ2QkIcFH06EvkQox5cK/exec";
 const f=document.getElementById("f");
 try{const qc=new URLSearchParams(location.search).get("codice");if(qc)f.codice.value=qc.toUpperCase().replace(/[^A-Z0-9]/g,"").slice(0,12);}catch(y){}
+/* la mutua belga serve solo a chi presta servizio in Belgio */
+const SEDI_BE=["SHAPE","Bruxelles"];
+function mutuaVis(){const be=SEDI_BE.includes(f.sede.value)||!f.sede.value;const m=document.getElementById("mutuabox");m.hidden=!be;if(!be){f.querySelectorAll('#mutuabox input[type=radio]').forEach(i=>i.checked=false);f.mutua_nome.value="";}}
+f.sede.addEventListener("change",mutuaVis);mutuaVis();
 const ERR_COD={codice:"Codice non valido: controlla il codice ricevuto dalla Sezione.",scaduto:"Codice scaduto: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",usato:"Questo codice è già stato usato: chiedi un nuovo codice alla Sezione (infermeria.shape@gmail.com).",occupato:"Troppi tentativi: riprova tra qualche minuto.",campi:"Compila tutti i campi obbligatori."};
 f.addEventListener("submit",async ev=>{
   ev.preventDefault(); const er=document.getElementById("err"); er.hidden=true;
@@ -630,10 +636,11 @@ f.addEventListener("submit",async ev=>{
   if(f.email.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){er.textContent="Controlla l'email personale.";er.hidden=false;f.email.focus();return;}
   const b=document.getElementById("send"); b.disabled=true; b.textContent="Invio in corso";
   const body=new URLSearchParams(new FormData(f));
-  let ok=false,code="";
-  try{const res=await fetch(ENDPOINT,{method:"POST",body});const j=await res.json();ok=!!j.ok;code=j.err||"";}catch(y){ok=false;}
+  let ok=false,code="",rete=false;
+  try{const res=await fetch(ENDPOINT,{method:"POST",body});const j=await res.json();ok=!!j.ok;code=j.err||"";}catch(y){ok=false;rete=true;}
   if(ok){if(f.dodid.value.trim()){try{sessionStorage.setItem("tessera_prefill",JSON.stringify({cognome:f.cognome.value,nome:f.nome.value,nascita:f.nascita.value,numero:f.dodid.value.replace(/\s/g,"")}))}catch(y){}document.getElementById("tess").hidden=false;}f.hidden=true;const d=document.getElementById("done");d.hidden=false;window.scrollTo(0,0);d.focus();}
   else if(ERR_COD[code]){er.textContent=ERR_COD[code];er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";if(code!=="campi"){f.codice.setAttribute("aria-invalid","true");f.codice.focus();}}
+  else if(rete){er.textContent="Invio non riuscito: la rete che stai usando non raggiunge il servizio della Sezione (succede su alcune reti d'ufficio NATO o Difesa). Riprova dal telefono con la rete mobile o dalla rete di casa: il tuo codice è ancora valido. Se non funziona scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
   else{er.textContent="Invio non riuscito. Controlla la connessione e riprova, oppure scrivi a infermeria.shape@gmail.com.";er.hidden=false;b.disabled=false;b.textContent="Invia la scheda";}
 });
 </script>
