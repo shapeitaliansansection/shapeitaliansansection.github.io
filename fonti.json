@@ -4,9 +4,10 @@
   "serie": 0
  },
  "https://apps.apple.com/it/app/traduci/id1514844618": {
-  "h": "a02869dca6af22eb0263ed3fa4fad9bbc4b474fdfd61c2d058354e267240e5fa",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "6e4a95d7d33e3c5bab608d3cc3a67b373e4e6a13e2a3a410a3e4315dc6fefe04",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {
   "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c",
@@ -49,14 +50,16 @@
   "serie": 0
  },
  "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "h": "4ea6615f399b2ea35016d84f5b4e0952bb886c97136f50d2104077d5d80e9622",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "e58b4858bb1104f23dd55b2e8e6d78d97caaf6aaa876efdf6adec04eacb59225",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "h": "bd14b14666c5bec978f0046075be42c160adaead9e952ac31b78c982b020871e",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "7181a68cc905ae1101823bc6111700b744d69217e81f7000a54c31051a2d9b0a",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "57d82e0fde5ad99a323784d84c9cb794f5f4bbb1b7ff474579aff5a315123f92",
@@ -67,14 +70,16 @@
   "serie": 0
  },
  "https://www.italian-psychologist.com/": {
-  "h": "51d3fdee0b0e510bc9d5e0887e142dd23a1c493d57805f48438cb68bf550c00c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "a357d37fca1dcba4d9315af6f88839918fccbb07511189d3551903ba5e5093dc",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
-  "h": "ff51a7bccd2d519cf90f28b34b8e1e3fb31006aa261fe2801d803b4453950beb",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "0f6638fe63f208deef1d9dfd85f06a60a14fef280277c6f349f7d4634e429f23",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.meteo.be/fr/meteo/avertissements/explications-avertissements": {
   "h": "64b68ae4f94f39d719e6d11f6bc58c21113c9f8e6ebfe314e2f093f203725348",
@@ -85,14 +90,15 @@
   "serie": 0
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
-  "h": "f1d5532b4e650341339cbe74ac32c5991f596a0bf0f5f54266138ffaa120c59d",
-  "serie": 0,
-  "ultimo": "2026-10-31"
+  "h": "da97dc34c6a7ee2d3e6edc8ed00487aacc0b9a554b21ea685c2f573c331a158d",
+  "serie": 1,
+  "ultimo": "2026-11-02"
  },
  "https://www.one.be/public/": {
-  "h": "f9988e2e359b1b5c3bd673d3abc93d1f1d77ff9a62bad8c5f08a45ee5f03d4cd",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "22ddf4cfe26602a5e8fb4f2831f64b6f57b88d8250c2443478e330e5c126616e",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.partenamut.be/fr/assurances-sante/couverture-de-base": {
   "h": "33e0f12437aacc698185002116d8a998379cccdf6f1fc1328a966ba0563e9f8e",
@@ -159,44 +165,52 @@
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "h": "3c6ea1edb5f75aa478195c79eecee8aa1e5652e83c4a88fbe42e62ce3249e60c",
-  "serie": 2,
-  "ultimo": "2026-11-01"
+  "dinamica": true,
+  "h": "27671a83644eeaf2179898666c5caea2c909fa859fe45849ca1da9342475fc59",
+  "serie": 3,
+  "ultimo": "2026-11-02"
  },
  "https://www.shapecaretherapy.com/book-online": {
   "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
