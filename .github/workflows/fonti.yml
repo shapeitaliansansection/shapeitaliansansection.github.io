@@ -44,7 +44,12 @@ jobs:
               t = re.sub(r"\b\d{1,2}:\d{2}(:\d{2})?\b", " ", t)
               return re.sub(r"\s+", " ", t).strip()
           oggi = datetime.date.today().isoformat()
-          cambiate, spostati, aggiornati = [], [], []
+          # pagine di verifica anti bot (Gcore, Cloudflare, captcha): non dicono nulla sul contenuto, non si confrontano
+          BLOCCO = ("gcore", "enable cookies", "what code is in the image", "checking your browser", "just a moment", "captcha", "access denied", "attention required", "security service to protect", "abilita i cookie")
+          def bloccata(t):
+              b = t.lower()
+              return len(t) < 600 or any(k in b for k in BLOCCO)
+          cambiate, spostati, aggiornati, bloccate = [], [], [], []
           for u in link:
               rec = stato.get(u, {})
               try:
@@ -75,7 +80,17 @@ jobs:
                   corpo = op_si.open(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=25).read(3_000_000)
               except Exception:
                   continue
-              h = hashlib.sha256(testo(corpo).encode()).hexdigest()
+              t = testo(corpo)
+              if bloccata(t):
+                  if not rec.get("bloccata"):
+                      bloccate.append(u)
+                  rec["bloccata"] = oggi
+                  stato[u] = rec
+                  continue
+              rec.pop("bloccata", None)
+              # se la pagina dichiara la data di aggiornamento (per esempio il Ministero della Salute) si confronta solo quella
+              d = re.search(r"(?:Aggiornat[oa]|Ultimo aggiornamento|Mis à jour|Laatst bijgewerkt|Last updated)[^0-9]{0,20}(\d{1,2}[/.]\d{1,2}[/.]\d{4})", t, re.I)
+              h = hashlib.sha256(("data " + d.group(1) if d else t).encode()).hexdigest()
               if rec.get("h") and rec["h"] != h:
                   rec["serie"] = rec.get("serie", 0) + 1
                   rec["ultimo"] = oggi
@@ -111,6 +126,9 @@ jobs:
           if aggiornati:
               righe.append("**Link aggiornati automaticamente** (la pagina si è spostata in modo permanente sullo stesso sito)")
               righe += [f"* {a} diventa {b}" for a, b in aggiornati]
+          if bloccate:
+              righe.append("**Fonti non controllabili dai server di GitHub** (il sito mostra una pagina di verifica anti bot: controllo da fare a mano o nel check up settimanale)")
+              righe += [f"* {u} (sezione: {sezioni.get(u, 'non in un capitolo')})" for u in bloccate]
           if spostati:
               righe.append("**Link spostati da controllare** (portano a un altro sito o alla pagina iniziale)")
               righe += [f"* {a} porta a {b}" for a, b in spostati]
