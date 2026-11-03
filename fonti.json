@@ -9,10 +9,7 @@
   "serie": 4,
   "ultimo": "2026-11-03"
  },
- "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {
-  "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c",
-  "serie": 0
- },
+ "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {},
  "https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_it.htm": {
   "h": "55516c9e1517820dc6af12a7153252b2d336239cb517670784d0ed62c38fd38f",
   "serie": 0
@@ -49,18 +46,8 @@
   "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
   "serie": 0
  },
- "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "dinamica": true,
-  "h": "153b931dbc8a6f12a6a7ceeda8032c86e548d8a7cd97ab277d54ea5368b4e852",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "dinamica": true,
-  "h": "6bc276cc0fbcf500864c5735f386168e5eaef1be76bb333467f77f109031400f",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
+ "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {},
+ "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {},
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "57d82e0fde5ad99a323784d84c9cb794f5f4bbb1b7ff474579aff5a315123f92",
   "serie": 0
@@ -164,54 +151,14 @@
   "h": "60c00fc22f515c53bf6cedf0a3c64ef1c459e68a2d2c32a30f1df48d2969e82f",
   "serie": 0
  },
- "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "dinamica": true,
-  "h": "96ca02ad37d301f44fc75b73d47394e44ce6c71eb1a1ba313cb04ea12d2b67bf",
-  "serie": 4,
-  "ultimo": "2026-11-03"
- },
+ "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {},
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {},
  "https://www.shapecaretherapy.com/book-online": {
   "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
   "serie": 0
