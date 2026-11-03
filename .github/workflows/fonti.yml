@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       - name: Controlla le fonti e aggiorna i link spostati
         id: check
         run: |
@@ -67,7 +67,7 @@ jobs:
                       vecchio_dom = urllib.parse.urlsplit(u).netloc.removeprefix("www.")
                       nuovo_dom = urllib.parse.urlsplit(fin).netloc.removeprefix("www.")
                       percorso = urllib.parse.urlsplit(fin).path.strip("/")
-                      if r2.status == 200 and vecchio_dom == nuovo_dom and percorso and fin != u:
+                      if r2.status == 200 and vecchio_dom == nuovo_dom and percorso and fin != u and fin.startswith("https://") and not any(ch in fin for ch in '"<>` '):
                           aggiornati.append((u, fin))
                       else:
                           spostati.append((u, fin))
