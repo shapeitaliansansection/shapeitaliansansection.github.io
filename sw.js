@@ -1,6 +1,6 @@
 // Funzionamento offline della guida SHAPE Healthcare Italian Section.
 // Le pagine si scaricano sempre aggiornate dalla rete; se la rete manca si usa la copia salvata.
-const VERSIONE = 'shi-2026-11-03b';
+const VERSIONE = 'shi-2026-11-03c';
 const BASE = [
   './', 'index.html', 'scheda.html', 'tessera.html', 'jsbarcode.min.js', 'manifest.webmanifest',
   'emergenza.vcf', 'kennedy.vcf', 'sezione.vcf',
@@ -28,7 +28,10 @@ self.addEventListener('fetch', e => {
   const pagina = r.mode === 'navigate' || r.destination === 'document';
   if (pagina) {
     e.respondWith(fetch(r).then(res => {
-      const copia = res.clone(); caches.open(VERSIONE).then(c => c.put(r, copia)); return res;
+      // copia salvata senza parametri: il codice personale della scheda non resta nella cache del telefono
+      const u = new URL(r.url); const chiave = u.origin + u.pathname;
+      if (res.ok) { const copia = res.clone(); caches.open(VERSIONE).then(c => c.put(chiave, copia)); }
+      return res;
     }).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match('index.html'))));
     return;
   }
