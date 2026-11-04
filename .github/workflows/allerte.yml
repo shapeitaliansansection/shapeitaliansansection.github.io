@@ -11,7 +11,7 @@ concurrency:
 jobs:
   allerte:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
       - name: Scarica le allerte IRM per l'Hainaut
@@ -20,8 +20,19 @@ jobs:
           import json, urllib.request, datetime, sys
           FEED = "https://feeds.meteoalarm.org/api/v1/warnings/feeds-belgium"
           ZONA = "BE32"
+          import time
           req = urllib.request.Request(FEED, headers={"User-Agent": "guida-sanitaria-shape"})
-          d = json.load(urllib.request.urlopen(req, timeout=60))
+          d = None
+          for prova in range(4):
+              try:
+                  d = json.load(urllib.request.urlopen(req, timeout=40))
+                  break
+              except Exception as e:
+                  print("feed MeteoAlarm non raggiungibile, tentativo", prova + 1, ":", e)
+                  time.sleep(15 * (prova + 1))
+          if d is None:
+              print("::warning::MeteoAlarm non risponde: resta il file allerte.json precedente, riprovo al prossimo giro")
+              sys.exit(0)
           ora = datetime.datetime.now(datetime.timezone.utc)
           lim = ora + datetime.timedelta(hours=48)
           out = []
@@ -74,5 +85,8 @@ jobs:
           git add allerte.json meteo.json
           if git diff --cached --quiet; then echo "Nessuna novità"; exit 0; fi
           git commit -m "Allerte e meteo aggiornati"
-          git pull --rebase
-          git push
+          for i in 1 2 3; do
+            git pull --rebase && git push && exit 0
+            echo "invio non riuscito, riprovo"; sleep 10
+          done
+          exit 1
