@@ -6,10 +6,12 @@
  "https://apps.apple.com/it/app/traduci/id1514844618": {
   "dinamica": true,
   "h": "a02869dca6af22eb0263ed3fa4fad9bbc4b474fdfd61c2d058354e267240e5fa",
-  "serie": 4,
+  "serie": 0,
   "ultimo": "2026-11-03"
  },
- "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {},
+ "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {
+  "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c"
+ },
  "https://europa.eu/youreurope/citizens/health/unplanned-healthcare/temporary-stays/index_it.htm": {
   "h": "55516c9e1517820dc6af12a7153252b2d336239cb517670784d0ed62c38fd38f",
   "serie": 0
@@ -35,19 +37,25 @@
   "serie": 0
  },
  "https://wallonie.be/fr/demarches/lutter-contre-la-propagation-de-la-chenille-processionnaire-du-chene-en-wallonie": {
-  "h": "628288ffa0bd7a86614f6b7207f9ee1ef7c1bbde392dd1d87226080d95a8cced",
-  "serie": 0
+  "h": "a84c62d53573cac6e04dc0bec359eeb8332b3971c3c9d8018abc666c630a1000",
+  "serie": 1,
+  "ultimo": "2026-11-04"
  },
  "https://www.chrhautesenne.be/fr/shape-liaison": {
   "h": "e175511f1038eb3888f363bbde32b144d618747492ddaeccb40b03fc1e6f62c4",
   "serie": 0
  },
  "https://www.dentistedegarde.be/": {
+  "bloccata": "2026-11-04",
   "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
   "serie": 0
  },
- "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {},
- "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {},
+ "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
+  "bloccata": "2026-11-04"
+ },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "57d82e0fde5ad99a323784d84c9cb794f5f4bbb1b7ff474579aff5a315123f92",
   "serie": 0
@@ -58,9 +66,9 @@
  },
  "https://www.italian-psychologist.com/": {
   "dinamica": true,
-  "h": "7acd20651bbcd32359e46ab54f0281fefe7362b42999db59f306a353c477ad2b",
-  "serie": 4,
-  "ultimo": "2026-11-03"
+  "h": "f2aa4d2bd2786ad536267167e40cbcb6dc8a0b010b9979ae0d3d99ca3979b963",
+  "serie": 5,
+  "ultimo": "2026-11-04"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
   "dinamica": true,
@@ -77,11 +85,13 @@
   "serie": 0
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
-  "h": "c7671d9743deb1754c4520397b7e8317c141422bfcd572e37afec4c6364e5960",
-  "serie": 2,
-  "ultimo": "2026-11-03"
+  "dinamica": true,
+  "h": "2e95213f742bb7ac0c13d9c960a10e5495c7495afb1d09196a115d3921d1d0e2",
+  "serie": 3,
+  "ultimo": "2026-11-04"
  },
  "https://www.one.be/public/": {
+  "bloccata": "2026-11-04",
   "dinamica": true,
   "h": "34d012a7f1f58be962d95b3ae222603d7aa2ef268c4897607e5db5045128c0e7",
   "serie": 4,
@@ -144,6 +154,7 @@
   "serie": 0
  },
  "https://www.patronatoacli.be/it/sanita--": {
+  "bloccata": "2026-11-04",
   "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28",
   "serie": 0
  },
@@ -151,14 +162,30 @@
   "h": "60c00fc22f515c53bf6cedf0a3c64ef1c459e68a2d2c32a30f1df48d2969e82f",
   "serie": 0
  },
- "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {},
- "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {},
+ "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
+  "bloccata": "2026-11-04"
+ },
+ "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
+  "bloccata": "2026-11-04"
+ },
  "https://www.shapecaretherapy.com/book-online": {
   "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
   "serie": 0
@@ -168,14 +195,16 @@
   "serie": 0
  },
  "https://www.vaccination-info.be/calendrier-de-vaccination/": {
-  "h": "afec854fe8c376a7266d157fc71ba573ae4590024e4cc08e7e86f4f5672fff5a",
-  "serie": 0
+  "h": "6aab5d6a221974e17a5874816609fb4da0fba3d7e564dddd337e495e22475fa1",
+  "serie": 1,
+  "ultimo": "2026-11-04"
  },
  "https://www.vaccination-info.be/le-calendrier-de-vaccination-des-nourrissons-change-le-1er-novembre-2026/": {
   "h": "95fe90374158e8fd1b0065731566b22d5f8d9bcad280c0578c081cf9c337e42a",
   "serie": 0
  },
  "https://www.viaggiaresicuri.it/find-country/country/BEL": {
+  "bloccata": "2026-11-04",
   "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314",
   "serie": 0
  }
