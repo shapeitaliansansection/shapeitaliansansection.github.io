@@ -82,9 +82,9 @@ function gateMain() {
   if (CODICE0) i.value = CODICE0;
   function avvia(c, offline, recapiti) {
     window.CODICE_SEZ = c; window.OFFLINE = !!offline;
-    /* codice "unico" (tutte le sedi tranne SHAPE): la scheda raccoglie anche i recapiti, al posto della scheda contatti.
-       Senza rete non si sa che codice è: la sezione compare per tutte le sedi tranne SHAPE e il server la usa solo se il codice la prevede. */
-    if (recapiti || offline) Q = Q.concat(recapitiQ(recapiti ? null : { se: "Sede di servizio", "in": ["Bruxelles", "Lille", "Capellen", "Strasburgo", "Brunssum", "L'Aia", "Soesterberg", "Ulm", "Altra sede"] }));
+    /* codice "unico" (tutte le sedi, SHAPE compresa, dal 5/11/2026): la scheda raccoglie anche i recapiti, al posto della scheda contatti.
+       Senza rete non si sa che codice è: la sezione compare comunque e il server la usa solo se il codice la prevede. */
+    if (recapiti || offline) Q = Q.concat(recapitiQ(null));
     var g = document.getElementById("gate"); g.parentNode.removeChild(g); clientMain();
   }
   function vai() {
