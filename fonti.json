@@ -5,9 +5,9 @@
  },
  "https://apps.apple.com/it/app/traduci/id1514844618": {
   "dinamica": true,
-  "h": "e2813ab96c474157c5a8c94617e6f29f3e0606bfc46ffde2137631188f39fa73",
-  "serie": 1,
-  "ultimo": "2026-11-08"
+  "h": "46e2ff1b2501035b8b252ac8744fbc21a7c2c0a428754c2da737c51222421768",
+  "serie": 2,
+  "ultimo": "2026-11-09"
  },
  "https://conscharleroi.esteri.it/it/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/stato-civile/nascita/": {
   "h": "47f69f98c16aa90024d0c9fd0d7d00a3fa229b721e52b2190c524c9e6394a47c",
@@ -48,15 +48,15 @@
   "serie": 0
  },
  "https://www.dentistedegarde.be/": {
-  "bloccata": "2026-11-08",
+  "bloccata": "2026-11-09",
   "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
   "serie": 0
  },
  "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "e29eb950c2b92588bd6deac5151971711cf6cc7576f92108be527977a1183dcb",
@@ -69,9 +69,9 @@
  },
  "https://www.italian-psychologist.com/": {
   "dinamica": true,
-  "h": "63b496358dfd18c4d2233907f916c942b6c30c0a4f7b26d57b4cd972aea3e3c1",
-  "serie": 9,
-  "ultimo": "2026-11-08"
+  "h": "8a7d6d5062221ab154afb7c3d432d55c130e8f1ed8dfde9d73542aea4b7325a2",
+  "serie": 10,
+  "ultimo": "2026-11-09"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
   "dinamica": true,
@@ -89,12 +89,12 @@
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
   "dinamica": true,
-  "h": "f9b5e4b62295e8fa1391e59546f171d9a00b9fb32d809cf496f43705d2db81ea",
-  "serie": 7,
-  "ultimo": "2026-11-08"
+  "h": "705d2bce795b62ec734b4a8b98e929c6cdff739ad7b2ee00974fe384f7500ca4",
+  "serie": 8,
+  "ultimo": "2026-11-09"
  },
  "https://www.one.be/public/": {
-  "bloccata": "2026-11-08",
+  "bloccata": "2026-11-09",
   "dinamica": true,
   "h": "34d012a7f1f58be962d95b3ae222603d7aa2ef268c4897607e5db5045128c0e7",
   "serie": 4,
@@ -157,7 +157,7 @@
   "serie": 0
  },
  "https://www.patronatoacli.be/it/sanita--": {
-  "bloccata": "2026-11-08",
+  "bloccata": "2026-11-09",
   "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28",
   "serie": 0
  },
@@ -166,28 +166,28 @@
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "bloccata": "2026-11-08"
+  "bloccata": "2026-11-09"
  },
  "https://www.shapecaretherapy.com/book-online": {
   "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
@@ -208,7 +208,7 @@
   "ultimo": "2026-11-06"
  },
  "https://www.viaggiaresicuri.it/find-country/country/BEL": {
-  "bloccata": "2026-11-08",
+  "bloccata": "2026-11-09",
   "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314",
   "serie": 0
  }
