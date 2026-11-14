@@ -1,8 +1,8 @@
 {
  "https://airallergy.sciensano.be/": {
-  "h": "42a2f21ac5f935c0cd77599e3ebae15db4e9fa73fd854fb1af87519d950ef80c",
-  "serie": 0,
-  "ultimo": "2026-11-11"
+  "h": "7bab5bc347d5f60cf9b6dafed092fc23b3b2a1f381d1e62a513235c81ac1a360",
+  "serie": 1,
+  "ultimo": "2026-11-14"
  },
  "https://apps.apple.com/it/app/traduci/id1514844618": {
   "dinamica": true,
@@ -49,15 +49,15 @@
   "serie": 0
  },
  "https://www.dentistedegarde.be/": {
-  "bloccata": "2026-11-13",
+  "bloccata": "2026-11-14",
   "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
   "serie": 0
  },
  "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "e29eb950c2b92588bd6deac5151971711cf6cc7576f92108be527977a1183dcb",
@@ -70,15 +70,15 @@
  },
  "https://www.italian-psychologist.com/": {
   "dinamica": true,
-  "h": "db344c65a3ad441236bdc165c49220b29b1a77308c3510f146dec0c92ca6fa30",
-  "serie": 14,
-  "ultimo": "2026-11-13"
+  "h": "bb5ca675770aa8beb632ea49de0ce293c0529d0c0bbad52a8e00252e1d9e417a",
+  "serie": 15,
+  "ultimo": "2026-11-14"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
   "dinamica": true,
-  "h": "736a2713f4ef6ad5f9907ab74377a3b0cb0960c2ca42d171adc757bb1e8fe421",
-  "serie": 4,
-  "ultimo": "2026-11-13"
+  "h": "5d96f27e71d653be16ccfc0fb06114ef5eb5490901a90900071690afa8869d49",
+  "serie": 5,
+  "ultimo": "2026-11-14"
  },
  "https://www.meteo.be/fr/meteo/avertissements/explications-avertissements": {
   "h": "64b68ae4f94f39d719e6d11f6bc58c21113c9f8e6ebfe314e2f093f203725348",
@@ -90,12 +90,12 @@
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
   "dinamica": true,
-  "h": "c68ed9fd95868a6ecd141d5a37c31ea78e5d70f11a248af18218502dec1a106c",
-  "serie": 12,
-  "ultimo": "2026-11-13"
+  "h": "1dde482090efb5eb7cb2ba9ef69d94753faf15370297088ac192c5042111c90d",
+  "serie": 13,
+  "ultimo": "2026-11-14"
  },
  "https://www.one.be/public/": {
-  "bloccata": "2026-11-13",
+  "bloccata": "2026-11-14",
   "dinamica": true,
   "h": "34d012a7f1f58be962d95b3ae222603d7aa2ef268c4897607e5db5045128c0e7",
   "serie": 4,
@@ -158,7 +158,7 @@
   "serie": 0
  },
  "https://www.patronatoacli.be/it/sanita--": {
-  "bloccata": "2026-11-13",
+  "bloccata": "2026-11-14",
   "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28",
   "serie": 0
  },
@@ -167,28 +167,29 @@
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "bloccata": "2026-11-13"
+  "h": "c9c800a599a4d69280d7eb4bfcd6f9846a8496c870e682f6ee26e83d566e67e7"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
-  "bloccata": "2026-11-13"
+  "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "bloccata": "2026-11-13"
+  "bloccata": "2026-11-14"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375"
+  "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375",
+  "serie": 0
  },
  "https://www.shapecaretherapy.com/book-online": {
   "h": "2a08d7edf44bec31af73fa3229b9d37ec4757e42f6d570b67528c46583e65410",
@@ -210,7 +211,7 @@
   "ultimo": "2026-11-06"
  },
  "https://www.viaggiaresicuri.it/find-country/country/BEL": {
-  "bloccata": "2026-11-13",
+  "bloccata": "2026-11-14",
   "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314",
   "serie": 0
  }
