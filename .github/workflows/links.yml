@@ -59,14 +59,17 @@ jobs:
                   if c2 in (404, 410) or c2 >= 500:
                       rotti.append(f"{u} (risposta {c2 or 'nessuna'}) in {', '.join(sorted(dove))}")
           ora = datetime.datetime.now(datetime.timezone.utc)
-          for f in ("meteo.json", "allerte.json"):
-              try:
-                  mt = os.popen(f"git log -1 --format=%ct -- {f}").read().strip()
-                  eta = (ora.timestamp() - int(mt)) / 3600 if mt else 999
-                  if eta > 3:
-                      avvisi.append(f"{f} non aggiornato da {eta:.0f} ore: controlla il workflow Allerte e meteo")
-              except Exception as e:
-                  avvisi.append(f"{f}: controllo non riuscito ({e})")
+          # meteo.json contiene l'ora dell'ultimo aggiornamento (ts); allerte.json cambia solo quando cambia l'allerta,
+          # quindi si controlla solo meteo.json. GitHub a volte rallenta i giri programmati: si segnala solo oltre 24 ore.
+          try:
+              ts = json.load(open("meteo.json", encoding="utf-8")).get("ts", "")
+              eta = (ora - datetime.datetime.fromisoformat(ts)).total_seconds() / 3600 if ts else 999
+              if eta > 24:
+                  avvisi.append(f"meteo.json non aggiornato da {eta:.0f} ore: il workflow Allerte e meteo non gira, controllalo")
+              elif eta > 6:
+                  print(f"::notice::meteo.json aggiornato {eta:.0f} ore fa: GitHub sta rallentando i giri programmati")
+          except Exception as e:
+              print(f"::warning::controllo di meteo.json non riuscito ({e})")
           tutto = rotti + avvisi
           corpo = "Controllo del " + ora.strftime("%d/%m/%Y %H:%M") + " UTC, " + str(len(link)) + " link controllati.\n\n" + "\n".join("* " + r for r in tutto)
           open("esito.md", "w").write(corpo)
