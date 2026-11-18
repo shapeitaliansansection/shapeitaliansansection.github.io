@@ -2377,10 +2377,10 @@ disegna();setInterval(disegna,60000);document.addEventListener("visibilitychange
 const W=[[[0],"☀️","🌙","sereno"],[[1],"🌤️","🌙","poco nuvoloso"],[[2],"⛅","☁️","parzialmente nuvoloso"],[[3],"☁️","☁️","coperto"],[[45,48],"🌫️","🌫️","nebbia"],[[51,53,55,56,57],"🌦️","🌧️","pioviggine"],[[61,63,65,66,67],"🌧️","🌧️","pioggia"],[[71,73,75,77,85,86],"🌨️","🌨️","neve"],[[80,81,82],"🌦️","🌧️","rovesci"],[[95,96,99],"⛈️","⛈️","temporale"]];
 function mostra(d){if(!d||d.t==null)return;const w=W.find(x=>x[0].includes(d.c))||[0,"🌡️","🌡️","meteo"];const t=Math.round(d.t);
   el.innerHTML=`<span class="mi" aria-hidden="true">${d.g?w[1]:w[2]}</span>${t}°C<span class="ml">SHAPE</span>`;
-  el.setAttribute("aria-label",`Meteo a SHAPE: ${t} gradi, ${w[3]}`);el.title=`Meteo a SHAPE adesso: ${t}°C, ${w[3]}${d.mx!=null?`. Oggi minima ${Math.round(d.mn)}°C, massima ${Math.round(d.mx)}°C`:""}`;el.hidden=false;if(window.allertaMeteo)allertaMeteo()}
-try{const c=JSON.parse(localStorage.getItem("meteo_shape")||"null");if(c&&Date.now()-c.at<3*3600e3)mostra(c)}catch(e){}
-function carica(){fetch("meteo.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(!j||j.t==null||(j.ts&&Date.now()-Date.parse(j.ts)>6*3600e3))return;
-  const d={t:j.t,c:j.c,g:j.g===1||j.g===true,mx:j.mx,mn:j.mn,at:Date.now()};mostra(d);try{localStorage.setItem("meteo_shape",JSON.stringify(d))}catch(e){}}).catch(()=>{})}
+  el.setAttribute("aria-label",`Meteo a SHAPE: ${t} gradi, ${w[3]}`);el.title=`Meteo a SHAPE alle ${new Date(d.at||Date.now()).toLocaleTimeString("it-IT",{hour:"2-digit",minute:"2-digit"})}: ${t}°C, ${w[3]}${d.mx!=null?`. Oggi minima ${Math.round(d.mn)}°C, massima ${Math.round(d.mx)}°C`:""}`;el.hidden=false;if(window.allertaMeteo)allertaMeteo()}
+try{const c=JSON.parse(localStorage.getItem("meteo_shape")||"null");if(c&&Date.now()-c.at<12*3600e3)mostra(c)}catch(e){}
+function carica(){fetch("meteo.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(!j||j.t==null||(j.ts&&Date.now()-Date.parse(j.ts)>12*3600e3))return;
+  const d={t:j.t,c:j.c,g:j.g===1||j.g===true,mx:j.mx,mn:j.mn,at:Date.parse(j.ts)||Date.now()};mostra(d);try{localStorage.setItem("meteo_shape",JSON.stringify(d))}catch(e){}}).catch(()=>{})}
 carica();setInterval(carica,15*60e3);document.addEventListener("visibilitychange",()=>{if(!document.hidden)carica()});
 })();
 
