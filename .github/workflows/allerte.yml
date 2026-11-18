@@ -60,23 +60,46 @@ jobs:
           json.dump({"giorno": ora.astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat(), "zona": "Hainaut", "fonte": "IRM tramite MeteoAlarm", "m": out}, open("allerte.json", "w"), ensure_ascii=False, separators=(",", ":"))
           print(len(out), "messaggi")
           PY
-      - name: Scarica il meteo di SHAPE (Open Meteo), cosi i telefoni non chiamano servizi esterni
+      - name: Scarica il meteo di SHAPE (Open Meteo, riserva met.no), cosi i telefoni non chiamano servizi esterni
         run: |
           python3 - <<'PY'
-          import json, urllib.request, datetime
-          URL = ("https://api.open-meteo.com/v1/forecast?latitude=50.502&longitude=3.983"
-                 "&current=temperature_2m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min"
-                 "&forecast_days=1&timezone=Europe%2FBrussels")
-          try:
-              j = json.load(urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": "guida-sanitaria-shape"}), timeout=60))
+          import json, urllib.request, datetime, time
+          UA = {"User-Agent": "guida-sanitaria-shape github.com/shapeitaliansansection"}
+          ora = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+          def leggi(url):
+              return json.load(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=25))
+          def open_meteo():
+              j = leggi("https://api.open-meteo.com/v1/forecast?latitude=50.502&longitude=3.983"
+                        "&current=temperature_2m,weather_code,is_day&daily=temperature_2m_max,temperature_2m_min"
+                        "&forecast_days=1&timezone=Europe%2FBrussels")
               c = j["current"]; dl = j.get("daily", {})
-              out = {"t": c["temperature_2m"], "c": c["weather_code"], "g": c["is_day"],
-                     "mx": (dl.get("temperature_2m_max") or [None])[0], "mn": (dl.get("temperature_2m_min") or [None])[0],
-                     "ts": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"), "fonte": "Open Meteo"}
+              return {"t": c["temperature_2m"], "c": c["weather_code"], "g": c["is_day"],
+                      "mx": (dl.get("temperature_2m_max") or [None])[0], "mn": (dl.get("temperature_2m_min") or [None])[0], "fonte": "Open Meteo"}
+          # met.no: i simboli vengono convertiti nei codici meteo usati dal sito
+          SIMB = [("thunder", 95), ("snow", 71), ("sleet", 66), ("rainshowers", 80), ("heavyrain", 65), ("lightrain", 61), ("rain", 63),
+                  ("fog", 45), ("partlycloudy", 2), ("cloudy", 3), ("fair", 1), ("clearsky", 0)]
+          def met_no():
+              j = leggi("https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=50.502&lon=3.983")
+              ts = j["properties"]["timeseries"]; d0 = ts[0]["data"]
+              sym = ((d0.get("next_1_hours") or d0.get("next_6_hours") or {}).get("summary") or {}).get("symbol_code", "cloudy")
+              cod = next((v for k, v in SIMB if k in sym), 3)
+              oggi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat()
+              temps = [x["data"]["instant"]["details"]["air_temperature"] for x in ts
+                       if datetime.datetime.fromisoformat(x["time"].replace("Z", "+00:00")).astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat() == oggi]
+              return {"t": d0["instant"]["details"]["air_temperature"], "c": cod, "g": 0 if sym.endswith("_night") else 1,
+                      "mx": max(temps) if temps else None, "mn": min(temps) if temps else None, "fonte": "met.no"}
+          out = None
+          for fonte in (open_meteo, open_meteo, met_no, met_no):
+              try:
+                  out = fonte(); break
+              except Exception as e:
+                  print("::warning::meteo non scaricato da", fonte.__name__, ":", e); time.sleep(10)
+          if out:
+              out["ts"] = ora
               json.dump(out, open("meteo.json", "w"), ensure_ascii=False, separators=(",", ":"))
-              print("meteo", out["t"])
-          except Exception as e:
-              print("meteo non aggiornato:", e)
+              print("meteo", out["t"], "da", out["fonte"])
+          else:
+              print("::warning::meteo non aggiornato: resta il file precedente")
           PY
       - name: Salva se sono cambiate
         run: |
