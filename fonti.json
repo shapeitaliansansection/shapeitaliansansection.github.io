@@ -50,15 +50,15 @@
   "serie": 0
  },
  "https://www.dentistedegarde.be/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "499799fd9369aa08c00bb1e7dfbe0e53c719840490d501f67de2487e3ce10fb3",
   "serie": 0
  },
  "https://www.esteri.it/it/servizi-opportunita/italiani-all-estero/spid/": {
-  "bloccata": "2026-11-26"
+  "bloccata": "2026-11-27"
  },
  "https://www.famhp.be/en/human_use/particular_products/specially_reglemented_substances/narcotics_psychotropics/informations_pour_les_voyageurs": {
-  "bloccata": "2026-11-26"
+  "bloccata": "2026-11-27"
  },
  "https://www.helora.be/hopitaux/services-medicaux/gynecologie-et-obstetrique-maternite": {
   "h": "618092fc710b2eb34fa1d0c7c0c945cb96050e44272de8cecc48e5d5fa9e99bc",
@@ -71,14 +71,14 @@
  },
  "https://www.italian-psychologist.com/": {
   "dinamica": true,
-  "h": "b0fd35d497a343d9e6df4ca5a473954aeea1c3cc1c0899c08097339056f0ff42",
-  "serie": 27,
-  "ultimo": "2026-11-26"
+  "h": "8945fee718e36efed8ee977e3af22f5f233a1f1342236b12d748d431b4ea12d9",
+  "serie": 28,
+  "ultimo": "2026-11-27"
  },
  "https://www.meteo.be/fr/meteo/avertissements/carte-de-belgique": {
   "dinamica": true,
   "h": "0f6638fe63f208deef1d9dfd85f06a60a14fef280277c6f349f7d4634e429f23",
-  "serie": 2,
+  "serie": 0,
   "ultimo": "2026-11-26"
  },
  "https://www.meteo.be/fr/meteo/avertissements/explications-avertissements": {
@@ -91,12 +91,12 @@
  },
  "https://www.myconsultation.be/it/s/psicologo/": {
   "dinamica": true,
-  "h": "839368cbd0d2d90b64419ca4e9b256ec0817872f9f46d0195de5b56fa7d7c441",
-  "serie": 25,
-  "ultimo": "2026-11-26"
+  "h": "19c3e8a4082fe789a95facd59529680ab2579926314cd2c75f20d09982560441",
+  "serie": 26,
+  "ultimo": "2026-11-27"
  },
  "https://www.one.be/public/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "dinamica": true,
   "h": "34d012a7f1f58be962d95b3ae222603d7aa2ef268c4897607e5db5045128c0e7",
   "serie": 4,
@@ -159,7 +159,7 @@
   "serie": 0
  },
  "https://www.patronatoacli.be/it/sanita--": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "eda9b77c079e9557ed5d610cb98e3a0d8ea1dc67221df2f50d07f5c80ab1fe28",
   "serie": 0
  },
@@ -171,36 +171,39 @@
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/assistenza-sanitaria-paesi-extra-ue/se-parto-perguida-interattiva/": {
+  "bloccata": "2026-11-27",
   "h": "23e28f5e89a0c0b2e82b3a00589e6a066a2cfcb3caea2f4223ff7155ed1f102f",
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adolescenti-11-18-anni/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "c9c800a599a4d69280d7eb4bfcd6f9846a8496c870e682f6ee26e83d566e67e7",
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/adulti-19-60-anni/": {
+  "bloccata": "2026-11-27",
   "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375",
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/bambini-1-2-anni/": {
+  "bloccata": "2026-11-27",
   "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375",
   "serie": 0
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/calendario-vaccinale/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "07c792d9e835e7cdf5b28d07cc0fbc43cf8294de30abd592b42c0bedbb57a618"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/donne-eta-fertile-e-gravidanza/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/legge-vaccini/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "486ba3414765dca0bc2855fa2b5f2645273c26045db07466ec070463d21dddcd"
  },
  "https://www.salute.gov.it/new/it/tema/vaccinazioni/persone-di-eta-60-anni/": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "0794e00cc4849123513518b54bda8bdde18567e221645c41b9431088f4624375",
   "serie": 0
  },
@@ -225,7 +228,7 @@
   "ultimo": "2026-11-06"
  },
  "https://www.viaggiaresicuri.it/find-country/country/BEL": {
-  "bloccata": "2026-11-26",
+  "bloccata": "2026-11-27",
   "h": "1213c72fbc71404c9b35212c3ae1200af408bb800b8ba6bd1ea01291d1e2f314",
   "serie": 0
  }
